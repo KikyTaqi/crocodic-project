@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\master;
 use App\Http\Controllers\formBuilderController;
+use App\Http\Controllers\CandidateCont;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,7 +26,8 @@ Route::post('jobs/duplicate', [master::class, 'duplicateJob']);
 Route::post('/jobs/delete', [master::class, 'deleteJob']);
 Route::post('/jobs/addStatus', [master::class, 'addStatus']);
 
-Route::post('save-form-builder', [formBuilderController::class, 'create']);
+
+Route::get('/candidate', [CandidateCont::class, 'candidate']);
 
 
 
