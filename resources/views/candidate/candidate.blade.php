@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons/font/bootstrap-icons.min.css') }}">  
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }} "></script>
@@ -17,6 +17,22 @@
             body {
                 font-family: 'Poppins', sans-serif;
                 background: #F5F5F5;
+            }
+
+            .srt {
+    display: inline-block; /* Agar ikon dapat ditata secara inline */
+    width: 24px; /* Sesuaikan lebar ikon */
+    height: 24px; /* Sesuaikan tinggi ikon */
+    vertical-align: middle; /* Menyelaraskan ikon dengan teks di tengah */
+    margin-right: 3px; /* Spasi antara ikon dan teks */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+            .srt-data{
+                background-image: url('/assets/edit.svg');
             }
 
             .gj-green{
@@ -206,7 +222,7 @@
                 <button class="ms-2 btn btn-light" style="border: solid 1px"> Filter</button>
                 <button class="ms-2 btn gj-green"><span class="badge bg-light text-dark">4</span> Move</button>
                 <button class="ms-2 btn btn-danger"><span class="badge bg-light text-dark">4</span> Delete</button>
-                <button class="ms-2 btn btn-secondary">View</button>
+                <button class="ms-2 btn btn-secondary"> <i class="srt srt-data"></i> View</button>
             </div>
         </div>
 
