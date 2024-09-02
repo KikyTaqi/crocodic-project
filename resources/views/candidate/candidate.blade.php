@@ -19,28 +19,28 @@
                 background: #F5F5F5;
             }
 
-            .srt {
-    display: inline-block; /* Agar ikon dapat ditata secara inline */
-    width: 24px; /* Sesuaikan lebar ikon */
-    height: 24px; /* Sesuaikan tinggi ikon */
-    vertical-align: middle; /* Menyelaraskan ikon dengan teks di tengah */
-    margin-right: 3px; /* Spasi antara ikon dan teks */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+            .gi {
+                display: inline-block; /* Agar ikon dapat ditata secara inline */
+                width: 24px; /* Sesuaikan lebar ikon */
+                height: 24px; /* Sesuaikan tinggi ikon */
+                vertical-align: middle; /* Menyelaraskan ikon dengan teks di tengah */
+                margin-right: 3px; /* Spasi antara ikon dan teks */
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
 
 
-            .srt-data{
+            .gi-pencil{
                 background-image: url('/assets/edit.svg');
             }
 
-            .gj-green{
+            .gj-color-green{
                 background: #41806D;
                 color: #ffffff;
             }
 
-            .gj-green:hover{
+            .gj-color-green:hover{
                 background: #41806D;
                 color: #ffffff;
             }
@@ -220,9 +220,9 @@
         <div class="row my-3">
             <div class="col-md text-end" style="font-size: 15px">
                 <button class="ms-2 btn btn-light" style="border: solid 1px"> Filter</button>
-                <button class="ms-2 btn gj-green"><span class="badge bg-light text-dark">4</span> Move</button>
+                <button class="ms-2 btn gj-color-green"><span class="badge bg-light text-dark">4</span> Move</button>
                 <button class="ms-2 btn btn-danger"><span class="badge bg-light text-dark">4</span> Delete</button>
-                <button class="ms-2 btn btn-secondary"> <i class="srt srt-data"></i> View</button>
+                <button class="ms-2 btn btn-secondary"> <i class="gi gi-pencil"></i> View</button>
             </div>
         </div>
 
