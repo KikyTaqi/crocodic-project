@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/myfont-regular.woff2') format('woff2'),
+         url('fonts/myfont-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
             /* width */
         ::-webkit-scrollbar {
             width: 11px;

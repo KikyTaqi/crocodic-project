@@ -2,12 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\master;
+use App\Http\Controllers\Login;
 use App\Http\Controllers\formBuilderController;
 use App\Http\Controllers\CandidateCont;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Login::class,'login']);
 
 Route::get('/dashboard', [master::class, 'dashboard']);
 Route::get('/jobs', [master::class, 'jobs']);
