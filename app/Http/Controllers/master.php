@@ -190,6 +190,10 @@ class master extends Controller
             'action' => 'Membuat Job',
             'person' => 'Admin'
         ]);
+
+        job_setting::insert([
+            'id_job' => autoId
+        ]);
     
         session()->flash('jd', ['job_name' => $r->job_name, 'ads' => $r->ads, 'lokasi' => $r->lokasi, 'foto_name' => $logoname, 'id_job' => $autoId]);
     
