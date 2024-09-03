@@ -134,7 +134,7 @@
                 <input style="height: 50px;" type="text" id="searchBox" class="form-control white-theme" placeholder="Search..">
             </div>
             <div class="col-md-1 mb-2" style="width: 160px">
-                <button class="btn-clear pt-3" style="color: #333333" onclick="clearFilters()">Hapus Semua</button>
+                <button class="btn-clear pt-3" style="color: #333333" onclick="clearFilters()">Hapus Filter</button>
             </div>
             <div class="col-md-2 mb-2">
                 <select style="height: 50px;" id="jobNameFilter" class="form-select white-theme">

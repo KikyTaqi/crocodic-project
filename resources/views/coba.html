@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Required meta tag -->
-  <meta charset="utf-8">
-  <title>Example formBuilder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Value Example</title>
+    <style>
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            color: #fff;
+            background-color: #007bff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+    </style>
 </head>
 <body>
-  <div id="fb-editor"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-  <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+    <label for="status">Select Status:</label>
+    <select name="status" id="status" style="width: 100%" class="btn btn-secondary">
+        <option value="2">Internal</option>
+        <option value="3">External</option>
+        <option value="0">Draft</option>
+    </select>
 
-<script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
-  <script>
-  jQuery(function($) {
-    $(document.getElementById('fb-editor')).formBuilder();
-  });
-  </script>
+    <br><br>
+
+    <label for="statusValue">Selected Value:</label>
+    <input type="text" id="statusValue" readonly>
+
+    <script>
+        // Get references to the select and input elements
+        const selectElement = document.getElementById('status');
+        const inputElement = document.getElementById('statusValue');
+
+        // Function to update input value based on select option
+        function updateInputValue() {
+            // Get the selected option value
+            const selectedValue = selectElement.value;
+            // Set the value to the input field5
+            inputElement.value = selectedValue;
+        }
+
+        // Add event listener to the select element
+        selectElement.addEventListener('change', updateInputValue);
+
+        // Optionally, initialize the input field with the default value of the select element
+        updateInputValue();
+    </script>
 </body>
 </html>

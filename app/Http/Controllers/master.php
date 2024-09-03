@@ -112,7 +112,8 @@ class master extends Controller
             'lokasi' => $r->lokasi,
             'total_butuh' => $r->jumlah_butuh,
             'logo' => $logoname,
-            'form_data' => $r->formData // Save form data
+            'form_data' => $r->formData, // Save form data
+            'status' => $r->status
         ]);
 
         job_config::where('id_job', $id)->update([
@@ -170,7 +171,8 @@ class master extends Controller
             'lokasi' => $r->lokasi,
             'total_butuh' => $r->jumlah_butuh,
             'logo' => $logoname,
-            'form_data' => $r->formData // Save form data
+            'form_data' => $r->formData, // Save form data
+            'status' => $r->status
         ]);
 
         job_config::insert([
@@ -192,7 +194,7 @@ class master extends Controller
         ]);
 
         job_setting::insert([
-            'id_job' => autoId
+            'id_job' => $autoId
         ]);
     
         session()->flash('jd', ['job_name' => $r->job_name, 'ads' => $r->ads, 'lokasi' => $r->lokasi, 'foto_name' => $logoname, 'id_job' => $autoId]);
