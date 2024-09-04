@@ -3,52 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfer Value Example</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/w3-css/4.1.0/w3.min.css" integrity="sha512-Z6UIAdEZ7JNzeX5M/c5QZj+oqbldGD+E8xJEoOwAx5e0phH7kdjsWULGeK5l2UjehKtChHDaUY2rQAF/NEiI9w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
     <style>
-        .btn {
-            padding: 8px 16px;
-            border: none;
-            color: #fff;
-            background-color: #007bff;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .btn-secondary {
-            background-color: #6c757d;
-        }
+        .search-box {
+  position: relative;
+  display: inline-block;
+  min-width: 40vh;
+}
+
+.w3-input {
+  padding-left: 30px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 12px 12px;
+  pointer-events: none;
+}
+
+.d-flex{
+    overflow-x: scroll;
+    display: flex;
+}
+
     </style>
 </head>
 <body>
-    <label for="status">Select Status:</label>
-    <select name="status" id="status" style="width: 100%" class="btn btn-secondary">
-        <option value="2">Internal</option>
-        <option value="3">External</option>
-        <option value="0">Draft</option>
-    </select>
-
-    <br><br>
-
-    <label for="statusValue">Selected Value:</label>
-    <input type="text" id="statusValue" readonly>
-
-    <script>
-        // Get references to the select and input elements
-        const selectElement = document.getElementById('status');
-        const inputElement = document.getElementById('statusValue');
-
-        // Function to update input value based on select option
-        function updateInputValue() {
-            // Get the selected option value
-            const selectedValue = selectElement.value;
-            // Set the value to the input field5
-            inputElement.value = selectedValue;
-        }
-
-        // Add event listener to the select element
-        selectElement.addEventListener('change', updateInputValue);
-
-        // Optionally, initialize the input field with the default value of the select element
-        updateInputValue();
-    </script>
+    <div class="d-flex">
+        <div class="search-box">
+            <input class="w3-input" type="text" placeholder="Search...">
+            <i class="fa fa-search search-icon"></i>
+        </div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, accusamus magnam. Incidunt tempore fuga, cupiditate, porro eius beatae possimus voluptatem dolore sed unde nulla similique id placeat nisi eligendi illo amet voluptas itaque quibusdam at voluptatum in! Nostrum perferendis veniam fuga tenetur, porro qui fugiat error possimus magnam laboriosam officiis.
+    </div>
 </body>
 </html>

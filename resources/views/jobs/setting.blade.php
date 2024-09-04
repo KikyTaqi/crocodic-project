@@ -13,7 +13,6 @@
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <title>Settings</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -126,7 +125,7 @@
                                                     <br>
                                                 <form action="" method="post">
                                                     
-                                                    <table class="table">
+                                                    <table class="table table-border">
                                                         <thead tyle="font-size: 14px; font-weight: 500;">
                                                             <tr>
                                                                 <th></th>
@@ -167,7 +166,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Create PIC</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addpic" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="mx-3 my-3">

@@ -1,10 +1,18 @@
 @font-face {
     font-family: 'Poppins';
-    src: url('fonts/myfont-regular.woff2') format('woff2'),
-         url('fonts/myfont-regular.woff') format('woff');
+    src: url('/assets/font/Poppins/Poppins-Regular.ttf') format('truetype');
     font-weight: 400;
-    font-style: normal;
 }
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap'); */
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #F5F5F5;
+}
+
             /* width */
         ::-webkit-scrollbar {
             width: 11px;
@@ -192,4 +200,27 @@
         .callout{
             margin-top: 10px;
             margin-bottom: 10px;
+        }
+
+        .search-box {
+            position: relative;
+            display: inline-block;
+        }
+
+        .search-input {
+            padding-left: 40px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 12px 12px;
+            pointer-events: none;
+        }
+
+        .white-theme{
+            border: 0;
+            border-radius: 10px;
+            font-size: 14px;
         }

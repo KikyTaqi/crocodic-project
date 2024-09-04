@@ -297,6 +297,8 @@ class master extends Controller
         $autoId = $maxId + 1;
 
         $dt = job::where('id_job', $idOri)->first();
+        $jc = job_config::where('id_job', $idOri)->first();
+        $js = job_setting::where('id_job', $idOri)->first();
 
         job::insert([
             'id_job' => $autoId,
@@ -319,6 +321,37 @@ class master extends Controller
             'form_data' => is_array($dt->form_data) ? json_encode($dt->form_data) : $dt->form_data
         ]);
 
+        job_activity::insert([
+            'id_job' => $autoId,
+            'action' => 'Membuat Job',
+            'person' => 'Admin'
+        ]);
+
+        job_config::insert([
+            'id_job' => $autoId,
+            'tampilkan_nama_perusahaan' => $jc->tampilkan_nama_perusahaan,
+            'foto_profil' => $jc->foto_profil,
+            'status_pernikahan' => $jc->status_pernikahan,
+            'agama' => $jc->agama,
+            'tinggi_badan' => $jc->tinggi_badan,
+            'berat_badan' => $jc->berat_badan,
+            'pendidikan' => $jc->pendidikan,
+            'pengalaman_kerja' => $jc->pengalaman_kerja
+        ]);
+
+        job_setting::insert([
+            'id_job' => $autoId,
+            'subject' => $js->subject,
+            'body' => $js->body,
+            'screening' => $js->screening,
+            'psikotest' => $js->psikotest,
+            'interview_hr' => $js->interview_hr,
+            'interview_user' => $js->interview_user,
+            'hiring' => $js->hiring,
+            'peralihan' => $js->peralihan,
+            'medical_check_up' => $js->medical_check_up
+        ]);
+
 
 
         return redirect()->back();
@@ -330,6 +363,7 @@ class master extends Controller
         job::where('id_job', $id)->delete();
         job_activity::where('id_job', $id)->delete();
         job_config::where('id_job', $id)->delete();
+        job_setting::where('id_job', $id)->delete();
         return redirect()->back();
     }
 
