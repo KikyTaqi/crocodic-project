@@ -5,22 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }} "></script>
     <script src="{{ asset('assets/js/popper.min.js') }} "></script>
     <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
+    
 
     <title>Jobs</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap'); */
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #F5F5F5;
-        }
-
+        
         .table {
             --bs-table-bg: #EBFCEC;
             --bs-table-striped-color: #212529;
@@ -112,12 +109,6 @@
             color: #0056b3;
         }
 
-        .white-theme{
-            border: 0;
-            border-radius: 10px;
-            font-size: 14px;
-        }
-
         .name-job{
             color: #333333;
             text-decoration: none;
@@ -131,10 +122,13 @@
     <div class="card px-5 mt-3" style="background: transparent; border:0">
         <div class="row mb-3">
             <div class="col-md-3 mb-2">
-                <input style="height: 50px;" type="text" id="searchBox" class="form-control white-theme" placeholder="Search..">
+            <div class="search-box">
+                <input style="height: 50px; width: 48vh" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
+                <i class="bi bi-search search-icon"></i>
+            </div>
             </div>
             <div class="col-md-1 mb-2" style="width: 160px">
-                <button class="btn-clear pt-3" style="color: #333333" onclick="clearFilters()">Hapus Semua</button>
+                <button class="btn-clear pt-3" style="color: #333333" onclick="clearFilters()">Hapus Filter</button>
             </div>
             <div class="col-md-2 mb-2">
                 <select style="height: 50px;" id="jobNameFilter" class="form-select white-theme">
@@ -221,7 +215,14 @@
                                 </div>
 
                                 @else
-                                    <img src="{{ asset('assets/approve.svg') }}" alt="">
+                                <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ asset('assets/approve.svg') }}" alt="">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/jobs/edit/{{$j->id_job}}"><i class="bi bi-pencil-fill me-2"></i> Edit</a></li>
+                                        <li><a href="#" onclick="submitDuplicateForm({{ $j->id_job }}); return false;" class="dropdown-item"><i class="bi bi-copy me-2"></i> Duplicate</a></li>
+                                        <li><a onclick="submitDeleteForm({{ $j->id_job }}); return false;" class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i> Delete</a></li>
+                                    </ul>
                                 @endif
                             </td>
                         </tr>

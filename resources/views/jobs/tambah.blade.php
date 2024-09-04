@@ -54,9 +54,15 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <td><button style="width: 100%" class="btn btn-secondary"><i class="bi bi-check"></i> Internal</button></td>
+                                        <td>
+                                            <select name="" id="status" style="width: 100%" class="btn btn-secondary">
+                                                <option value="2">Internal</option>
+                                                <option value="3">External</option>
+                                                <option value="0">Draft</option>
+                                            </select>
+                                        </td>
                                         <td><button style="width: 100%" class="btn btn-success">Save Job</button></td>
-                                        <td><button style="width: 100%" class="btn btn-outline-secondary"><i class="bi bi-gear-fill"></i> Setting</button></td>
+                                        <!-- <td><button style="width: 100%" class="btn btn-outline-secondary"><i class="bi bi-gear-fill"></i> Setting</button></td> -->
                                     </tr>
                                 </tbody>
                             </table>
@@ -70,6 +76,7 @@
             <div class="card-body">
             <form id="create" action="/jobs/add" method="post" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="status" id="statusValue">
                     <div class="mt-1" id="div1" style="display: block;">
                         <div class="kotak">
                             <img draggable="false" class="process-bar" src="{{asset('assets/Job-process-1.svg')}}" alt="">
@@ -447,6 +454,25 @@
                 $(nextDiv).show();
             });
         });
+
+
+        // Get references to the select and input elements
+        const selectElement = document.getElementById('status');
+        const inputElement = document.getElementById('statusValue');
+
+        // Function to update input value based on select option
+        function updateInputValue() {
+            // Get the selected option value
+            const selectedValue = selectElement.value;
+            // Set the value to the input field5
+            inputElement.value = selectedValue;
+        }
+
+        // Add event listener to the select element
+        selectElement.addEventListener('change', updateInputValue);
+
+        // Optionally, initialize the input field with the default value of the select element
+        updateInputValue();
     </script>
 </body>
 </html>

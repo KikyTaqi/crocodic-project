@@ -13,8 +13,6 @@
     <title>Detail</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
         body {
             font-family: 'Poppins', sans-serif;
             background: #F5F5F5;
@@ -221,20 +219,20 @@
             <div class="col-md mt-2">
                 <div class="row mt-4 gx-2">
                     <div class="col-md-button-medium mb-2">
-                        <a style="font-size: 16px; font-weight: 500; width: 100%" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-light"><i class="bi bi-plus"></i> Add Candidate</a>
+                        <a style="font-size: 16px; font-weight: 500; min-width: 100%" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-light"><i class="bi bi-plus"></i> Add Candidate</a>
                     </div>
                     <div class="col-md-button-medium mb-2" style="max-width: 140px">
-                        <a style="font-size: 16px; font-weight: 500; width: 100%" href="/jobs/activity/{{$job->id_job}}" class="btn btn-light"><i class="bi bi-bar-chart-fill"></i> Activity</a>
+                        <a style="font-size: 16px; font-weight: 500; min-width: 100%" href="/jobs/activity/{{$job->id_job}}" class="btn btn-light"><i class="bi bi-bar-chart-fill"></i> Activity</a>
                     </div>
                     <div class="col-md-button mb-2">
-                        <a style="font-size: 16px; font-weight: 500; width: 100%" href="#" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#sharemodal"><i class="bi bi-share-fill"></i> Share</a>
+                        <a style="font-size: 16px; font-weight: 500; min-width: 100%" href="#" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#sharemodal"><i class="bi bi-share-fill"></i> Share</a>
                     </div>
                     <div class="col-md-button mb-2">
-                        <a style="font-size: 16px; font-weight: 500; width: 100%" href="/jobs/edit/{{$job->id_job}}" class="btn btn-light"><i class="bi bi-pencil"></i> Edit</a>
+                        <a style="font-size: 16px; font-weight: 500; min-width: 100%" href="/jobs/edit/{{$job->id_job}}" class="btn btn-light"><i class="bi bi-pencil"></i> Edit</a>
                     </div>
                     <div class="col-md-button mb-2">
                         <div class="dropdown">
-                            <button type="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 16px; font-weight: 500; width: 100%" class="btn btn-light"><i class="bi bi-funnel-fill"></i> Filter</button>
+                            <button type="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 16px; font-weight: 500; min-width: 100%" class="btn btn-light"><i class="bi bi-funnel-fill"></i> Filter</button>
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="row">
@@ -453,8 +451,8 @@
                     <table id="TableAdd" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px; margin-top: 50px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" disabled name="" id=""></th>
-                                <th style="width: 170px">Nama</th>
+                                <th class="text-center" style="height: 48px; padding-left: 10px"><input type="checkbox" disabled name="" id=""></th>
+                                <th style="width: 100px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
                                 <th data-sort class="sort-asc">Domisili</th>
@@ -468,63 +466,63 @@
                             <tr id="search-col">
                                 <td></td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="width:160px;padding-left:30px;font-size:12px" name="" id="nameFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="processFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="tagsFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="locationFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="genderFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="ageFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box" >
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="educationFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="serviceFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="positionFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="interestFilter" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -669,67 +667,67 @@
                                 <th>Minat</th>
                             </tr>
                             <tr id="search-col">
-                                <td></td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="width:160px;padding-left:30px;font-size:12px" name="" id="nameFilter" onkeyup="searchFunction('search-1')">
+                                <th></th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox1" onkeyup="scrFilter1()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="processFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox2" onkeyup="scrFilter2()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="tagsFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox3" onkeyup="scrFilter3()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="locationFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox4" onkeyup="myFunction4()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="genderFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox5" onkeyup="scrFilter5()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="ageFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox6" onkeyup="scrFilter6()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="educationFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox7" onkeyup="scrFilter7()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="serviceFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox8" onkeyup="scrFilter8()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="positionFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox9" onkeyup="scrFilter9()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="interestFilter" onkeyup="searchFunction('search-1')">
+                                </th>
+                                <th>
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox10" onkeyup="scrFilter10()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
-                                </td>
+                                </th>
                             </tr>
                         </thead>
                         <tbody id="screeningTD" class="align-middle">
@@ -826,63 +824,63 @@
                             <tr id="search-col">
                                 <td></td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -981,63 +979,63 @@
                             <tr id="search-col">
                                 <td></td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -1136,63 +1134,63 @@
                             <tr id="search-col">
                                 <td></td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -1291,63 +1289,63 @@
                             <tr id="search-col">
                                 <td></td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -1446,63 +1444,63 @@
                             <tr id="search-col">
                                 <td></td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -1601,63 +1599,63 @@
                             <tr id="search-col">
                                 <td></td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="form-group">
-                                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2"></i>
-                                        <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="search-1" onkeyup="searchFunction('search-1')">
+                                    <div class="search-box">
+                                        <input style="height: 50px;" type="text" id="searchBox" class="form-control search-input input-sm" placeholder="Search..">
+                                        <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -1710,9 +1708,9 @@
                                 </td>
                                 <td class="text-center">
                                     @if($hrg->tags == 0)
-                                        <span class="dot-red"></span>
+                                        <span id="tag" class="dot-red" value="stop"></span>
                                     @else
-                                        <span class="dot-green"></span>
+                                        <span id="tag" class="dot-green" value="lanjut"></span>
                                     @endif
                                 </td>
                                 <td>{{$hrg->domisili}}</td>
@@ -1823,72 +1821,263 @@
     
 
 
-    $("#searchBox").keyup(function () {
-        var value = this.value.toLowerCase().trim();
+    // $("#searchBox").keyup(function () {
+    //     var value = this.value.toLowerCase().trim();
 
-            $("#screeningTD tr").each(function (index) {
-                $(this).find("td").each(function () {
-                    var id = $(this).text().toLowerCase().trim();
-                    var not_found = (id.indexOf(value) == -1);
-                    $(this).closest('tr').toggle(!not_found);
-                    return not_found;
-                });
-            });
+    //         $("#screeningTD tr").each(function (index) {
+    //             $(this).find("td").each(function () {
+    //                 var id = $(this).text().toLowerCase().trim();
+    //                 var not_found = (id.indexOf(value) == -1);
+    //                 $(this).closest('tr').toggle(!not_found);
+    //                 return not_found;
+    //             });
+    //         });
             
-            $("#psikotestTD tr").each(function (index) {
-                $(this).find("td").each(function () {
-                    var id = $(this).text().toLowerCase().trim();
-                    var not_found = (id.indexOf(value) == -1);
-                    $(this).closest('tr').toggle(!not_found);
-                    return not_found;
-                });
-            });
+    //         $("#psikotestTD tr").each(function (index) {
+    //             $(this).find("td").each(function () {
+    //                 var id = $(this).text().toLowerCase().trim();
+    //                 var not_found = (id.indexOf(value) == -1);
+    //                 $(this).closest('tr').toggle(!not_found);
+    //                 return not_found;
+    //             });
+    //         });
 
-            $("#interhrTD tr").each(function (index) {
-                $(this).find("td").each(function () {
-                    var id = $(this).text().toLowerCase().trim();
-                    var not_found = (id.indexOf(value) == -1);
-                    $(this).closest('tr').toggle(!not_found);
-                    return not_found;
-                });
-            });
+    //         $("#interhrTD tr").each(function (index) {
+    //             $(this).find("td").each(function () {
+    //                 var id = $(this).text().toLowerCase().trim();
+    //                 var not_found = (id.indexOf(value) == -1);
+    //                 $(this).closest('tr').toggle(!not_found);
+    //                 return not_found;
+    //             });
+    //         });
 
-            $("#interuserTD tr").each(function (index) {
-                $(this).find("td").each(function () {
-                    var id = $(this).text().toLowerCase().trim();
-                    var not_found = (id.indexOf(value) == -1);
-                    $(this).closest('tr').toggle(!not_found);
-                    return not_found;
-                });
-            });
+    //         $("#interuserTD tr").each(function (index) {
+    //             $(this).find("td").each(function () {
+    //                 var id = $(this).text().toLowerCase().trim();
+    //                 var not_found = (id.indexOf(value) == -1);
+    //                 $(this).closest('tr').toggle(!not_found);
+    //                 return not_found;
+    //             });
+    //         });
 
-            $("#peralihanTD tr").each(function (index) {
-                $(this).find("td").each(function () {
-                    var id = $(this).text().toLowerCase().trim();
-                    var not_found = (id.indexOf(value) == -1);
-                    $(this).closest('tr').toggle(!not_found);
-                    return not_found;
-                });
-            });
+    //         $("#peralihanTD tr").each(function (index) {
+    //             $(this).find("td").each(function () {
+    //                 var id = $(this).text().toLowerCase().trim();
+    //                 var not_found = (id.indexOf(value) == -1);
+    //                 $(this).closest('tr').toggle(!not_found);
+    //                 return not_found;
+    //             });
+    //         });
 
-            $("#rejectTD tr").each(function (index) {
-                $(this).find("td").each(function () {
-                    var id = $(this).text().toLowerCase().trim();
-                    var not_found = (id.indexOf(value) == -1);
-                    $(this).closest('tr').toggle(!not_found);
-                    return not_found;
-                });
-            });
+    //         $("#rejectTD tr").each(function (index) {
+    //             $(this).find("td").each(function () {
+    //                 var id = $(this).text().toLowerCase().trim();
+    //                 var not_found = (id.indexOf(value) == -1);
+    //                 $(this).closest('tr').toggle(!not_found);
+    //                 return not_found;
+    //             });
+    //         });
 
-            $("#hiringTD tr").each(function (index) {
-                $(this).find("td").each(function () {
-                    var id = $(this).text().toLowerCase().trim();
-                    var not_found = (id.indexOf(value) == -1);
-                    $(this).closest('tr').toggle(!not_found);
-                    return not_found;
-                });
-            });
-    });
+    //         $("#hiringTD tr").each(function (index) {
+    //             $(this).find("td").each(function () {
+    //                 var id = $(this).text().toLowerCase().trim();
+    //                 var not_found = (id.indexOf(value) == -1);
+    //                 $(this).closest('tr').toggle(!not_found);
+    //                 return not_found;
+    //             });
+    //         });
+    // });
+
+
+    function scrFilter1() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox1");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter2() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox2");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter3() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox3");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[3];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter4() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox4");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[4];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter5() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox5");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[5];
+            if (td) {
+            txtValue = document.getElementById("tags").value;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter6() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox6");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[6];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter7() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox7");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[7];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter8() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox8");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[8];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter9() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox9");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[9];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
+
+    function scrFilter10() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox10");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TableScreening");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[10];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }       
+        }
+    }
 
 
     

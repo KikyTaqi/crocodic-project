@@ -5,6 +5,7 @@ use App\Http\Controllers\master;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\formBuilderController;
 use App\Http\Controllers\CandidateCont;
+use App\Http\Controllers\HiringCont;
 
 Route::get('/', [Login::class,'login']);
 
@@ -27,6 +28,9 @@ Route::post('/jobs/addStatus', [master::class, 'addStatus']);
 
 
 Route::get('/candidate', [CandidateCont::class, 'candidate']);
+
+
+Route::get('/hiring', [HiringCont::class, 'hiring']);
 
 
 

@@ -54,7 +54,13 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <td><button style="width: 100%" class="btn btn-secondary"><i class="bi bi-check"></i> Internal</button></td>
+                                        <td>
+                                            <select name="" id="status" style="width: 100%" class="btn btn-secondary">
+                                                <option {{$job->status == 2 ? 'selected' : ''}} value="2">Internal</option>
+                                                <option {{$job->status == 3 ? 'selected' : ''}} value="3">External</option>
+                                                <option {{$job->status == 0 ? 'selected' : ''}} value="0">Draft</option>
+                                            </select>
+                                        </td>
                                         <td><button style="width: 100%" class="btn btn-success">Save Job</button></td>
                                         <td><a href="/jobs/setting/{{$job->id_job}}" style="width: 100%" class="btn btn-outline-secondary"><i class="bi bi-gear-fill"></i> Setting</a></td>
                                     </tr>
@@ -70,6 +76,7 @@
             <div class="card-body">
             <form action="/jobs/edit" method="post" id="edit" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="status" id="statusValue">
                 <input type="hidden" name="id_job" value="{{$job->id_job}}">
                     <div class="mt-1" id="div1" style="display: block;">
                         <div class="kotak">
@@ -337,6 +344,23 @@
             });
         });
 
+        // Get references to the select and input elements
+        const selectElement = document.getElementById('status');
+        const inputElement = document.getElementById('statusValue');
+
+        // Function to update input value based on select option
+        function updateInputValue() {
+            // Get the selected option value
+            const selectedValue = selectElement.value;
+            // Set the value to the input field5
+            inputElement.value = selectedValue;
+        }
+
+        // Add event listener to the select element
+        selectElement.addEventListener('change', updateInputValue);
+
+        // Optionally, initialize the input field with the default value of the select element
+        updateInputValue();
     </script>
 </body>
 </html>
