@@ -16,15 +16,18 @@
     </div>
     <div class="title-login">
         <h5>gojobs HR Recruiter Log In</h5>
+        <div class="white-accent"></div>
+        <p class="">Manage all applicant candidates</p>
     </div>
     <div class="card float-end bg-light card-login pt-5">
         <h5 class="txt-green mt-5">Hi Recruiter</h5>
         <p class="txt-small">Silahkan masukkan NIK ISH dan kata sandi</p>
 
-        <form action="" method="post" class="mt-5 form-input-login">
+        <form action="/login" method="post" class="mt-5 form-input-login">
+            @csrf
             <input type="text" name="nik_ish" id="" class="input-login mb-4" placeholder="NIK">
             <div class="input-password">
-                <input type="password" name="password_ish" id="input-pw" class="input-login" placeholder="Kata sandi">
+                <input type="password" name="password" id="input-pw" class="input-login" placeholder="Kata sandi">
                 <i class="bi bi-eye-slash-fill" id="password-eye"></i>
             </div>
             <div class="remember-me">
