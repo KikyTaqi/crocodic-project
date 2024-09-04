@@ -215,7 +215,7 @@ body {
             position: absolute;
             left: 0;
             top: 0;
-            padding: 12px 12px;
+            padding: 5px 12px;
             pointer-events: none;
         }
 
@@ -223,4 +223,8 @@ body {
             border: 0;
             border-radius: 10px;
             font-size: 14px;
+        }
+
+        .input-sm{
+            height: 5vh !important;
         }
