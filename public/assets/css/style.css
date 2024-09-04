@@ -1,9 +1,12 @@
 @font-face {
     font-family: 'Poppins';
-    src: url('fonts/myfont-regular.woff2') format('woff2'),
-         url('fonts/myfont-regular.woff') format('woff');
+    src: 
+        url('../font/Poppins/Poppins-Light.ttf') format('truetype'),
+        url('../font/Poppins/Poppins-Regular.ttf') format('truetype'),
+        url('../font/Poppins/Poppins-Medium.ttf') format('truetype'),
+        url('../font/Poppins/Poppins-Semibold.ttf') format('truetype'),
+        url('../font/Poppins/Poppins-Bold.ttf') format('truetype');
     font-weight: 400;
-    font-style: normal;
 }
             /* width */
         ::-webkit-scrollbar {
@@ -193,3 +196,103 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
+.container-login{
+    margin: 0;
+    padding: 0;
+    background-image: URL('../bg-login.png');
+    background-repeat: no-repeat;
+    background-size: 55%;
+}
+.hitam-login{
+    background-color: #29675B;
+    opacity: 0.6;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+}
+.card-login{
+    width: 50vw;
+    height: 100vh;
+    border: 0;
+    text-align: center;
+    border-radius: 50px 0 0 50px;
+}
+.txt-green{
+    font-size: 32px;
+    font-weight: 600;
+    color: #81B29A;
+}
+.txt-small{
+    font-size: 16px;
+    font-weight: 400;
+    color: #646464;
+}
+.form-input-login{
+    display: flex;
+    flex-flow: column;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-login{
+    height: 56px;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #D4D4D4;
+}
+.input-login:focus{
+    outline: none;
+    border: 1px solid #81B29A;
+}
+.input-password{
+    width: 450px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.input-password input{
+    width: 450px;
+}
+.input-password i{
+    font-size: 24px;
+    right: 13px;
+    top: 10px;
+    position: absolute;
+    color: #81B29A;
+}
+.remember-me{
+    display: flex;
+    height: 50px;
+    margin-top: 10px;
+}
+.remember-me p{
+    margin: auto 0 auto 0;
+}
+.remember-me input{
+    margin: auto 10px auto 0;
+    width: 20px;
+    height: 20px;
+}
+.btn-login{
+    background-color: #81B29A;
+    width: 100%;
+    border-radius: 30px;
+    height: 56px;
+    text-align: center;
+    color: white;
+    border: 0;
+    font-weight: 500;
+    margin-top: 30px;
+}
+.title-login{
+    position: absolute;
+    left: 50px;
+    top: 40%;
+    bottom: 50%;
+}
+.title-login h5{
+    color: white;
+    font-size: 45px;
+    font-weight: 500;
+}
