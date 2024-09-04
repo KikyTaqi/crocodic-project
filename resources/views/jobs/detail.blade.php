@@ -688,7 +688,7 @@
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox4" onkeyup="myFunction4()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox4" onkeyup="scrFilter4()" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
@@ -776,12 +776,8 @@
                                         </div>
                                     @endif
                                 </td>
-                                <td class="text-center">
-                                    @if($scr->tags == 0)
-                                        <span class="dot-red"></span>
-                                    @else
-                                        <span class="dot-green"></span>
-                                    @endif
+                                <td class="text-center" valueTags="{{$scr->tags}}">
+                                    <span class="{{$scr->tags == '0' ? 'dot-red' : 'dot-green'}} dot-tags"  id="tags"></span>
                                 </td>
                                 <td>{{$scr->domisili}}</td>
                                 <td>
@@ -1927,14 +1923,14 @@
         }
     }
 
-    function scrFilter3() {
+    function scrFilter5() {
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox3");
+        input = document.getElementById("searchBox5");
         filter = input.value.toUpperCase();
         table = document.getElementById("TableScreening");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[3];
+            td = tr[i].getElementsByTagName("td")[5];
             if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -1955,7 +1951,8 @@
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[4];
             if (td) {
-            txtValue = td.textContent || td.innerText;
+            console.log(td.value);
+            txtValue = td.textContent || td.innerText || td.value;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
             } else {
@@ -1965,16 +1962,19 @@
         }
     }
 
-    function scrFilter5() {
+    function scrFilter3() {
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox5");
+        input = document.getElementById("searchBox3");
         filter = input.value.toUpperCase();
         table = document.getElementById("TableScreening");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[5];
+            td = tr[i].getElementsByTagName("td")[3];
             if (td) {
-            txtValue = document.getElementById("tags").value;
+            txtValue = td.getAttribute('valueTags');
+            console.log(txtValue);
+            console.log(td.getAttribute('valueTags'));
+            console.log("hehey nit bad");
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
             } else {
