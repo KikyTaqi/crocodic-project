@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'Poppins';
-    src: url('../font/Poppins/Poppins-Regular.ttf') format('truetype');
+    src: 
+        url('../font/Poppins/Poppins-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
@@ -211,7 +212,7 @@ body {
 }
 .hitam-login{
     background-color: #29675B;
-    opacity: 0.6;
+    opacity: 0.7;
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -293,13 +294,26 @@ body {
 .title-login{
     position: absolute;
     left: 50px;
-    top: 40%;
+    top: 35%;
     bottom: 50%;
 }
 .title-login h5{
     color: white;
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 500;
+}
+.white-accent{
+    height: 16px;
+    width: 95px;
+    border-radius: 8px;
+    background-color: white;
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+.title-login p{
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
 }
         .search-box {
             position: relative;

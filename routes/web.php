@@ -8,6 +8,7 @@ use App\Http\Controllers\CandidateCont;
 use App\Http\Controllers\HiringCont;
 
 Route::get('/', [Login::class,'login']);
+Route::post('/login', [Login::class,'prsLogin']);
 
 Route::get('/dashboard', [master::class, 'dashboard']);
 Route::get('/jobs', [master::class, 'jobs']);

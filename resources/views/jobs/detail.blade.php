@@ -15,6 +15,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            font-weight: 500;
             background: #F5F5F5;
         }
 
