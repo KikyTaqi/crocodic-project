@@ -13,14 +13,7 @@ use Carbon\Carbon;
 class Login extends Controller
 {
     public function login(){
-        $plainPassword = 'nisacookie';
-        $storedHash = '$2a$12$wBayhAh2psI1nIrIKDWl3uMDyxzE6mv.eoyknjUHpyDz9OPJpYjiO';
-
-        if (Hash::check($plainPassword, $storedHash)) {
-            dd('Password is correct!');
-        } else {
-            dd('Password is incorrect!');
-        }
+        // dd(Hash::make('daivakhau1'));
         if (Auth::check()) {
             return redirect('dashboard');
         }else{
@@ -30,17 +23,17 @@ class Login extends Controller
 
     public function prsLogin(Request $req){
         
-        // $credentials = $req->validate([
-        //     'nik_ish' => 'required',
-        //     'password' => 'required',
-        // ]);
+        $credentials = $req->validate([
+            'nik_ish' => 'required',
+            'password' => 'required',
+        ]);
         
-        // if (Auth::Attempt($credentials)) {
-        //     // return redirect('/');
-        //     return redirect('/dashboard');
-        // }else{
-        //     return redirect('/');
-        // }
+        if (Auth::Attempt($credentials)) {
+            // return redirect('/');
+            return redirect('/dashboard');
+        }else{
+            return redirect('/');
+        }
     }
 
     public function logout(){
