@@ -224,6 +224,94 @@
             .table-candidates thead tr *{
                 color: #333333;
             }
+            .p-approval{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #9EB5A2;
+                color: #41806D;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+            .p-waiting{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #F7BD93;
+                color: #FA6900;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+            .p-fail{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #F7BFC0;
+                color: #F94144;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+            .p-cancel_join{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #C893BE;
+                color: #85016B;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+            .p-resign{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #81B29A;
+                color: #41806D;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+            .p-done{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #F9DB93;
+                color: #FFB800;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+            .p-on_process{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #89A7E0;
+                color: #2E5AAC;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
+            .p-reject{
+                width: fit-content;
+                height: 24px;
+                border: 1px solid #F7BFC0;
+                color: #F94144;
+                font-size: 12px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 600;
+            }
         </style>
 </head>
 <body>
@@ -327,16 +415,37 @@
                         {{$c->nama}}
                     </td>
                     <td>
-                        <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #C893BE; color: #C893BE; font-size: 12px; line-height: 24px;">
-                            HIRING
+                        <div  class="mx-auto text-center" style="">
+                            @if($c->process == 'approval')
+                            <span class="p-{{$c->process}}">approval</span>
+                            @elseif($c->process == 'waiting')
+                            <span class="p-{{$c->process}}">waiting</span>
+                            @elseif($c->process == 'fail')
+                            <span class="p-{{$c->process}}">fail</span>
+                            @elseif($c->process == 'cancel_join')
+                            <span class="p-{{$c->process}}">cancel join</span>
+                            @elseif($c->process == 'resign')
+                            <span class="p-{{$c->process}}">resign</span>
+                            @elseif($c->process == 'done')
+                            <span class="p-{{$c->process}}">done</span>
+                            @elseif($c->process == 'on_process')
+                            <span class="p-{{$c->process}}">on process</span>
+                            @elseif($c->process == 'reject')
+                            <span class="p-{{$c->process}}">reject</span>
+                            @endif
                         </div>
                     </td>
                     <td class="text-center">
-                        <span class="dot-green"></span>
+                        <!-- <span class="dot-green"></span> -->
+                         {{$c->tags}}
                     </td>
                     <td>{{$c->domisili}}</td>
                     <td>
-                        {{$c->gender}}
+                        @if($c->gender == 1)
+                        Laki-laki
+                        @else
+                        Perempuan
+                        @endif
                     </td>
                     <td>{{$c->usia}}</td>
                     <td>{{$c->pendidikan}}</td>
@@ -347,6 +456,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $candidates->links() }}
     </div>
     </div>
 
