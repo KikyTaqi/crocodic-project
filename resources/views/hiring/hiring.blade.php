@@ -14,9 +14,21 @@
     <title>Document</title>
 </head>
 <body style="background: #f8f8f8">
-    <div class="search-box">
-        <input style="height: 50px;" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
-        <i class="bi bi-search search-icon"></i>
+    @include('header')
+
+    <div class="mx-4 my-3">
+
+        <div class="row mb-3">
+            <h5>Ready to Hiring</h5>
+        </div>
+    
+        <div class="search-box">
+            <input style="height: 50px;" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
+            <i class="bi bi-search search-icon-lg"></i>
+        </div>
+
+        
     </div>
+    
 </body>
 </html>
