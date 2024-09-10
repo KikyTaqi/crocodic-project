@@ -1,13 +1,13 @@
 <html>
     <head>
         <style>
-            .nav-link{
+            .navigation-link{
                 color:white !important;
             }
-            .nav-link:hover{
+            .navigation-link:hover{
                 color:#ccf1db !important;
             }
-            .nav-link.active{
+            .navigation-link.active{
                 color: #A5D0B7 !important;
             }
         </style>
@@ -23,19 +23,19 @@
                 <div style="margin-left: 80px" class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item me-3">
-                            <a class="nav-link @if(Route::currentRouteName() == 'jobs') active @endif" aria-current="page" href="/jobs">Jobs</a>
+                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'jobs') active @endif" aria-current="page" href="/jobs">Jobs</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link @if(Route::currentRouteName() == 'candidates') active @endif" href="/candidates">Candidates</a>
+                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'candidates') active @endif" href="/candidates">Candidates</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link @if(Route::currentRouteName() == 'hiring') active @endif" href="#">Hiring</a>
+                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'hiring') active @endif" href="#">Hiring</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link @if(Route::currentRouteName() == 'cancel_join') active @endif" href="#">Cancel Join</a>
+                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'cancel_join') active @endif" href="#">Cancel Join</a>
                         </li>
                         <li class="nav-item me-3 dropdown">
-                            <a class="nav-link @if(Route::currentRouteName() == 'Report') active @endif" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'Report') active @endif" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Report <i class="bi bi-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -44,17 +44,17 @@
                             </ul>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link @if(Route::currentRouteName() == 'calendar') active @endif" href="#">Calendar</a>
+                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'calendar') active @endif" href="#">Calendar</a>
                         </li>
                     </ul>
                     <div class="justify-content-end">
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link @if(Route::currentRouteName() == 'notification') active @endif" href="#"><i class="bi bi-bell-fill"></i> Notification</a>
+                                <a class="nav-link navigation-link @if(Route::currentRouteName() == 'notification') active @endif" href="#"><i class="bi bi-bell-fill"></i> Notification</a>
                             </li>
                             <img draggable="false" src="{{ asset('assets/pemisah.svg') }}" alt="" class="d-none d-lg-block mx-2">
                             <li class="nav-item dropdown">
-                                <a class="nav-link text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link navigation-link text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-fill"></i> nisa@ish.com  <i class="bi bi-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
