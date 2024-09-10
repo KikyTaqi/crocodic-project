@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-    <title>Dashboard</title>
+    <!-- <title>Dashboard</title> -->
 
     <style>
 

@@ -9,17 +9,19 @@ use App\Http\Controllers\HiringCont;
 
 Route::get('/', [Login::class,'login']);
 Route::post('/login', [Login::class,'prsLogin']);
+Route::get('/logout', [Login::class,'logout']);
 
-Route::get('/dashboard', [master::class, 'dashboard']);
-Route::get('/jobs', [master::class, 'jobs']);
-Route::get('/jobs/detail/{id}', [master::class, 'detailJobs']);
-Route::get('/jobs/edit/{id}', [master::class, 'editJobs']);
+Route::get('/dashboard', [master::class, 'dashboard'])->name('dashboard');
+
+Route::get('/jobs', [master::class, 'jobs'])->name('jobs');
+Route::get('/jobs/detail/{id}', [master::class, 'detailJobs'])->name('jobs');
+Route::get('/jobs/edit/{id}', [master::class, 'editJobs'])->name('jobs');
 Route::get('/jobs/success', [master::class, 'JobsSc'])->name('jobs.success');
-Route::get('/jobs/add', [master::class, 'addJobs']);
+Route::get('/jobs/add', [master::class, 'addJobs'])->name('jobs');
 Route::post('/jobs/add', [master::class, 'prsAddJobs']);
 Route::post('/jobs/edit', [master::class, 'prsEditJob']);
-Route::get('/jobs/activity/{id}', [master::class, 'activity']);
-Route::get('/jobs/setting/{id}', [master::class, 'jobsetting']);
+Route::get('/jobs/activity/{id}', [master::class, 'activity'])->name('jobs');
+Route::get('/jobs/setting/{id}', [master::class, 'jobsetting'])->name('jobs');
 Route::post('/update-candidate-jobs', [master::class, 'updateJobs'])->name('updateCandidateJobs');
 Route::post('/jobs/setting', [master::class, 'addpic']);
 Route::post('/update-status', [master::class, 'updateStatus'])->name('update.status');
@@ -28,10 +30,10 @@ Route::post('/jobs/delete', [master::class, 'deleteJob']);
 Route::post('/jobs/addStatus', [master::class, 'addStatus']);
 
 
-Route::get('/candidate', [CandidateCont::class, 'candidate']);
+Route::get('/candidates', [CandidateCont::class, 'candidate'])->name('candidates');
 
 
-Route::get('/hiring', [HiringCont::class, 'hiring']);
+Route::get('/hiring', [HiringCont::class, 'hiring'])->name('hiring');
 
 
 
