@@ -16,7 +16,6 @@
                 font-family: 'Poppins';
                 src: 
                     url("{{asset('assets/font/Poppins/Poppins-Regular.ttf')}}") format('truetype'),
-                    url("{{asset('assets/font/Poppins/Poppins-Light.ttf')}}") format('truetype'),
                     url("{{asset('assets/font/Poppins/Poppins-Medium.ttf')}}") format('truetype'),
                     url("{{asset('assets/font/Poppins/Poppins-SemiBold.ttf')}}") format('truetype'),
                     url("{{asset('assets/font/Poppins/Poppins-Bold.ttf')}}") format('truetype'),
@@ -25,7 +24,7 @@
             }
             body {
                 font-family: 'Poppins', sans-serif;
-                font-weight: 400;
+                font-weight: 500 !important;
                 background: #F5F5F5;
             }
 
@@ -229,7 +228,7 @@
                 height: 24px;
                 border: 1px solid #9EB5A2;
                 color: #41806D;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
@@ -240,7 +239,7 @@
                 height: 24px;
                 border: 1px solid #F7BD93;
                 color: #FA6900;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
@@ -251,7 +250,7 @@
                 height: 24px;
                 border: 1px solid #F7BFC0;
                 color: #F94144;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
@@ -262,7 +261,7 @@
                 height: 24px;
                 border: 1px solid #C893BE;
                 color: #85016B;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
@@ -273,7 +272,7 @@
                 height: 24px;
                 border: 1px solid #81B29A;
                 color: #41806D;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
@@ -284,7 +283,7 @@
                 height: 24px;
                 border: 1px solid #F9DB93;
                 color: #FFB800;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
@@ -295,7 +294,7 @@
                 height: 24px;
                 border: 1px solid #89A7E0;
                 color: #2E5AAC;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
@@ -306,29 +305,205 @@
                 height: 24px;
                 border: 1px solid #F7BFC0;
                 color: #F94144;
-                font-size: 12px;
+                font-size: 8px;
                 padding: 5px 10px 5px 10px;
                 text-transform: uppercase;
                 border-radius: 2px;
                 font-weight: 600;
             }
+            .p-on_process_hire{
+                color: white;
+                width: fit-content;
+                height: 24px;
+                background-color: #3469CA;
+                font-size: 8px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 500;
+            }
+            .p-done_hire{
+                color: white;
+                width: fit-content;
+                height: 24px;
+                background-color: #41806D;
+                font-size: 8px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 500;
+            }
+            .p-waiting_schedule_hire{
+                color: white;
+                width: fit-content;
+                height: 24px;
+                background-color: #00C2FF;
+                font-size: 8px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 500;
+            }
+            .p-reject_hire{
+                color: white;
+                width: fit-content;
+                height: 24px;
+                background-color: #B74254;
+                font-size: 8px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 500;
+            }
+            .p-waiting_approval_hire{
+                color: white;
+                width: fit-content;
+                height: 24px;
+                background-color: #FFA800;
+                font-size: 8px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 500;
+            }
+            .p-pass_hire{
+                color: white;
+                width: fit-content;
+                height: 24px;
+                background-color: #41806D;
+                font-size: 8px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 500;
+            }
+            .p-failed_hire{
+                color: white;
+                width: fit-content;
+                height: 24px;
+                background-color: #B74254;
+                font-size: 8px;
+                padding: 5px 10px 5px 10px;
+                text-transform: uppercase;
+                border-radius: 2px;
+                font-weight: 500;
+            }
+            .tag-0{
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                background-color: #B74254;
+            }
+            .tag-1{
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                background-color: #38B758;
+            }
+            .tag-2{
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                background-color: #B1B1B1;
+            }
+            .tag-3{
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                background-color: #c4a600;
+            }
+            .pagination{
+                justify-content: flex-end;
+            }
+            .pagination .page-item{
+                width: 25px !important;
+                height: 25px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                text-align: center;
+                border: none !important;
+                vertical-align: middle;
+                background-color: transparent !important;
+            }
+            .pagination .page-item.active span{
+                background-color: #41806D !important;
+                border: 1px solid #41806D !important;
+            }
+            .pagination .page-item *{
+                width: 27px !important;
+                height: 27px !important;
+                color: #333333;
+                border-radius: 3px !important;
+                margin: 0;
+                padding: 5px 0 0 0;
+            }
+            .pagination .page-item:first-child,
+            .pagination .page-item:last-child{
+                width: fit-content !important;
+            }
+            .pagination .page-item:first-child span,
+            .pagination .page-item:first-child a{
+                width: 83px !important;
+            }
+            .pagination .page-item:first-child span::after,
+            .pagination .page-item:first-child a::after{
+                width: fit-content !important;
+                content: '  Previous';
+            }
+
+            .pagination .page-item:last-child span,
+            .pagination .page-item:last-child a{
+                width: 63px !important;
+            }
+            .pagination .page-item:last-child span::before,
+            .pagination .page-item:last-child a::before{
+                width: fit-content !important;
+                content: 'Next  ';
+            }
+
+            .pagination .page-item:first-child:not(.disabled) a,
+            .pagination .page-item:last-child:not(.disabled) a{
+                background-color: #41806D !important;
+                border: 1px solid #41806D !important;
+                color: white;
+            }
+            .sidebar-move{
+                width: 634px;
+                height: 860px;
+            }
+            .title-move{
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .sidebar-move .offcanvas-header{
+                height: 80px;
+                padding-left: 35px;
+            }
         </style>
 </head>
 <body>
     @include('header')
-
+    <div class="offcanvas offcanvas-end sidebar-move" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header" style="border-bottom: 1px solid #E7E7ED;">
+            <h5 class="title-move my-auto">Pindahkan pelamar ke pekerjaan lain</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            
+        </div>
+    </div>
     <div class="mx-4 my-3">
         <div class="row my-3">
             <div class="col-md text-end" style="font-size: 15px">
                 <button class="ms-2 btn btn-light" style="border: solid 1px #E7E7ED;font-weight: 600 !important;color: #646464;"><img src="{{asset('assets/3-dots.svg')}}" alt=""> Filter</button>
-                <button class="ms-2 btn gj-color-green"><span class="badge bg-light text-dark">4</span> Move</button>
+                <button class="ms-2 btn gj-color-green" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="badge bg-light text-dark">4</span> Move</button>
                 <button class="ms-2 btn btn-danger"><span class="badge bg-light text-dark">4</span> Delete</button>
                 <button class="ms-2 btn btn-secondary"> View</button>
             </div>
         </div>
 
         <div class="table-responsive">
-        <table id="TableScreening" data-sortable class="table table-bordered custom-table table-candidates" style="background: #fff; font-weight: 500; font-size: 14px">
+        <table id="tableCandidates" data-sortable class="table table-bordered custom-table table-candidates" style="background: #fff; font-weight: 500; font-size: 14px">
             <thead class="align-middle">
                 <tr >
                     <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
@@ -348,61 +523,61 @@
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="width:160px;padding-left:30px;font-size:12px" name="" id="nameFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="searchInput-1" onkeyup="searchFunction('1')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="processFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-2" onkeyup="searchFunction('2')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="tagsFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-3" onkeyup="searchFunction('3')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="locationFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-4" onkeyup="searchFunction('4')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="genderFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-5" onkeyup="searchFunction('5')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="ageFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-6" onkeyup="searchFunction('6')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="educationFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-7" onkeyup="searchFunction('7')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="serviceFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-8" onkeyup="searchFunction('8')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="positionFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-9" onkeyup="searchFunction('9')">
                         </div>
                     </td>
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " onkeyup="applyFilters()" style="padding-left:30px;font-size:12px" name="" id="interestFilter" onkeyup="searchFunction('search-1')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-10" onkeyup="searchFunction('10')">
                         </div>
                     </td>
                 </tr>
@@ -411,11 +586,12 @@
                 @foreach($candidates as $c)
                 <tr>
                     <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
-                    <td>
+                    <td style="font-weight: 500;">
                         {{$c->nama}}
                     </td>
-                    <td>
+                    <td class="">
                         <div  class="mx-auto text-center" style="">
+                            <!-- Non Hire -->
                             @if($c->process == 'approval')
                             <span class="p-{{$c->process}}">approval</span>
                             @elseif($c->process == 'waiting')
@@ -432,12 +608,35 @@
                             <span class="p-{{$c->process}}">on process</span>
                             @elseif($c->process == 'reject')
                             <span class="p-{{$c->process}}">reject</span>
+
+                            <!-- Hire -->
+                            @elseif($c->process == 'on_process_hire')
+                            <span class="p-{{$c->process}}">on process</span>
+                            @elseif($c->process == 'waiting_schedule_hire')
+                            <span class="p-{{$c->process}}">waiting schedule</span>
+                            @elseif($c->process == 'reject_hire')
+                            <span class="p-{{$c->process}}">reject</span>
+                            @elseif($c->process == 'done_hire')
+                            <span class="p-{{$c->process}}">done</span>
+                            @elseif($c->process == 'pass_hire')
+                            <span class="p-{{$c->process}}">pass</span>
+                            @elseif($c->process == 'failed_hire')
+                            <span class="p-{{$c->process}}">failed</span>
+                            @elseif($c->process == 'waiting_approval_hire')
+                            <span class="p-{{$c->process}}">waiting approval</span>
                             @endif
                         </div>
                     </td>
-                    <td class="text-center">
-                        <!-- <span class="dot-green"></span> -->
-                         {{$c->tags}}
+                    <td class="text-center align-middle" searchValue="@if($c->tags == 1) lanjut @elseif($c->tags == 2) blacklist @elseif($c->tags == 0) stop @endif">
+                        @if($c->tags == 0)
+                        <div class="tag-{{$c->tags}} mx-auto"></div>
+                        @elseif($c->tags == 1)
+                        <div class="tag-{{$c->tags}} mx-auto"></div>
+                        @elseif($c->tags == 2)
+                        <div class="tag-{{$c->tags}} mx-auto"></div>
+                        @else
+                        <div class="tag-3 mx-auto" search="??"></div>
+                        @endif
                     </td>
                     <td>{{$c->domisili}}</td>
                     <td>
@@ -460,6 +659,26 @@
     </div>
     </div>
 
+    <script>
+        function searchFunction(col) {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput-"+col);
+            filter = input.value.toUpperCase();
+            table = document.getElementById("tableCandidates");
+            tr = table.getElementsByTagName("tr");
+            for (i = 2; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[col];
+                if (td) {
+                txtValue = td.getAttribute('searchValue') || td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }       
+            }
+        }
+    </script>
     
 </body>
 </html>
