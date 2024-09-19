@@ -28,6 +28,10 @@
                 background: #F5F5F5;
             }
 
+            body::-webkit-scrollbar{
+                display: none;
+            }
+
             .gi {
                 display: inline-block; /* Agar ikon dapat ditata secara inline */
                 width: 24px; /* Sesuaikan lebar ikon */
@@ -475,9 +479,82 @@
                 font-size: 16px;
                 font-weight: 600;
             }
+            .title-grey{
+                color: #646464;
+                font-size: 16px;
+                font-weight: 500;
+            }
             .sidebar-move .offcanvas-header{
                 height: 80px;
                 padding-left: 35px;
+            }
+            .input-move{
+                height: 45px;
+                font-size: 14px;
+                padding-left: 20px;
+            }
+            .input-move:focus{
+                outline: none;
+                border: 1.5px solid #5E9982;
+            }
+            .row-data{
+                margin-top: 10px;
+                border-radius: 4px;
+                padding: 10px;
+                box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+                -webkit-box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+                -moz-box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+            }
+            .row-data .data{
+                padding: 8px 10px 8px 10px;
+            }
+            .row-data .data:hover{
+                background-color: #DCF7E1;
+                border-radius: 5px;
+            }
+            .data-loc{
+                font-size: 12px;
+                color: #646464;
+                margin-bottom: 0;
+            }
+            .s-draft{
+                width: 80px;
+                height: 26px;
+                text-align: center;
+                background-color: #E4E4E4;
+                border-radius: 2px;
+                font-size: 12px;
+                font-weight: 500;
+                color: #A7A7A7;
+                padding-top: 4px;
+            }
+            .s-published{
+                width: 95px;
+                height: 26px;
+                text-align: center;
+                background-color: #41806D;
+                border-radius: 2px;
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                padding-top: 4px;
+            }
+            .s-internal{
+                width: 82px;
+                height: 26px;
+                text-align: center;
+                background-color: #F2CC8F;
+                border-radius: 2px;
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                padding-top: 4px;
+            }
+            .data-name{
+                margin: 0;
+                font-size: 14px;
+                font-weight: 600;
+                color: #333333;
             }
         </style>
 </head>
@@ -488,8 +565,38 @@
             <h5 class="title-move my-auto">Pindahkan pelamar ke pekerjaan lain</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-            
+        <div class="offcanvas-body" style="padding: 30px;">
+            <p class="title-grey">Pilih Job</p>
+            <input type="text" class="form-control input-move" id="searchInput-11" onkeyup="searchFunctionJobs()" placeholder="Cari Pekerjaan">
+
+            <div class="row-data" id="tableJobs">
+                @foreach($jobs as $j)
+                <div class="data">
+                    <table class="data-table">
+                        <tr>
+                            <td><p class="data-name">{{$j->nama_job}}</p></td>
+                            <td class="my-auto text-end w-100" rowspan="2">
+                                @if($j->status == 0)
+                                    <!-- Draft -->
+                                    <div class="s-draft ms-auto">Drafted</div>
+                                @elseif($j->status == 1)
+                                    <!-- Published -->
+                                    <div class="s-published ms-auto">Published</div>
+                                @elseif($j->status == 2)
+                                    <!-- Internal -->
+                                    <div class="s-internal ms-auto">Internal</div>
+                                @elseif($j->status == 3)
+                                    <!-- External -->
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="data-loc" style="width: max-content;">{{$j->lokasi}} - {{$j->nomor_job}}</p></td>
+                        </tr>
+                    </table>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <div class="mx-4 my-3">
@@ -670,6 +777,24 @@
                 td = tr[i].getElementsByTagName("td")[col];
                 if (td) {
                 txtValue = td.getAttribute('searchValue') || td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }       
+            }
+        }
+        function searchFunctionJobs() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput-11");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("tableJobs");
+            tr = table.getElementsByClassName("data");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
                 } else {
