@@ -132,20 +132,42 @@
 
             .custom-table th {
                 padding: 10px;
+                position: relative;
             }
 
-            .custom-table th.sort-asc::after {
+            .custom-table th.sort-asc-1::after,
+            .custom-table th.sort-asc-2::after {
                 content: '▲';
-                margin-left: 10%;
+                position: absolute;
+                left: 70%;
+                top: 17%;
                 opacity: 0.4;
             }
-
-            .custom-table th.sort-desc::after {
+            .custom-table th.sort-asc-1::before,
+            .custom-table th.sort-asc-2::before {
                 content: '▼';
-                margin-left: 10%;
+                position: absolute;
+                left: 70%;
+                bottom: 17%;
+                opacity: 0.2;
+            }
+            
+            .custom-table th.sort-desc-1::after,
+            .custom-table th.sort-desc-2::after {
+                content: '▲';
+                position: absolute;
+                left: 70%;
+                top: 17%;
+                opacity: 0.2;
+            }
+            .custom-table th.sort-desc-1::before,
+            .custom-table th.sort-desc-2::before {
+                content: '▼';
+                position: absolute;
+                left: 70%;
+                bottom: 17%;
                 opacity: 0.4;
             }
-
 
             .pagination {
                 display: flex;
@@ -556,6 +578,26 @@
                 font-weight: 600;
                 color: #333333;
             }
+            .drp-down{
+                padding: 5px 15px 5px 15px;
+                width: 100%;
+            }
+            .drp-down li{
+                width: 100%;
+            }
+            .drp-down .text{
+                margin-bottom: 0;
+                font-size: 12px;
+                padding: 0;
+                color: #414141;
+            }
+            .drp-down li .input{
+                margin: auto 0 auto auto;
+                padding: 0;
+            }
+            .drp-down .drp-row{
+                margin: 10px 0 10px 0;
+            }
         </style>
 </head>
 <body>
@@ -601,33 +643,79 @@
     </div>
     <div class="mx-4 my-3">
         <div class="row my-3">
-            <div class="col-md text-end" style="font-size: 15px">
-                <button class="ms-2 btn btn-light" style="border: solid 1px #E7E7ED;font-weight: 600 !important;color: #646464;"><img src="{{asset('assets/3-dots.svg')}}" alt=""> Filter</button>
-                <button class="ms-2 btn gj-color-green" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="badge bg-light text-dark">4</span> Move</button>
-                <button class="ms-2 btn btn-danger"><span class="badge bg-light text-dark">4</span> Delete</button>
+            <div class="col-md text-end d-flex justify-content-end" style="font-size: 15px">
+                <div class="dropdown ">
+                    <button class="ms-2 btn btn-light" style="border: solid 1px #E7E7ED;font-weight: 600 !important;color: #646464;" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('assets/3-dots.svg')}}" alt=""> Filter</button>
+                    <ul class="dropdown-menu drp-down" style="width: 10px !important;">
+                        <li class="d-flex drp-row"> 
+                            <p class="drp-down text my-auto">Tags</p>
+                            <div class="form-check form-switch align-self-end drp-down input" style="display: flex;">
+                                <input class="form-check-input input" checked onchange="filterTable('1')" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        </li>
+                        <li class="d-flex drp-row"> 
+                            <p class="drp-down text my-auto">Domisili</p>
+                            <div class="form-check form-switch align-self-end drp-down input" style="display: flex;">
+                                <input class="form-check-input input" checked onchange="filterTable('2')" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        </li>
+                        <li class="d-flex drp-row"> 
+                            <p class="drp-down text my-auto">Gender</p>
+                            <div class="form-check form-switch align-self-end drp-down input" style="display: flex;">
+                                <input class="form-check-input input" checked onchange="filterTable('3')" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        </li>
+                        <li class="d-flex drp-row"> 
+                            <p class="drp-down text my-auto">Pendidikan</p>
+                            <div class="form-check form-switch align-self-end drp-down input" style="display: flex;">
+                                <input class="form-check-input input" checked onchange="filterTable('4')" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        </li>
+                        <li class="d-flex drp-row"> 
+                            <p class="drp-down text my-auto">Layanan</p>
+                            <div class="form-check form-switch align-self-end drp-down input" style="display: flex;">
+                                <input class="form-check-input input" checked onchange="filterTable('5')" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        </li>
+                        <li class="d-flex drp-row"> 
+                            <p class="drp-down text my-auto">Jabatan</p>
+                            <div class="form-check form-switch align-self-end drp-down input" style="display: flex;">
+                                <input class="form-check-input input" checked onchange="filterTable('6')" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        </li>
+                        <li class="d-flex drp-row"> 
+                            <p class="drp-down text my-auto">Minat</p>
+                            <div class="form-check form-switch align-self-end drp-down input" style="display: flex;">
+                                <input class="form-check-input input" checked onchange="filterTable('7')" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button class="ms-2 btn gj-color-green" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="badge bg-light text-dark" id="spanMove">0</span> Move</button>
+                <button class="ms-2 btn btn-danger"><span class="badge bg-light text-dark" id="spanDelete">0</span> Delete</button>
                 <button class="ms-2 btn btn-secondary"> View</button>
             </div>
         </div>
 
         <div class="table-responsive">
-        <table id="tableCandidates" data-sortable class="table table-bordered custom-table table-candidates" style="background: #fff; font-weight: 500; font-size: 14px">
+        <table id="tableCandidates" data-sortable class="table table-bordered custom-table table-candidates" style="background: #fff; font-weight: 500; font-size: 14px;margin-bottom: 2px;">
             <thead class="align-middle">
-                <tr >
-                    <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
-                    <th style="width: 170px">Nama</th>
+                <tr>
+                    <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id="selectAll"></th>
+                    <th style="width: 170px;">Nama</th>
                     <th style="width: 120px">Process</th>
-                    <th>Tags</th>
-                    <th data-sort class="sort-asc">Domisili</th>
-                    <th data-sort class="sort-asc">Gender</th>
+                    <th id="thFilter-1">Tags</th>
+                    <th id="thFilter-2" data-sort class="sort-asc-1" onclick="sortTable('1')">Domisili</th>
+                    <th id="thFilter-3" data-sort class="sort-asc-2" onclick="sortTable('2')">Gender</th>
                     <th>Usia</th>
-                    <th>Pendidikan</th>
-                    <th>Layanan</th>
-                    <th>Jabatan</th>
-                    <th>Minat</th>
+                    <th id="thFilter-4">Pendidikan</th>
+                    <th id="thFilter-5">Layanan</th>
+                    <th id="thFilter-6">Jabatan</th>
+                    <th id="thFilter-7">Minat</th>
                 </tr>
                 <tr id="search-col">
                     <td></td>
-                    <td>
+                    <td style="">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="width:160px;padding-left:30px;font-size:12px" name="" id="searchInput-1" onkeyup="searchFunction('1')">
@@ -639,19 +727,19 @@
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-2" onkeyup="searchFunction('2')">
                         </div>
                     </td>
-                    <td>
+                    <td id="inputFilter-1">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-3" onkeyup="searchFunction('3')">
                         </div>
                     </td>
-                    <td>
+                    <td id="inputFilter-2">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-4" onkeyup="searchFunction('4')">
                         </div>
                     </td>
-                    <td>
+                    <td id="inputFilter-3">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-5" onkeyup="searchFunction('5')">
@@ -663,25 +751,25 @@
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-6" onkeyup="searchFunction('6')">
                         </div>
                     </td>
-                    <td>
+                    <td id="inputFilter-4">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-7" onkeyup="searchFunction('7')">
                         </div>
                     </td>
-                    <td>
+                    <td id="inputFilter-5">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-8" onkeyup="searchFunction('8')">
                         </div>
                     </td>
-                    <td>
+                    <td id="inputFilter-6">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-9" onkeyup="searchFunction('9')">
                         </div>
                     </td>
-                    <td>
+                    <td id="inputFilter-7">
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
                             <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-10" onkeyup="searchFunction('10')">
@@ -689,10 +777,10 @@
                     </td>
                 </tr>
             </thead>
-            <tbody id="screeningTD" class="align-middle">
+            <tbody id="screeningTD" class="align-middle" style="border-width: 0px !important;">
                 @foreach($candidates as $c)
                 <tr>
-                    <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                    <td class="text-center" style="width: 48px; height: 48px;"><input type="checkbox" class="rowCheckbox" name="" id=""></td>
                     <td style="font-weight: 500;">
                         {{$c->nama}}
                     </td>
@@ -734,7 +822,7 @@
                             @endif
                         </div>
                     </td>
-                    <td class="text-center align-middle" searchValue="@if($c->tags == 1) lanjut @elseif($c->tags == 2) blacklist @elseif($c->tags == 0) stop @endif">
+                    <td id="" class="text-center align-middle dataFilter-1" searchValue="@if($c->tags == 1) lanjut @elseif($c->tags == 2) blacklist @elseif($c->tags == 0) stop @endif">
                         @if($c->tags == 0)
                         <div class="tag-{{$c->tags}} mx-auto"></div>
                         @elseif($c->tags == 1)
@@ -745,8 +833,8 @@
                         <div class="tag-3 mx-auto" search="??"></div>
                         @endif
                     </td>
-                    <td>{{$c->domisili}}</td>
-                    <td>
+                    <td class="dataFilter-2">{{$c->domisili}}</td>
+                    <td class="dataFilter-3">
                         @if($c->gender == 1)
                         Laki-laki
                         @else
@@ -754,10 +842,10 @@
                         @endif
                     </td>
                     <td>{{$c->usia}}</td>
-                    <td>{{$c->pendidikan}}</td>
-                    <td>{{$c->layanan}}</td>
-                    <td>{{$c->jabatan}}</td>
-                    <td>{{$c->minat}}</td>
+                    <td class="dataFilter-4">{{$c->pendidikan}}</td>
+                    <td class="dataFilter-5">{{$c->layanan}}</td>
+                    <td class="dataFilter-6">{{$c->jabatan}}</td>
+                    <td class="dataFilter-7">{{$c->minat}}</td>
                 </tr>
                 @endforeach
             </tbody>
@@ -801,6 +889,98 @@
                     tr[i].style.display = "none";
                 }
                 }       
+            }
+        }
+        function filterTable(col){
+            tables = document.getElementById('tableCandidates');
+            thTb = document.getElementById('thFilter-'+col);
+            inputTb = document.getElementById('inputFilter-'+col);
+            dataTb = document.getElementsByClassName('dataFilter-'+col);
+
+            thTb.classList.toggle('d-none');
+            inputTb.classList.toggle('d-none');
+            if(dataTb != null){
+                for(i = 0; i <= dataTb.length; i++){
+                    dataTb[i].classList.toggle('d-none');
+                }
+            }
+        }
+        function updateCount() {
+            const checkboxes = document.querySelectorAll('.rowCheckbox');
+            const spanMove = document.getElementById('spanMove');
+            const spanDelete = document.getElementById('spanDelete');
+            let count = 0;
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    count++;
+                }
+            });
+
+            spanMove.textContent = `${count}`;
+            spanDelete.textContent = `${count}`;
+        }
+
+        // Fungsi untuk mencentang atau menghilangkan centang semua checkbox
+        document.getElementById('selectAll').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.rowCheckbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+            updateCount();
+        });
+
+        // Event listener untuk setiap checkbox di baris tabel
+        const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
+        rowCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateCount);
+        });
+
+        function sortTable(i) {
+            var a = 2;
+            if(i == 2){
+                a = 3;
+            }
+            const table = document.getElementById('tableCandidates');
+            const header = document.getElementById('thFilter-'+a);
+            const rows = Array.from(table.querySelector('tbody').rows);
+
+            if(i == 1){
+                        const index = Array.from(header.parentNode.children).indexOf(header);
+                        const isAscending = header.classList.contains('sort-asc-1');
+
+                        header.classList.remove('sort-asc-1', 'sort-desc-1');
+                        header.classList.toggle('sort-asc-1', !isAscending);
+                        header.classList.toggle('sort-desc-1', isAscending);
+
+                        rows.sort((a, b) => {
+                            const cellA = a.cells[index].innerText.trim().toLowerCase();
+                            const cellB = b.cells[index].innerText.trim().toLowerCase();
+
+                            if (cellA < cellB) return isAscending ? 1 : -1;
+                            if (cellA > cellB) return isAscending ? -1 : 1;
+                            return 0;
+                        });
+
+                        table.querySelector('tbody').append(...rows);
+            }else{
+                        const index = Array.from(header.parentNode.children).indexOf(header);
+                        const isAscending = header.classList.contains('sort-asc-2');
+
+                        header.classList.remove('sort-asc-2', 'sort-desc-2');
+                        header.classList.toggle('sort-asc-2', !isAscending);
+                        header.classList.toggle('sort-desc-2', isAscending);
+
+                        rows.sort((a, b) => {
+                            const cellA = a.cells[index].innerText.trim().toLowerCase();
+                            const cellB = b.cells[index].innerText.trim().toLowerCase();
+
+                            if (cellA < cellB) return isAscending ? 1 : -1;
+                            if (cellA > cellB) return isAscending ? -1 : 1;
+                            return 0;
+                        });
+
+                        table.querySelector('tbody').append(...rows);
             }
         }
     </script>
