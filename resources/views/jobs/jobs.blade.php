@@ -25,21 +25,6 @@
             width: 100%;
         }
 
-        .custom-table th {
-            padding: 10px;
-        }
-
-        .custom-table th.sort-asc::after {
-            content: '▲';
-            margin-left: 30px;
-            opacity: 0.4;
-        }
-
-        .custom-table th.sort-desc::after {
-            content: '▼';
-            margin-left: 30px;
-            opacity: 0.4;
-        }
 
         #jobsTable tr {
             height: 64px;
@@ -137,7 +122,7 @@
             <div class="col-md-3 mb-2">
             <div class="search-box">
                 <input style="height: 50px; width: 48vh" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
-                <i class="bi bi-search search-icon"></i>
+                <i class="bi bi-search search-icon-lg"></i>
             </div>
             </div>
             <div class="col-md-1 mb-2" style="width: 160px">
@@ -186,9 +171,9 @@
                 <table id="jobsTable" class="table custom-table table-bordered table-striped">
                     <thead>
                         <tr style="font-size: 14px;" class="align-middle">
-                            <th data-sort="posisi" class="sort-asc" style="width: 150px; background: white !important;">Posisi</th>
+                            <th data-sort="posisi" class="sort-asc-1" style="width: 150px; background: white !important;">Posisi</th>
                             <th class="no-job" style="background: white !important; min-width: 100px;">No JOB</th>
-                            <th data-sort="lokasi" class="sort-asc" style="width: 160px; background: white !important;">Lokasi</th>
+                            <th data-sort="lokasi" class="sort-asc-2" style="width: 160px; background: white !important;">Lokasi</th>
                             <th style="width: 110px; background: white !important;" class="text-center">Total Kebutuhan</th>
                             <th class="text-center" style="color: #18554F; background: #DCF7E1 !important;">Screening</th>
                             <th class="text-center" style="color: #18554F; background: #C1E7CD !important;">Psikotest</th>
@@ -424,11 +409,11 @@
         headers.forEach(header => {
             header.addEventListener('click', () => {
                 const index = Array.from(header.parentNode.children).indexOf(header);
-                const isAscending = header.classList.contains('sort-asc');
+               const isAscending = header.classList.contains('sort-asc-1');
 
-                headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
-                header.classList.toggle('sort-asc', !isAscending);
-                header.classList.toggle('sort-desc', isAscending);
+                header.classList.remove('sort-asc-1', 'sort-desc-1');
+                header.classList.toggle('sort-asc-1', !isAscending);
+                header.classList.toggle('sort-desc-1', isAscending);
 
                 rows.sort((a, b) => {
                     const cellA = a.cells[index].innerText.trim().toLowerCase();
