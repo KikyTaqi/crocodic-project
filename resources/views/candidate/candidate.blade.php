@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- <title>Document</title> -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
@@ -692,7 +694,7 @@
                     </ul>
                 </div>
                 <button class="ms-2 btn gj-color-green" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="badge bg-light text-dark" id="spanMove">0</span> Move</button>
-                <button class="ms-2 btn btn-danger"><span class="badge bg-light text-dark" id="spanDelete">0</span> Delete</button>
+                <button class="ms-2 btn btn-danger" onclick="deleteFunction()"><span class="badge bg-light text-dark" id="spanDelete">0</span> Delete</button>
                 <button class="ms-2 btn btn-secondary"> View</button>
             </div>
         </div>
@@ -780,7 +782,7 @@
             <tbody id="screeningTD" class="align-middle" style="border-width: 0px !important;">
                 @foreach($candidates as $c)
                 <tr>
-                    <td class="text-center" style="width: 48px; height: 48px;"><input type="checkbox" class="rowCheckbox" name="" id=""></td>
+                    <td class="text-center" style="width: 48px; height: 48px;"><input type="checkbox" class="rowCheckbox" name="" id="" data-id="{{$c->id_candidate}}"></td>
                     <td style="font-weight: 500;">
                         {{$c->nama}}
                     </td>
@@ -946,41 +948,81 @@
             const rows = Array.from(table.querySelector('tbody').rows);
 
             if(i == 1){
-                        const index = Array.from(header.parentNode.children).indexOf(header);
-                        const isAscending = header.classList.contains('sort-asc-1');
+                const index = Array.from(header.parentNode.children).indexOf(header);
+                const isAscending = header.classList.contains('sort-asc-1');
 
-                        header.classList.remove('sort-asc-1', 'sort-desc-1');
-                        header.classList.toggle('sort-asc-1', !isAscending);
-                        header.classList.toggle('sort-desc-1', isAscending);
+                header.classList.remove('sort-asc-1', 'sort-desc-1');
+                header.classList.toggle('sort-asc-1', !isAscending);
+                header.classList.toggle('sort-desc-1', isAscending);
 
-                        rows.sort((a, b) => {
-                            const cellA = a.cells[index].innerText.trim().toLowerCase();
-                            const cellB = b.cells[index].innerText.trim().toLowerCase();
+                rows.sort((a, b) => {
+                    const cellA = a.cells[index].innerText.trim().toLowerCase();
+                    const cellB = b.cells[index].innerText.trim().toLowerCase();
 
-                            if (cellA < cellB) return isAscending ? 1 : -1;
-                            if (cellA > cellB) return isAscending ? -1 : 1;
-                            return 0;
-                        });
+                    if (cellA < cellB) return isAscending ? 1 : -1;
+                    if (cellA > cellB) return isAscending ? -1 : 1;
+                    return 0;
+                });
 
-                        table.querySelector('tbody').append(...rows);
+                table.querySelector('tbody').append(...rows);
             }else{
-                        const index = Array.from(header.parentNode.children).indexOf(header);
-                        const isAscending = header.classList.contains('sort-asc-2');
+                const index = Array.from(header.parentNode.children).indexOf(header);
+                const isAscending = header.classList.contains('sort-asc-2');
 
-                        header.classList.remove('sort-asc-2', 'sort-desc-2');
-                        header.classList.toggle('sort-asc-2', !isAscending);
-                        header.classList.toggle('sort-desc-2', isAscending);
+                header.classList.remove('sort-asc-2', 'sort-desc-2');
+                header.classList.toggle('sort-asc-2', !isAscending);
+                header.classList.toggle('sort-desc-2', isAscending);
 
-                        rows.sort((a, b) => {
-                            const cellA = a.cells[index].innerText.trim().toLowerCase();
-                            const cellB = b.cells[index].innerText.trim().toLowerCase();
+                rows.sort((a, b) => {
+                    const cellA = a.cells[index].innerText.trim().toLowerCase();
+                    const cellB = b.cells[index].innerText.trim().toLowerCase();
 
-                            if (cellA < cellB) return isAscending ? 1 : -1;
-                            if (cellA > cellB) return isAscending ? -1 : 1;
-                            return 0;
-                        });
+                    if (cellA < cellB) return isAscending ? 1 : -1;
+                    if (cellA > cellB) return isAscending ? -1 : 1;
+                    return 0;
+                });
 
-                        table.querySelector('tbody').append(...rows);
+                table.querySelector('tbody').append(...rows);
+            }
+        }
+
+        function deleteFunction(){
+            const selectedIds = [];
+            const checkboxes = document.querySelectorAll('.rowCheckbox:checked');
+
+            checkboxes.forEach(checkbox => {
+                selectedIds.push(checkbox.dataset.id);
+            });
+
+            if (selectedIds.length > 0) {
+                if (confirm('Apa kamu yakin ingin menghapus '+selectedIds.length+' data ini?')) {
+                    fetch('/candidates/delete', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({ ids: selectedIds })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            checkboxes.forEach(checkbox => {
+                                checkbox.closest('tr').remove();
+                            });
+                            updateCount();
+                            alert(selectedIds.length+' data berhasil dihapus!');
+                        } else {
+                            alert('Gagal menghapus data');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error!');
+                    });
+                }
+            } else {
+                alert('Pilih setidaknya 1 data untuk dihapus!');
             }
         }
     </script>
