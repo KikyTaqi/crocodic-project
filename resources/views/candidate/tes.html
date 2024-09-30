@@ -3,216 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .table-candidates th, .table-candidates td {
-            border: 1px solid #000; /* Tambahkan border untuk melihat perbedaan */
-            font-size: 14px;
-            font-weight: 500;
+        body {
+            font-family: 'Poppins', sans-serif;
         }
-        .table-candidates .col1 { width: 48px; }
-        .table-candidates .col2 { width: 170px; }
-        .table-candidates .col3 { width: 120px; }
-        .table-candidates .col4 { width: 100px; }
-        .table-candidates .col5 { width: 100px; }
-        .table-candidates .col6 { width: 60px; }
-        .table-candidates .col7 { width: 120px; }
-        .table-candidates .col8 { width: 100px; }
-        .table-candidates .col9 { width: 100px; }
-        .table-candidates .col10 { width: 100px; }
-        .table-candidates .col11 { width: 100px; }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .profile-header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .profile-header .info {
+            margin-left: 20px;
+        }
+        .profile-header .info .name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .profile-header .info .details {
+            font-size: 16px;
+            color: #666;
+        }
+        .nav-tabs {
+            margin-top: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .nav-tabs .nav-item .nav-link {
+            font-size: 16px;
+            color: #333;
+        }
+        .nav-tabs .nav-item .nav-link.active {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .tab-content {
+            padding: 20px;
+            background-color: #fff;
+        }
+        .bio-data {
+            text-align: center;
+        }
+        .bio-data img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        .bio-data .name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .bio-data .info {
+            font-size: 16px;
+            color: #666;
+        }
+        .experience {
+            margin-top: 20px;
+        }
+        .experience .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .experience .content {
+            font-size: 16px;
+            color: #333;
+        }
     </style>
-    <title>Table Checkbox</title>
 </head>
 <body>
-
-    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-        <button id="moveBtn" class="btn btn-success">0 Move</button>
-        <button id="deleteBtn" class="btn btn-danger">0 Delete</button>
+    <div class="container">
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+            <div class="info">
+                <div class="name">Budi Santoso</div>
+                <div class="details">Marketing at Lazada</div>
+                <div class="details">Jakarta Selatan</div>
+                <div class="details">budi@gmail.com | 0878 8888 8888</div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#resume">Resume</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#question-job">Question Job</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#process">Process</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#history-candidate">History Candidate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#log-activity">Log Activity</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="resume" class="container tab-pane active">
+                <div class="bio-data">
+                    <img src="https://via.placeholder.com/150" alt="John Smith">
+                    <div class="name">John Smith</div>
+                    <div class="info">Fresh Graduate/Sales</div>
+                    <div class="info">Jakarta, 10 Mei 2000</div>
+                    <div class="info">Laki-Laki</div>
+                    <div class="info">Belum Menikah</div>
+                    <div class="info">Islam</div>
+                    <div class="info">175cm | 70kg</div>
+                </div>
+                <div class="experience">
+                    <div class="title">Pengalaman Kerja</div>
+                    <div class="content">
+                        <p>Web Design & Development Team Leader</p>
+                        <p>Infomedia Solusi Humanika</p>
+                        <p>May – September 2023</p>
+                        <p>Bertanggung jawab untuk pengembangan perangkat lunak...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add content for other tabs here -->
+        </div>
     </div>
-
-    <table data-sortable class="table table-bordered custom-table table-candidates" style="background: #fff; font-size: 14px;margin-bottom: 2px;">
-        <colgroup>
-            <col class="col1">
-            <col class="col2">
-            <col class="col3">
-            <col class="col4">
-            <col class="col5">
-            <col class="col6">
-            <col class="col7">
-            <col class="col8">
-            <col class="col9">
-            <col class="col10">
-            <col class="col11">
-        </colgroup>
-        <thead class="align-middle">
-            <tr>
-                <th class="text-center"><input type="checkbox" id="selectAll" name="" id=""></th>
-                <th>Nama</th>
-                <th>Process</th>
-                <th>Tags</th>
-                <th data-sort class="sort-asc">Domisili</th>
-                <th data-sort class="sort-asc">Gender</th>
-                <th>Usia</th>
-                <th>Pendidikan</th>
-                <th>Layanan</th>
-                <th>Jabatan</th>
-                <th>Minat</th>
-            </tr>
-            <tr id="search-col">
-                <td></td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-1" onkeyup="searchFunction('1')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-2" onkeyup="searchFunction('2')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-3" onkeyup="searchFunction('3')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-4" onkeyup="searchFunction('4')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-5" onkeyup="searchFunction('5')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-6" onkeyup="searchFunction('6')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-7" onkeyup="searchFunction('7')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-8" onkeyup="searchFunction('8')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-9" onkeyup="searchFunction('9')">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group position-relative">
-                        <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                        <input type="text" class="form-control" style="padding-left:30px;font-size:12px" name="" id="searchInput-10" onkeyup="searchFunction('10')">
-                    </div>
-                </td>
-            </tr>
-        </thead>
-    </table>
-
-    <table id="tableCandidates" class="table table-bordered custom-table table-candidates" style="background: #fff; font-weight: 500; font-size: 14px;">
-        <colgroup>
-            <col class="col1">
-            <col class="col2">
-            <col class="col3">
-            <col class="col4">
-            <col class="col5">
-            <col class="col6">
-            <col class="col7">
-            <col class="col8">
-            <col class="col9">
-            <col class="col10">
-            <col class="col11">
-        </colgroup>
-        <tbody id="screeningTD" class="align-middle" style="border-width: 0px !important;">
-            <tr>
-                <td class="text-center"><input type="checkbox" class="rowCheckbox" name="" id=""></td>
-                <td style="font-weight: 500;">Arif Pratama</td>
-                <td>
-                    <div class="mx-auto text-center">
-                        <span class="badge bg-primary">ON PROCESS</span>
-                    </div>
-                </td>
-                <td class="text-center align-middle">
-                    <span class="btn btn-sm fw-medium btn-outline-primary btn-sm">lanjut</span> 
-                </td>
-                <td>Jakarta</td>
-                <td class="text-center">Laki-laki</td>
-                <td>27</td>
-                <td>S1</td>
-                <td>Teknik</td>
-                <td>Software Engineer</td>
-                <td>Pengembangan Aplikasi</td>
-            </tr>
-            <tr>
-                <td class="text-center"><input type="checkbox" class="rowCheckbox" name="" id=""></td>
-                <td style="font-weight: 500;">Beni Susanto</td>
-                <td>
-                    <div class="mx-auto text-center">
-                        <span class="badge bg-info">WAITING SCHEDULE</span>
-                    </div>
-                </td>
-                <td class="text-center align-middle">
-                    <span class="btn btn-sm fw-medium btn-outline-secondary btn-sm">blacklist</span> 
-                </td>
-                <td>Bandung</td>
-                <td class="text-center">Laki-laki</td>
-                <td>30</td>
-                <td>S1</td>
-                <td>Pemasaran</td>
-                <td>Sales Manager</td>
-                <td>Pemasaran Produk</td>
-            </tr>
-            <!-- Tambahkan lebih banyak baris sesuai kebutuhan -->
-        </tbody>
-    </table>
-
-    <script>
-        // Fungsi untuk menghitung jumlah checkbox yang dicentang
-        function updateCount() {
-            const checkboxes = document.querySelectorAll('.rowCheckbox');
-            const moveBtn = document.getElementById('moveBtn');
-            const deleteBtn = document.getElementById('deleteBtn');
-            let count = 0;
-
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    count++;
-                }
-            });
-
-            moveBtn.textContent = `${count} Move`;
-            deleteBtn.textContent = `${count} Delete`;
-        }
-
-        // Fungsi untuk mencentang atau menghilangkan centang semua checkbox
-        document.getElementById('selectAll').addEventListener('change', function() {
-            const checkboxes = document.querySelectorAll('.rowCheckbox');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = this.checked;
-            });
-            updateCount();
-        });
-
-        // Event listener untuk setiap checkbox di baris tabel
-        const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
-        rowCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateCount);
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
