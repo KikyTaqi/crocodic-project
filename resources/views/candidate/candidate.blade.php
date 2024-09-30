@@ -251,195 +251,7 @@
             .table-candidates thead tr *{
                 color: #333333;
             }
-            .p-approval{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #9EB5A2;
-                color: #41806D;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-waiting{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #F7BD93;
-                color: #FA6900;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-fail{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #F7BFC0;
-                color: #F94144;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-cancel_join{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #C893BE;
-                color: #85016B;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-resign{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #81B29A;
-                color: #41806D;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-done{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #F9DB93;
-                color: #FFB800;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-on_process{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #89A7E0;
-                color: #2E5AAC;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-reject{
-                width: fit-content;
-                height: 24px;
-                border: 1px solid #F7BFC0;
-                color: #F94144;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 600;
-            }
-            .p-on_process_hire{
-                color: white;
-                width: fit-content;
-                height: 24px;
-                background-color: #3469CA;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 500;
-            }
-            .p-done_hire{
-                color: white;
-                width: fit-content;
-                height: 24px;
-                background-color: #41806D;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 500;
-            }
-            .p-waiting_schedule_hire{
-                color: white;
-                width: fit-content;
-                height: 24px;
-                background-color: #00C2FF;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 500;
-            }
-            .p-reject_hire{
-                color: white;
-                width: fit-content;
-                height: 24px;
-                background-color: #B74254;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 500;
-            }
-            .p-waiting_approval_hire{
-                color: white;
-                width: fit-content;
-                height: 24px;
-                background-color: #FFA800;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 500;
-            }
-            .p-pass_hire{
-                color: white;
-                width: fit-content;
-                height: 24px;
-                background-color: #41806D;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 500;
-            }
-            .p-failed_hire{
-                color: white;
-                width: fit-content;
-                height: 24px;
-                background-color: #B74254;
-                font-size: 8px;
-                padding: 5px 10px 5px 10px;
-                text-transform: uppercase;
-                border-radius: 2px;
-                font-weight: 500;
-            }
-            .tag-0{
-                border-radius: 50%;
-                width: 18px;
-                height: 18px;
-                background-color: #B74254;
-            }
-            .tag-1{
-                border-radius: 50%;
-                width: 18px;
-                height: 18px;
-                background-color: #38B758;
-            }
-            .tag-2{
-                border-radius: 50%;
-                width: 18px;
-                height: 18px;
-                background-color: #B1B1B1;
-            }
-            .tag-3{
-                border-radius: 50%;
-                width: 18px;
-                height: 18px;
-                background-color: #c4a600;
-            }
+            
             .pagination{
                 justify-content: flex-end;
             }
@@ -600,6 +412,13 @@
             .drp-down .drp-row{
                 margin: 10px 0 10px 0;
             }
+            .btn-view{
+                padding: auto;
+                width: 95px;
+                background-color: #DCF7E1;
+                border: 1px solid #41806D;
+                color: #41806D;
+            }
         </style>
 </head>
 <body>
@@ -695,7 +514,7 @@
                 </div>
                 <button class="ms-2 btn gj-color-green" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="badge bg-light text-dark" id="spanMove">0</span> Move</button>
                 <button class="ms-2 btn btn-danger" onclick="deleteFunction()"><span class="badge bg-light text-dark" id="spanDelete">0</span> Delete</button>
-                <button class="ms-2 btn btn-secondary"> View</button>
+                <a href="/candidates/detail" class="ms-2 btn btn-view"> View</a>
             </div>
         </div>
 
