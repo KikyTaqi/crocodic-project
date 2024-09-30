@@ -37,6 +37,7 @@ Route::delete('/candidates/delete', [CandidateCont::class, 'delete']);
 
 
 Route::get('/hiring', [HiringCont::class, 'hiring'])->name('hiring');
+Route::get('/hiring/report', [HiringCont::class, 'reportHiring']);
 
 
 

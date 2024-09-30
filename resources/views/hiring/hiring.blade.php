@@ -12,8 +12,13 @@
     <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
 
     <style>
-        .border{
-            border: solid 1px #8d8e8f;
+        .border tr {
+            border-right: transparent 0 solid !important;
+        }
+
+        .border th:last-child,
+        .border td:last-child {
+            border-right: 1px solid #dee2e6; /* Atur warna dan ketebalan sesuai kebutuhan */
         }
     </style>
 
@@ -43,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <table class="table bg-white border" style="font-size: 14px;">
+        <table class="table bg-white table-bordered border" style="font-size: 14px;">
             <thead>
                 <tr>
                     <th><input type="checkbox" name="" id=""></th>

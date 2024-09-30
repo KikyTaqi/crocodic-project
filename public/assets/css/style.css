@@ -384,33 +384,42 @@ body {
             font-size: 0.87em;
         }
 
-        .custom-table th.sort-asc-1::after{
+        .custom-table th {
+            padding: 10px;
+            position: relative;
+        }
+
+        .custom-table th.sort-asc-1::after,
+        .custom-table th.sort-asc-2::after{
             content: '▲';
             position: absolute;
             left: 70%;
-            top: 17%;
+            top: 25%;
             opacity: 0.4;
         }
-        .custom-table th.sort-asc-1::before {
+        .custom-table th.sort-asc-1::before,
+        .custom-table th.sort-asc-2::before {
             content: '▼';
             position: absolute;
             left: 70%;
-            bottom: 17%;
+            bottom: 25%;
             opacity: 0.2;
         }
         
-        .custom-table th.sort-desc-1::after {
+        .custom-table th.sort-desc-1::after,
+        .custom-table th.sort-desc-2::after  {
             content: '▲';
             position: absolute;
             left: 70%;
-            top: 17%;
+            top: 25%;
             opacity: 0.2;
         }
-        .custom-table th.sort-desc-1::before {
+        .custom-table th.sort-desc-1::before,
+        .custom-table th.sort-desc-2::before {
             content: '▼';
             position: absolute;
             left: 70%;
-            bottom: 17%;
+            bottom: 25%;
             opacity: 0.4;
         }
         .p-approval{
