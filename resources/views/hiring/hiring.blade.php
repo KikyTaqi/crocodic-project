@@ -42,7 +42,7 @@
             </div>
             <div class="col-md">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-white-outline" type="button"><i class="bi bi-bar-chart-fill"></i> Report Hiring</button>
+                    <a href="/hiring/report" class="btn btn-white-outline" type="button"><i class="bi bi-bar-chart-fill"></i> Report Hiring</a>
                     <button class="btn btn-green-outline" type="button"><span class="badge bg-green me-1">0</span> Cancel Join</button>
                     <button class="btn bg-green text-light" type="button"><span class="badge bg-light text-dark me-1">0</span> Request Hiring</button>
                 </div>

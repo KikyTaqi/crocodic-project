@@ -37,17 +37,13 @@
         <table class="table bg-white table-bordered">
             <thead class="border">
                 <tr style="height: 3rem; font-size: 1rem;" class="align-middle">
-                    <th class="text-center"></th>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Req Date</th>
-                    <th>App Date</th>
-                    <th>Perner</th>
+                    <th class="text-center">#</th>
                     <th>PIC</th>
-                    <th>No Job</th>
-                    <th>Area SAP</th>
-                    <th>Jabatan</th>
-                    <th>Status SAP</th>
+                    <th>Job Category</th>
+                    <th>Job Position</th>
+                    <th>Layanan</th>
+                    <th>Area</th>
+                    <th>Kota</th>
                 </tr>
             </thead>
             <tbody class="border">
@@ -55,16 +51,29 @@
                 <tr style="height: 4rem; font-size: 1rem;" class="align-middle">
                     <td class="text-center">{{$no++}}</td>
                     <td>Riyadi Risyanto</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Software Developer</td>
+                    <td>Promotor</td>
+                    <td>Sharp</td>
+                    <td>Jakarta</td>
+                    <td>Jakarta Barat</td>
+                </tr>
+                <tr style="height: 4rem; font-size: 1rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Aditya Tri Wibisono</td>
+                    <td>Sales & Marketing</td>
+                    <td>Sales</td>
+                    <td>Elecrolux</td>
+                    <td>Semarang</td>
+                    <td>Salatiga</td>
+                </tr>
+                <tr style="height: 4rem; font-size: 1rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Sony Ardhiansyah</td>
+                    <td>IT</td>
+                    <td>Front End</td>
+                    <td>Electrolux</td>
+                    <td>Banten</td>
+                    <td>Tangerang</td>
                 </tr>
             </tbody>
         </table>
