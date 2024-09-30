@@ -32,7 +32,7 @@
                             <a class="nav-link navigation-link @if(Route::currentRouteName() == 'hiring') active @endif" href="/hiring">Hiring</a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'cancel_join') active @endif" href="/cancel-join">Cancel Join</a>
+                            <a class="nav-link navigation-link @if(Route::currentRouteName() == 'cancel-join') active @endif" href="/cancel-join">Cancel Join</a>
                         </li>
                         <li class="nav-item me-3 dropdown">
                             <a class="nav-link navigation-link @if(Route::currentRouteName() == 'Report') active @endif" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

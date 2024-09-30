@@ -31,40 +31,146 @@
     <div class="mx-4 my-3">
 
         <div class="row mb-3 mt-4">
-            <h5>PIC Job Access</h5>
+            <div class="col-md d-flex">
+                <a class="me-3" href="/hiring"><i class="bi bi-chevron-left"></i></a>
+                <h5>Report Hiring</h5>
+            </div>
         </div>
 
         <table class="table bg-white table-bordered">
             <thead class="border">
                 <tr style="height: 3rem; font-size: 1rem;" class="align-middle">
                     <th class="text-center"></th>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Req Date</th>
-                    <th>App Date</th>
-                    <th>Perner</th>
-                    <th>PIC</th>
-                    <th>No Job</th>
-                    <th>Area SAP</th>
-                    <th>Jabatan</th>
-                    <th>Status SAP</th>
+                    <th><small>Name</small> </th>
+                    <th><small>Status</small> </th>
+                    <th><small>Req Date</small> </th>
+                    <th><small>App Date</small> </th>
+                    <th><small>Perner</small> </th>
+                    <th><small>PIC</small> </th>
+                    <th><small>No Job</small> </th>
+                    <th><small>Area SAP</small> </th>
+                    <th><small>Jabatan</small> </th>
+                    <th><small>Status SAP</small> </th>
                 </tr>
             </thead>
             <tbody class="border">
                 <?php $no = 1; ?>
-                <tr style="height: 4rem; font-size: 1rem;" class="align-middle">
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
                     <td class="text-center">{{$no++}}</td>
                     <td>Riyadi Risyanto</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="text-center"><span class="p-waiting">Waiting</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-on_process">ON PROCESS</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-approval">APPROVAL</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-on_process">ON PROCESS</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-fail">FAIL</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-cancel_join">CANCEL JOIN</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-reject">REJECT</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-waiting">Waiting</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
+                </tr>
+                <tr style="height: 4rem; font-size: .9rem;" class="align-middle">
+                    <td class="text-center">{{$no++}}</td>
+                    <td>Riyadi Risyanto</td>
+                    <td class="text-center"><span class="p-resign">RESIGN</span></td>
+                    <td>20/11/2023 20:05</td>
+                    <td>20/11/2023 20:05</td>
+                    <td>230154</td>
+                    <td>Rian</td>
+                    <td>029788/ISH/01010107/2023</td>
+                    <td>PROBOLINGGO</td>
+                    <td>SMD</td>
+                    <td>Success</td>
                 </tr>
             </tbody>
         </table>
