@@ -33,8 +33,27 @@ class CandidateCont extends Controller
 
     public function candidateDetailView(){
         $candidates = candidate::get();
-        $first = candidate::first();
+        $first = candidate::orderBy('id_candidate', 'asc')->limit(1)->get();
+        // if ($first) {
+        //     // Hanya jalankan ini jika $first tidak null
+        //     dd('bisa kok');
+        //     // $id_candidate = $first->id_candidate;
+        //     // Lanjutkan dengan logika lain
+        // } else {
+        //     // Tangani situasi ketika tidak ada kandidat yang ditemukan
+        //     dd('gak iso');
+        //     // echo "Tidak ada kandidat ditemukan.";
+        // }
         $jobs = job::get();
-        return view('candidate.detail_candidates', ['candidates' => $candidates,'jobs' => $jobs,'first' => $first]);
+        return view('candidate.detail_candidates', ['candidateDetail' => $first,'candidates' => $candidates,'jobs' => $jobs,'first' => $first]);
+    }
+    public function candidateDetailViewId(Request $req){
+        $candidates = candidate::get();
+        $candidate = candidate::where('id_candidate','=',$req->id)->get();
+        // $first = candidate::get()->first();
+        // dd($first);
+        $jobs = job::get();
+        // dd($candidate);
+        return view('candidate.detail_candidates', ['candidateDetail' => $candidate,'jobs' => $jobs,'first' => '','candidates' => $candidates]);
     }
 }

@@ -32,7 +32,7 @@ Route::post('/jobs/addStatus', [master::class, 'addStatus']);
 
 Route::get('/candidates', [CandidateCont::class, 'candidate'])->name('candidates');
 Route::get('/candidates/detail', [CandidateCont::class, 'candidateDetailView'])->name('candidates');
-Route::get('/candidates/detail/{id}', [CandidateCont::class, 'candidateDetail'])->name('candidates');
+Route::get('/candidates/detail/{id}', [CandidateCont::class, 'candidateDetailViewId'])->name('candidates');
 Route::delete('/candidates/delete', [CandidateCont::class, 'delete']);
 
 

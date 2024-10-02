@@ -545,7 +545,7 @@
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-2" onkeyup="searchFunction('2')">
+                            <input type="text" class="form-control " style="width: 150px;padding-left:30px;font-size:12px" name="" id="searchInput-2" onkeyup="searchFunction('2')">
                         </div>
                     </td>
                     <td id="inputFilter-1">
@@ -569,7 +569,7 @@
                     <td>
                         <div class="form-group position-relative">
                             <i class="bi bi-search mt-1 icon-1 position-absolute text-secondary ms-2" style="top: 2px;"></i>
-                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px" name="" id="searchInput-6" onkeyup="searchFunction('6')">
+                            <input type="text" class="form-control " style="padding-left:30px;font-size:12px;width: 50px;" name="" id="searchInput-6" onkeyup="searchFunction('6')">
                         </div>
                     </td>
                     <td id="inputFilter-4">
@@ -602,44 +602,17 @@
                 @foreach($candidates as $c)
                 <tr>
                     <td class="text-center" style="width: 48px; height: 48px;"><input type="checkbox" class="rowCheckbox" name="" id="" data-id="{{$c->id_candidate}}"></td>
-                    <td style="font-weight: 500;">
+                    <td style="font-weight: 500;" onclick="detailCandidate({{$c->id_candidate}})">
                         {{$c->nama}}
                     </td>
                     <td class="">
                         <div  class="mx-auto text-center" style="">
-                            <!-- Non Hire -->
-                            @if($c->process == 'approval')
-                            <span class="p-{{$c->process}}">approval</span>
-                            @elseif($c->process == 'waiting')
-                            <span class="p-{{$c->process}}">waiting</span>
-                            @elseif($c->process == 'fail')
-                            <span class="p-{{$c->process}}">fail</span>
-                            @elseif($c->process == 'cancel_join')
-                            <span class="p-{{$c->process}}">cancel join</span>
-                            @elseif($c->process == 'resign')
-                            <span class="p-{{$c->process}}">resign</span>
-                            @elseif($c->process == 'done')
-                            <span class="p-{{$c->process}}">done</span>
-                            @elseif($c->process == 'on_process')
-                            <span class="p-{{$c->process}}">on process</span>
-                            @elseif($c->process == 'reject')
-                            <span class="p-{{$c->process}}">reject</span>
-
-                            <!-- Hire -->
-                            @elseif($c->process == 'on_process_hire')
-                            <span class="p-{{$c->process}}">on process</span>
-                            @elseif($c->process == 'waiting_schedule_hire')
-                            <span class="p-{{$c->process}}">waiting schedule</span>
-                            @elseif($c->process == 'reject_hire')
-                            <span class="p-{{$c->process}}">reject</span>
-                            @elseif($c->process == 'done_hire')
-                            <span class="p-{{$c->process}}">done</span>
-                            @elseif($c->process == 'pass_hire')
-                            <span class="p-{{$c->process}}">pass</span>
-                            @elseif($c->process == 'failed_hire')
-                            <span class="p-{{$c->process}}">failed</span>
-                            @elseif($c->process == 'waiting_approval_hire')
-                            <span class="p-{{$c->process}}">waiting approval</span>
+                            @if($c->process == 'interview_hr')
+                            <span class="process-{{$c->process}}">interview hr</span>
+                            @elseif($c->process == 'interview_user')
+                            <span class="process-{{$c->process}}">interview user</span>
+                            @else
+                            <span class="process-{{$c->process}}">{{$c->process}}</span>
                             @endif
                         </div>
                     </td>
@@ -676,6 +649,9 @@
     </div>
 
     <script>
+        function detailCandidate(id){
+            window.location.href = '/candidates/detail/'+id;
+        }
         function searchFunction(col) {
             var input, filter, table, tr, td, i, txtValue;
             input = document.getElementById("searchInput-"+col);
