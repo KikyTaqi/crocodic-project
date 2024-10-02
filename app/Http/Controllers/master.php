@@ -360,10 +360,11 @@ class master extends Controller
     public function deleteJob(request $r){
         $id = $r->id_job;
 
-        job::where('id_job', $id)->delete();
         job_activity::where('id_job', $id)->delete();
         job_config::where('id_job', $id)->delete();
         job_setting::where('id_job', $id)->delete();
+        candidate::where('id_job', $id)->update(['id_job' => 0]);
+        job::where('id_job', $id)->delete();
         return redirect()->back();
     }
 

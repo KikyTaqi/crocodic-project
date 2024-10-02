@@ -200,7 +200,7 @@
                             <td class="text-center">{{ $j->candidates()->where('status', 5)->count() }}</td>
                             <td class="text-center">{{ $j->candidates()->where('status', 6)->count() }}</td>
                             <td class="text-center">
-                                @if($j->status === 0)
+                                @if($j->status !== 1)
                                 <div class="dropdown">
                                     <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('assets/plus.svg') }}" alt="">
@@ -213,7 +213,7 @@
                                 </div>
 
                                 @else
-                                <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('assets/approve.svg') }}" alt="">
                                     </a>
                                     <ul class="dropdown-menu drp-down">

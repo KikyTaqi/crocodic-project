@@ -6,6 +6,7 @@ use App\Http\Controllers\Login;
 use App\Http\Controllers\formBuilderController;
 use App\Http\Controllers\CandidateCont;
 use App\Http\Controllers\HiringCont;
+use App\Http\Controllers\CancelCont;
 
 Route::get('/', [Login::class,'login']);
 Route::post('/login', [Login::class,'prsLogin']);
@@ -37,7 +38,11 @@ Route::delete('/candidates/delete', [CandidateCont::class, 'delete']);
 
 
 Route::get('/hiring', [HiringCont::class, 'hiring'])->name('hiring');
-Route::get('/hiring/report', [HiringCont::class, 'reportHiring']);
+Route::get('/hiring/report', [HiringCont::class, 'reportHiring'])->name('hiring');
+
+Route::get('/cancel-join', [CancelCont::class, 'cancel_join'])->name('cancel-join');
+Route::get('/cancel-join/create', [CancelCont::class, 'create'])->name('cancel-join');
+
 
 
 

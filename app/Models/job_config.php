@@ -9,4 +9,5 @@ class job_config extends Model
 {
     use HasFactory;
     protected $table = 'job_config';
+    public $timestamps = false;
 }

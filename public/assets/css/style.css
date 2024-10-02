@@ -789,49 +789,6 @@ body {
     background-color: #DCF7E1;
 }
 .data-candidates{
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    /* width: 104%; */
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #E7E7ED !important;
-}
-
-
-.detail-top{
-    display: flex;
-    width: 90% !important;
-    height: 110px;
-    background-color: white;
-}
-.d-top.name{
-    color: #4F4F4F;
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0;
-}
-.rating {
-    margin-top: -8px;
-    display: inline-block;
-    font-size: 24px;
-    color: #ccc; /* Warna bintang yang belum terisi */
-    cursor: pointer;
-}
-
-.star {
-    transition: color 0.2s;
-}
-
-.star:hover,
-.star:hover ~ .star {
-    color: #ffcc00; /* Warna bintang saat dihover */
-}
-
-.star.active {
-    color: #ffcc00; /* Warna bintang yang terisi */
-}
-
-/* Mengatur bintang dari kiri ke kanan saat dihover */
-.star:hover ~ .star {
-    color: #ccc; /* Mengembalikan warna bintang yang belum terisi setelah hover */
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

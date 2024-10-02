@@ -452,7 +452,11 @@
                     <table id="TableAdd" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px; margin-top: 50px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="height: 48px; padding-left: 10px"><input type="checkbox" disabled name="" id=""></th>
+                                <th class="text-center" style="height: 48px; padding-left: 10px">
+                                <div class="form-check ms-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </div>
+                                </th>
                                 <th style="width: 100px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -533,38 +537,42 @@
                             @foreach($candidate as $cdt)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input {{$cdt->id_job == $job->id_job ? 'disabled' : '' }} type="checkbox" class="candidate-checkbox" name="candidates[]" value="{{$cdt->id_candidate}}" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input {{$cdt->id_job == $job->id_job ? 'disabled' : '' }} type="checkbox" class="candidate-checkbox form-check-input" name="candidates[]" value="{{$cdt->id_candidate}}" id="">
+                                    </div>
+                                </td>
                                 <td>{{$cdt->nama}}</td>
                                 <td>
-                                    @if($cdt->process == 1)
+                                    @if($cdt->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($cdt->process == 2)
+                                    @elseif($cdt->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($cdt->process == 3)
+                                    @elseif($cdt->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($cdt->process == 4)
+                                    @elseif($cdt->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($cdt->process == 5)
+                                    @elseif($cdt->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($cdt->process == 6)
+                                    @elseif($cdt->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($cdt->process == 7)
+                                    @elseif($cdt->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($cdt->process == 8)
+                                    @elseif($cdt->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
@@ -655,7 +663,11 @@
                     <table id="TableScreening" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
+                                <th class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </th>
                                 <th style="width: 170px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -736,38 +748,42 @@
                             @foreach($screening as $scr)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </td>
                                 <td>{{$scr->nama}}</td>
                                 <td>
-                                    @if($scr->process == 1)
+                                    @if($scr->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($scr->process == 2)
+                                    @elseif($scr->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($scr->process == 3)
+                                    @elseif($scr->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($scr->process == 4)
+                                    @elseif($scr->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($scr->process == 5)
+                                    @elseif($scr->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($scr->process == 6)
+                                    @elseif($scr->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($scr->process == 7)
+                                    @elseif($scr->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($scr->process == 8)
+                                    @elseif($scr->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
@@ -806,7 +822,11 @@
                     <table id="TablePsikotest" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
+                                <th class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </th>
                                 <th style="width: 170px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -887,38 +907,42 @@
                             @foreach($psikotest as $psi)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </td>
                                 <td>{{$psi->nama}}</td>
                                 <td>
-                                    @if($psi->process == 1)
+                                    @if($psi->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($psi->process == 2)
+                                    @elseif($psi->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($psi->process == 3)
+                                    @elseif($psi->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($psi->process == 4)
+                                    @elseif($psi->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($psi->process == 5)
+                                    @elseif($psi->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($psi->process == 6)
+                                    @elseif($psi->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($psi->process == 7)
+                                    @elseif($psi->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($psi->process == 8)
+                                    @elseif($psi->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
@@ -961,7 +985,11 @@
                     <table id="TableInterHR" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
+                                <th class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </th>
                                 <th style="width: 170px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -1042,38 +1070,42 @@
                             @foreach($inter_hr as $ihr)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </td>
                                 <td>{{$ihr->nama}}</td>
                                 <td>
-                                    @if($ihr->process == 1)
+                                    @if($ihr->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($ihr->process == 2)
+                                    @elseif($ihr->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($ihr->process == 3)
+                                    @elseif($ihr->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($ihr->process == 4)
+                                    @elseif($ihr->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($ihr->process == 5)
+                                    @elseif($ihr->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($ihr->process == 6)
+                                    @elseif($ihr->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($scr->process == 7)
+                                    @elseif($scr->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($scr->process == 8)
+                                    @elseif($scr->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
@@ -1116,7 +1148,11 @@
                     <table id="TableInterUser" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
+                                <th class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </th>
                                 <th style="width: 170px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -1197,38 +1233,42 @@
                             @foreach($inter_user as $iur)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </td>
                                 <td>{{$iur->nama}}</td>
                                 <td>
-                                    @if($iur->process == 1)
+                                    @if($iur->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($iur->process == 2)
+                                    @elseif($iur->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($iur->process == 3)
+                                    @elseif($iur->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($iur->process == 4)
+                                    @elseif($iur->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($iur->process == 5)
+                                    @elseif($iur->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($iur->process == 6)
+                                    @elseif($iur->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($iur->process == 7)
+                                    @elseif($iur->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($iur->process == 8)
+                                    @elseif($iur->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
@@ -1271,7 +1311,11 @@
                     <table id="TablePeralihan" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
+                                <th class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </th>
                                 <th style="width: 170px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -1352,38 +1396,42 @@
                             @foreach($peralihan as $phn)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </td>
                                 <td>{{$phn->nama}}</td>
                                 <td>
-                                    @if($phn->process == 1)
+                                    @if($phn->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($phn->process == 2)
+                                    @elseif($phn->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($phn->process == 3)
+                                    @elseif($phn->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($phn->process == 4)
+                                    @elseif($phn->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($phn->process == 5)
+                                    @elseif($phn->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($phn->process == 6)
+                                    @elseif($phn->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($phn->process == 7)
+                                    @elseif($phn->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($phn->process == 8)
+                                    @elseif($phn->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
@@ -1426,7 +1474,11 @@
                     <table id="TableReject" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
+                                <th class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </th>
                                 <th style="width: 170px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -1507,38 +1559,42 @@
                             @foreach($reject as $rjc)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </td>
                                 <td>{{$rjc->nama}}</td>
                                 <td>
-                                    @if($rjc->process == 1)
+                                    @if($rjc->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($rjc->process == 2)
+                                    @elseif($rjc->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($rjc->process == 3)
+                                    @elseif($rjc->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($rjc->process == 4)
+                                    @elseif($rjc->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($rjc->process == 5)
+                                    @elseif($rjc->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($rjc->process == 6)
+                                    @elseif($rjc->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($rjc->process == 7)
+                                    @elseif($rjc->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($rjc->process == 8)
+                                    @elseif($rjc->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
@@ -1581,7 +1637,11 @@
                     <table id="TableHiring" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
-                                <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></th>
+                                <th class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </th>
                                 <th style="width: 170px">Nama</th>
                                 <th style="width: 120px">Process</th>
                                 <th>Tags</th>
@@ -1662,38 +1722,42 @@
                             @foreach($hiring as $hrg)
     
                             <tr>
-                                <td class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id=""></td>
+                                <td class="text-center" style="width: 48px; height: 48px">
+                                    <div class="form-check ms-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                </td>
                                 <td>{{$hrg->nama}}</td>
                                 <td>
-                                    @if($hrg->process == 1)
+                                    @if($hrg->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
                                             APPROVAL
                                         </div>
-                                    @elseif($hrg->process == 2)
+                                    @elseif($hrg->process == 'waiting')
                                         <div  class="mx-auto text-center" style="width: 66px; height: 24px; border: 1px solid #F7BD93; color: #FA6900; font-size: 12px; line-height: 24px;">
                                             WAITING
                                         </div>
-                                    @elseif($hrg->process == 3)
+                                    @elseif($hrg->process == 'fail')
                                         <div  class="mx-auto text-center" style="width: 40px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             FAIL
                                         </div>
-                                    @elseif($hrg->process == 4)
+                                    @elseif($hrg->process == 'cancel_join')
                                         <div  class="mx-auto text-center" style="width: 95px; height: 24px; border: 1px solid #C893BE; color: #85016B; font-size: 12px; line-height: 24px;">
                                             CANCEL JOIN
                                         </div>
-                                    @elseif($hrg->process == 5)
+                                    @elseif($hrg->process == 'resign')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #81B29A; color: #41806D; font-size: 12px; line-height: 24px;">
                                             RESIGN
                                         </div>
-                                    @elseif($hrg->process == 6)
+                                    @elseif($hrg->process == 'done')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F9DB93; color: #FFB800; font-size: 12px; line-height: 24px;">
                                             DONE
                                         </div>
-                                    @elseif($hrg->process == 7)
+                                    @elseif($hrg->process == 'on_process')
                                         <div  class="mx-auto text-center" style="width: 85px; height: 24px; border: 1px solid #89A7E0; color: #2E5AAC; font-size: 12px; line-height: 24px;">
                                             ON PROCESS
                                         </div>
-                                    @elseif($hrg->process == 8)
+                                    @elseif($hrg->process == 'reject')
                                         <div  class="mx-auto text-center" style="width: 62px; height: 24px; border: 1px solid #F7BFC0; color: #F94144; font-size: 12px; line-height: 24px;">
                                             REJECT
                                         </div>
