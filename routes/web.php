@@ -38,10 +38,10 @@ Route::delete('/candidates/delete', [CandidateCont::class, 'delete']);
 
 
 Route::get('/hiring', [HiringCont::class, 'hiring'])->name('hiring');
-Route::get('/hiring/report', [HiringCont::class, 'reportHiring']);
+Route::get('/hiring/report', [HiringCont::class, 'reportHiring'])->name('hiring');
 
-Route::get('/cancel-join', [CancelCont::class, 'cancel_join']);
-Route::get('/cancel-join/create', [CancelCont::class, 'create']);
+Route::get('/cancel-join', [CancelCont::class, 'cancel_join'])->name('cancel-join');
+Route::get('/cancel-join/create', [CancelCont::class, 'create'])->name('cancel-join');
 
 
 

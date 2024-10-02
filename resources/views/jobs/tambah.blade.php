@@ -40,6 +40,7 @@
         }
 
         
+        
     </style>
 
     <div class="mx-4 my-3">
@@ -55,7 +56,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <select name="" id="status" style="width: 100%" class="btn btn-secondary">
+                                            <select name="" id="status" style="width: 100%" class="btn btn-secondary form-select">
                                                 <option value="2">Internal</option>
                                                 <option value="3">External</option>
                                                 <option value="0">Draft</option>
@@ -114,11 +115,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group mt-3">
-                                <label for="jumlahbutuh" class="lbl">Jumlah Kebutuhan</label>
-                                    <select name="jumlah_butuh" id="jumlahbutuh" class="form-select">
-                                        <option value="1">1</option>
-                                        <option value="10">10</option>
-                                    </select>
+                                    <label for="jumlahbutuh" class="lbl">Jumlah Kebutuhan</label>
+                                    <input type="number" min="1" value="1" name="jumlah_butuh" class="form-control" id="jumlahbutuh">
                                 </div>
                             </div>
                             <div class="col-md">

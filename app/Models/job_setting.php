@@ -25,4 +25,6 @@ class job_setting extends Model
     protected $casts = [
         'form_data' => 'array'
     ];
+
+    public $timestamps = false;
 }

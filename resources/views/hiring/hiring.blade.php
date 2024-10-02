@@ -20,6 +20,12 @@
         .border td:last-child {
             border-right: 1px solid #dee2e6; /* Atur warna dan ketebalan sesuai kebutuhan */
         }
+
+        .link-normal{
+            text-decoration: none;
+            color: black;
+        }
+
     </style>
 
     <title>Hiring</title>
@@ -49,9 +55,13 @@
             </div>
         </div>
         <table class="table bg-white table-bordered border" style="font-size: 14px;">
-            <thead>
+            <thead class="align-middle" style="height: 3rem">
                 <tr>
-                    <th><input type="checkbox" name="" id=""></th>
+                    <th>
+                        <div class="form-check ms-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                    </th>
                     <th>Name</th>
                     <th>Profile</th>
                     <th>No Job</th>
@@ -61,17 +71,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
+                <tr class="align-middle" style="height: 3rem">
+                    <td>
+                        <div class="form-check ms-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                    </td>
                     <td>Ainul Mumbait</td>
                     <td><span class="percent">100%</span></td>
-                    <td>029861/ISH/01010107/2023</td>
+                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#no-jo" class="link-normal">029861/ISH/01010107/2023</a></td>
                     <td>HUNTER NOO</td>
                     <td>BULUKUMBA</td>
                     <td>JOYDAY HUNTER GT ISH</td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
+                <tr class="align-middle" style="height: 3rem">
+                    <td>
+                        <div class="form-check ms-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                    </td>
                     <td>ACHMAD MAULANA ONKY PRADANA</td>
                     <td><span class="percent">100%</span></td>
                     <td>029861/ISH/01010107/2023</td>
@@ -79,8 +97,12 @@
                     <td>PASURUAN</td>
                     <td>CAM TELKOMSEL A3 BALNUS</td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
+                <tr class="align-middle" style="height: 3rem">
+                    <td>
+                        <div class="form-check ms-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                    </td>
                     <td>M Ikhwan Arif</td>
                     <td><span class="percent">90%</span></td>
                     <td>029168/ISH/01010107/2023</td>
@@ -88,8 +110,12 @@
                     <td>PASURUAN</td>
                     <td>JOYDAY HUNTER GT ISH</td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
+                <tr class="align-middle" style="height: 3rem">
+                    <td>
+                        <div class="form-check ms-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                    </td>
                     <td>Nighara Asmarantaka Sulya</td>
                     <td><span class="percent">80%</span></td>
                     <td>029758/ISH/01010107/2023</td>
@@ -100,6 +126,169 @@
             </tbody>
         </table>
         
+        <div class="modal fade" id="no-jo" tabindex="-1" aria-labelledby="no-jo" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">View Recruitment Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md">
+                            <table class="table table-bordered table-striped">
+                                <tr>
+                                    <td>ID</td>
+                                    <td>2757</td>
+                                </tr>
+                                <tr>
+                                    <td>No Job Order</td>
+                                    <td>029399/ISH/01010107/2023</td>
+                                </tr>
+                                <tr>
+                                    <td>Job Function</td>
+                                    <td>PROMOTERS</td>
+                                </tr>
+                                <tr>
+                                    <td>Type JO</td>
+                                    <td>Replacement</td>
+                                </tr>
+                                <tr>
+                                    <td>Project</td>
+                                    <td>Electrolux ISH</td>
+                                </tr>
+                                <tr>
+                                    <td>Lama Project</td>
+                                    <td>1 Bulan</td>
+                                </tr>
+                                <tr>
+                                    <td>Perner Replaced</td>
+                                    <td>228499</td>
+                                </tr>
+                                <tr>
+                                    <td>Due Date JO</td>
+                                    <td>2024-01-04</td>
+                                </tr>
+                                <tr>
+                                    <td>Approved JO</td>
+                                    <td>2023-12-29 17:48:48</td>
+                                </tr>
+                                <tr>
+                                    <td>Over Due JO</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Pendidikan</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Lokasi</td>
+                                    <td>Surabaya</td>
+                                </tr>
+                                <tr>
+                                    <td>Kontrak</td>
+                                    <td>Kemitraan</td>
+                                </tr>
+                                <tr>
+                                    <td>Waktu</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Jumlah Kebutuhan</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td><span class="p-on_process">ON PROGRESS</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Personal Area (SAP)</td>
+                                    <td>SURABAYA-I104</td>
+                                </tr>
+                                <tr>
+                                    <td>Area (SAP)</td>
+                                    <td>BPO_Kemitraan-KQ</td>
+                                </tr>
+                                <tr>
+                                    <td>Skill Layanan (SAP)</td>
+                                    <td>ELECTROLUX ISH-SBY-DT</td>
+                                </tr>
+                                <tr>
+                                    <td>Payroll Area (SAP)</td>
+                                    <td>PROMOTERS-23001001</td>
+                                </tr>
+                                <tr>
+                                    <td>Jabatan (SAP)</td>
+                                    <td>LEVEL 2-14</td>
+                                </tr>
+                                <tr>
+                                    <td>Level (SAP)</td>
+                                    <td>LEVEL 2-14</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="col-md">
+                            <table class="table table-bordered table-striped">
+                                <tr>
+                                    <td colspan="2">Detail Schema</td>
+                                </tr>
+                                <tr>
+                                    <td>Komponen</td>
+                                    <td>Value</td>
+                                </tr>
+                                <tr>
+                                    <td>Gaji Pokok</td>
+                                    <td>3,800,536</td>
+                                </tr>
+                                <tr>
+                                    <td>Tunjangan Tetap</td>
+                                    <td>1,266,845</td>
+                                </tr>
+                                <tr>
+                                    <td>Tunjangan Performance</td>
+                                    <td>152,021</td>
+                                </tr>
+                                <tr>
+                                    <td>MFEE FIXED COST</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>Uang Kompensasi</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>THR</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>BPJS TK Perusahaan</td>
+                                    <td>316,205</td>
+                                </tr>
+                                <tr>
+                                    <td>BPJS TK Karyawan</td>
+                                    <td>152,021</td>
+                                </tr>
+                                <tr>
+                                    <td>BPJS Kesehatan Perusahaan</td>
+                                    <td>253,393</td>
+                                </tr>
+                                <tr>
+                                    <td>BPJS Kesehatan Karyawan</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
         
     </div>
     
