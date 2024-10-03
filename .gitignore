@@ -18,4 +18,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/public/logo/*
+/public/logo/*.png
+/public/logo/*.jpg
+
