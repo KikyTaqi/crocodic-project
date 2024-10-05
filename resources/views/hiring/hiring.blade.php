@@ -59,7 +59,7 @@
                 <tr>
                     <th>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" id="headerCheckbox" onchange="toggleCheckboxes(this)">
                         </div>
                     </th>
                     <th>Name</th>
@@ -74,7 +74,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>Ainul Mumbait</td>
@@ -87,7 +87,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>ACHMAD MAULANA ONKY PRADANA</td>
@@ -100,7 +100,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>M Ikhwan Arif</td>
@@ -113,7 +113,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>Nighara Asmarantaka Sulya</td>
@@ -125,6 +125,7 @@
                 </tr>
             </tbody>
         </table>
+
         
         <div class="modal fade" id="no-jo" tabindex="-1" aria-labelledby="no-jo" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -294,3 +295,23 @@
     
 </body>
 </html>
+
+<script>
+    function toggleCheckboxes(headerCheckbox) {
+        const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
+        rowCheckboxes.forEach(checkbox => {
+            checkbox.checked = headerCheckbox.checked;
+        });
+    }
+
+    function updateHeaderCheckbox() {
+        const headerCheckbox = document.getElementById('headerCheckbox');
+        const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
+        const allChecked = Array.from(rowCheckboxes).every(checkbox => checkbox.checked);
+        const anyChecked = Array.from(rowCheckboxes).some(checkbox => checkbox.checked);
+
+        headerCheckbox.checked = allChecked;
+        headerCheckbox.indeterminate = !allChecked && anyChecked;
+    }
+
+</script>
