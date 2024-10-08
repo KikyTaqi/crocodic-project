@@ -80,19 +80,19 @@
                     <th></th>
                     <th>
                         <div class="search-box">
-                            <input style="height: 50px;" type="text" id="searchBox1" onkeyup="scrFilter1()" class="form-control search-input input-sm" placeholder="Search..">
+                            <input style="height: 50px;" type="text" id="searchBox1" onkeyup="scrFilter1()" class="form-control search-input input-sm">
                             <i class="bi bi-search search-icon"></i>
                         </div>
                     </th>
                     <th>
                         <div class="search-box">
-                            <input style="height: 50px;" type="text" id="searchBox2" onkeyup="scrFilter2()" class="form-control search-input input-sm" placeholder="Search..">
+                            <input style="height: 50px;" type="text" id="searchBox2" onkeyup="scrFilter2()" class="form-control search-input input-sm">
                             <i class="bi bi-search search-icon"></i>
                         </div>
                     </th>
                     <th>
                         <div class="search-box">
-                            <input style="height: 50px;" type="text" id="searchBox2" onkeyup="scrFilter2()" class="form-control search-input input-sm" placeholder="Search..">
+                            <input style="height: 50px;" type="text" id="searchBox2" onkeyup="scrFilter2()" class="form-control search-input input-sm">
                             <i class="bi bi-search search-icon"></i>
                         </div>
                     </th>
@@ -101,19 +101,19 @@
                     </th>
                     <th>
                         <div class="search-box">
-                            <input style="height: 50px;" type="text" id="searchBox5" onkeyup="scrFilter5()" class="form-control search-input input-sm" placeholder="Search..">
+                            <input style="height: 50px;" type="text" id="searchBox5" onkeyup="scrFilter5()" class="form-control search-input input-sm">
                             <i class="bi bi-search search-icon"></i>
                         </div>
                     </th>
                     <th>
                         <div class="search-box">
-                            <input style="height: 50px;" type="text" id="searchBox6" onkeyup="scrFilter6()" class="form-control search-input input-sm" placeholder="Search..">
+                            <input style="height: 50px;" type="text" id="searchBox6" onkeyup="scrFilter6()" class="form-control search-input input-sm">
                             <i class="bi bi-search search-icon"></i>
                         </div>
                     </th>
                     <th>
                         <div class="search-box">
-                            <input style="height: 50px;" type="text" id="searchBox7" onkeyup="scrFilter7()" class="form-control search-input input-sm" placeholder="Search..">
+                            <input style="height: 50px;" type="text" id="searchBox7" onkeyup="scrFilter7()" class="form-control search-input input-sm">
                             <i class="bi bi-search search-icon"></i>
                         </div>
                     </th>

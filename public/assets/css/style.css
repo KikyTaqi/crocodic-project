@@ -1526,6 +1526,12 @@ body {
     border-color: #327c66;
 }
 
+.form-check-input:indeterminate {
+    background-color: #327c66 !important;
+    border-color: #327c66 !important;
+}
+
+
 .form-check-input {
     accent-color: #327c66;
 }
@@ -1623,4 +1629,8 @@ body {
     background-color: #41806D !important;
     border: 1px solid #41806D !important;
     color: white;
+}
+
+.form-control:focus{
+    border-color: #327c66;
 }

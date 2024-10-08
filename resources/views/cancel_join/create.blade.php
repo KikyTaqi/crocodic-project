@@ -38,8 +38,10 @@
             max-height: 100% !important;
         }
 
-
-                
+        textarea {
+            resize: none;
+        }
+     
         .drop-container {
             position: relative;
             display: flex;
@@ -176,7 +178,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="mb-2" for="Tanggal">Notes</label>
-                                <textarea style="min-height: 20vh; max-height: 20vh;" name="" class="form-control" id=""></textarea>
+                                <textarea style="min-height: 20vh;" name="" class="form-control" id=""></textarea>
                             </div>
                         </div>
                     </div>
