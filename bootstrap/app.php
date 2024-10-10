@@ -21,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
     $app->routeMiddleware([
         // Middleware lainnya
+        'auth' => \App\Http\Middleware\Authenticate::class,
         'check.redirect' => \App\Http\Middleware\CheckRedirect::class,
     ]);
     
