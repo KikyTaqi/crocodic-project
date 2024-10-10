@@ -42,24 +42,24 @@
         <div class="row">
             <div class="col-md mb-2">
                 <div class="search-box">
-                    <input style="height: 50px; width: 450px;" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
+                    <input onkeyup="scrFilter()" style="height: 50px; width: 450px;" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
                     <i class="bi bi-search search-icon-lg"></i>
                 </div>
             </div>
             <div class="col-md">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a href="/hiring/report" class="btn btn-white-outline" type="button"><i class="bi bi-bar-chart-fill"></i> Report Hiring</a>
-                    <button class="btn btn-green-outline" type="button"><span class="badge bg-green me-1">0</span> Cancel Join</button>
-                    <button class="btn bg-green text-light" type="button"><span class="badge bg-light text-dark me-1">0</span> Request Hiring</button>
+                    <a id="btn-cancel-join" class="btn btn-green-outline" type="button"><span class="badge bg-green me-1">0</span> Cancel Join</a>
+                    <a id="btn-request-hiring" class="btn bg-green text-light" type="button"><span class="badge bg-light text-dark me-1">0</span> Request Hiring</a>
                 </div>
             </div>
         </div>
-        <table class="table bg-white table-bordered border" style="font-size: 14px;">
+        <table id="tblHiring" class="table bg-white table-bordered border" style="font-size: 14px;">
             <thead class="align-middle" style="height: 3rem">
                 <tr>
                     <th>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" id="headerCheckbox" onchange="toggleCheckboxes(this)">
                         </div>
                     </th>
                     <th>Name</th>
@@ -74,7 +74,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>Ainul Mumbait</td>
@@ -87,7 +87,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>ACHMAD MAULANA ONKY PRADANA</td>
@@ -100,7 +100,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>M Ikhwan Arif</td>
@@ -113,7 +113,7 @@
                 <tr class="align-middle" style="height: 3rem">
                     <td>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
                         </div>
                     </td>
                     <td>Nighara Asmarantaka Sulya</td>
@@ -125,6 +125,7 @@
                 </tr>
             </tbody>
         </table>
+
         
         <div class="modal fade" id="no-jo" tabindex="-1" aria-labelledby="no-jo" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-scrollable">
@@ -294,3 +295,61 @@
     
 </body>
 </html>
+
+<script>
+    function toggleCheckboxes(headerCheckbox) {
+        const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
+        rowCheckboxes.forEach(checkbox => {
+            checkbox.checked = headerCheckbox.checked;
+        });
+        updateBadgeCounts(); // Update badge counts whenever checkboxes are toggled
+    }
+
+    function updateHeaderCheckbox() {
+        const headerCheckbox = document.getElementById('headerCheckbox');
+        const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
+        const allChecked = Array.from(rowCheckboxes).every(checkbox => checkbox.checked);
+        const anyChecked = Array.from(rowCheckboxes).some(checkbox => checkbox.checked);
+
+        headerCheckbox.checked = allChecked;
+        headerCheckbox.indeterminate = !allChecked && anyChecked;
+
+        updateBadgeCounts(); // Update badge counts whenever header checkbox changes
+    }
+
+    function scrFilter() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchBox");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tblHiring");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+
+        updateBadgeCounts(); // Update badge counts after filtering
+    }
+
+    function updateBadgeCounts() {
+        const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
+        let checkedCount = 0;
+
+        rowCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checkedCount++;
+            }
+        });
+
+        document.querySelector('#btn-cancel-join .badge').textContent = checkedCount;
+        document.querySelector('#btn-request-hiring .badge').textContent = checkedCount;
+    }
+</script>

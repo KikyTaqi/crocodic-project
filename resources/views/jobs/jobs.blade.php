@@ -37,44 +37,6 @@
             text-overflow: ellipsis;
         }
 
-        .pagination {
-            display: flex;
-            margin-top: 20px;
-        }
-
-        .pagination li {
-            cursor: pointer;
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            margin: 0 4px;
-            height: 40px;
-            min-width: 40px;
-            font-size: 12px;
-            padding-top: 10px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-            background-color: #FFFFFF;
-        }
-
-        .pagination li:hover {
-            color: #41806D;
-            border: 1px solid #41806D;
-        }
-
-        .pagination li.active {
-            background-color: #41806D;
-            color: white;
-            border: 1px solid #007bff;
-        }
-
-        .pagination li.disabled {
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
         .data-info {
             font-size: 14px;
             margin-top: 10px;
@@ -111,6 +73,19 @@
             border-style: solid;
             border-color: transparent transparent white transparent; /* Sesuaikan warna sesuai kebutuhan */
         }
+
+        .pagination-container {
+            display: flex;
+            justify-content: space-between; /* Membuat jarak antara kedua elemen */
+            align-items: center; /* Menjaga kedua elemen tetap sejajar secara vertikal */
+            margin-top: 20px; /* Tambahkan margin jika perlu */
+        }
+
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration { display: none; }
+
     </style>
 </head>
 <body>
@@ -120,10 +95,10 @@
     <div class="card px-5 mt-3" style="background: transparent; border:0">
         <div class="row mb-3">
             <div class="col-md-3 mb-2">
-            <div class="search-box">
-                <input style="height: 50px; width: 48vh" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
-                <i class="bi bi-search search-icon-lg"></i>
-            </div>
+                <div class="search-box">
+                    <input style="height: 50px; width: 48vh" type="search" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
+                    <i class="bi bi-search search-icon-lg"></i>
+                </div>
             </div>
             <div class="col-md-1 mb-2" style="width: 160px">
                 <button class="btn-clear pt-3" style="color: #333333" onclick="clearFilters()">Hapus Filter</button>
@@ -186,54 +161,63 @@
                         </tr>
                     </thead>
                     <tbody id="myTable" class="align-middle">
-                    @foreach($jobs as $j)
-                        <tr>
-                            <td><a class="name-job" href="jobs/detail/{{$j->id_job}}">{{$j->nama_job}}</a></td>
-                            <td>{{$j->nomor_job}}</td>
-                            <td>{{$j->lokasi}}</td>
-                            <td class="text-center">{{$j->total_butuh}}</td>
-                            <td class="text-center">{{ $j->candidates()->where('status', 0)->count() }}</td>
-                            <td class="text-center">{{ $j->candidates()->where('status', 1)->count() }}</td>
-                            <td class="text-center">{{ $j->candidates()->where('status', 2)->count() }}</td>
-                            <td class="text-center">{{ $j->candidates()->where('status', 3)->count() }}</td>
-                            <td class="text-center">{{ $j->candidates()->where('status', 4)->count() }}</td>
-                            <td class="text-center">{{ $j->candidates()->where('status', 5)->count() }}</td>
-                            <td class="text-center">{{ $j->candidates()->where('status', 6)->count() }}</td>
-                            <td class="text-center">
-                                @if($j->status !== 1)
-                                <div class="dropdown">
-                                    <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="{{ asset('assets/plus.svg') }}" alt="">
-                                    </a>
-                                    <ul class="dropdown-menu drp-down">
-                                        <li><a class="dropdown-item" href="/jobs/edit/{{$j->id_job}}"><i class="bi bi-pencil-fill me-2"></i> Edit</a></li>
-                                        <li><a href="#" onclick="submitDuplicateForm({{ $j->id_job }}); return false;" class="dropdown-item"><i class="bi bi-copy me-2"></i> Duplicate</a></li>
-                                        <li><a onclick="submitDeleteForm({{ $j->id_job }}); return false;" class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i> Delete</a></li>
-                                    </ul>
-                                </div>
-
-                                @else
-                                    <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="{{ asset('assets/approve.svg') }}" alt="">
-                                    </a>
-                                    <ul class="dropdown-menu drp-down">
-                                        <li><a class="dropdown-item" href="/jobs/edit/{{$j->id_job}}"><i class="bi bi-pencil-fill me-2"></i> Edit</a></li>
-                                        <li><a href="#" onclick="submitDuplicateForm({{ $j->id_job }}); return false;" class="dropdown-item"><i class="bi bi-copy me-2"></i> Duplicate</a></li>
-                                        <li><a onclick="submitDeleteForm({{ $j->id_job }}); return false;" class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i> Delete</a></li>
-                                    </ul>
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach
-
+                        @foreach($jobs as $j)
+                            <tr>
+                                <td><a class="name-job" href="jobs/detail/{{$j->id_job}}">{{$j->nama_job}}</a></td>
+                                <td>{{$j->nomor_job}}</td>
+                                <td>{{$j->lokasi}}</td>
+                                <td class="text-center">{{$j->total_butuh}}</td>
+                                <td class="text-center">{{ $j->candidates()->where('status', 0)->count() }}</td>
+                                <td class="text-center">{{ $j->candidates()->where('status', 1)->count() }}</td>
+                                <td class="text-center">{{ $j->candidates()->where('status', 2)->count() }}</td>
+                                <td class="text-center">{{ $j->candidates()->where('status', 3)->count() }}</td>
+                                <td class="text-center">{{ $j->candidates()->where('status', 4)->count() }}</td>
+                                <td class="text-center">{{ $j->candidates()->where('status', 5)->count() }}</td>
+                                <td class="text-center">{{ $j->candidates()->where('status', 6)->count() }}</td>
+                                <td class="text-center">
+                                    @if($j->status !== 1)
+                                    <div class="dropdown">
+                                        <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="{{ asset('assets/plus.svg') }}" alt="">
+                                        </a>
+                                        <ul class="dropdown-menu drp-down">
+                                            <li><a class="dropdown-item" href="/jobs/edit/{{$j->id_job}}"><i class="bi bi-pencil-fill me-2"></i> Edit</a></li>
+                                            <li><a href="#" onclick="submitDuplicateForm({{ $j->id_job }}); return false;" class="dropdown-item"><i class="bi bi-copy me-2"></i> Duplicate</a></li>
+                                            <li><a onclick="submitDeleteForm({{ $j->id_job }}); return false;" class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i> Delete</a></li>
+                                        </ul>
+                                    </div>
+                                    @else
+                                        <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img src="{{ asset('assets/approve.svg') }}" alt="">
+                                        </a>
+                                        <ul class="dropdown-menu drp-down">
+                                            <li><a class="dropdown-item" href="/jobs/edit/{{$j->id_job}}"><i class="bi bi-pencil-fill me-2"></i> Edit</a></li>
+                                            <li><a href="#" onclick="submitDuplicateForm({{ $j->id_job }}); return false;" class="dropdown-item"><i class="bi bi-copy me-2"></i> Duplicate</a></li>
+                                            <li><a onclick="submitDeleteForm({{ $j->id_job }}); return false;" class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i> Delete</a></li>
+                                        </ul>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="data-info">Menampilkan <span id="startRow">1</span>-<span id="endRow">5</span> dari {{ $jobs->count() }} item.</div>
-                    <ul class="pagination float-end"></ul>
+
+
+                <div class="pagination-container">
+                    <div class="data-info">
+                        Menampilkan {{ $jobs->firstItem() }} - {{ $jobs->lastItem() }} dari {{ $jobs->total() }} data
+                    </div>
+    
+                    <div class="pagination">
+                        {{ $jobs->links() }}
+                    </div>
                 </div>
             </div>
+            
+
         </div>
+
+
     </div>
 
     <form id="duplicateForm" method="POST" action="/jobs/duplicate">
@@ -280,68 +264,6 @@
             });
         });
 
-        function paginate(filteredRows) {
-            var rowsShown = 5;
-            var rowsTotal = filteredRows.length;
-            var numPages = Math.ceil(rowsTotal / rowsShown);
-            var $pagination = $('.pagination');
-            $pagination.empty();
-            $pagination.append('<li id="prevPage" class="disabled"><i class="bi bi-chevron-left me-2"></i> Previous</li>');
-
-            for (var i = 1; i <= numPages; i++) {
-                $pagination.append('<li>' + i + '</li>');
-            }
-
-            $pagination.append('<li id="nextPage">Next <i class="bi bi-chevron-right ms-2"></i></li>');
-
-            function showPage(pageNum) {
-                var startItem = (pageNum - 1) * rowsShown;
-                var endItem = startItem + rowsShown;
-                filteredRows.hide().slice(startItem, endItem).show();
-                updateDataInfo(startItem, Math.min(endItem, rowsTotal), rowsTotal);
-
-                $pagination.find('li').not('#prevPage, #nextPage').hide();
-                for (var i = Math.max(1, pageNum - 1); i <= Math.min(numPages, pageNum + 1); i++) {
-                    $pagination.find('li').eq(i).show();
-                }
-
-                $('#prevPage').toggleClass('disabled', pageNum === 1);
-                $('#nextPage').toggleClass('disabled', pageNum === numPages);
-            }
-
-            $pagination.find('li:not(#prevPage, #nextPage)').on('click', function() {
-                var currPage = parseInt($(this).text());
-                $pagination.find('li').removeClass('active');
-                $(this).addClass('active');
-                showPage(currPage);
-            });
-
-            $('#prevPage').on('click', function() {
-                var currPage = parseInt($pagination.find('li.active').text());
-                if (currPage > 1) {
-                    showPage(currPage - 1);
-                    $pagination.find('li').removeClass('active');
-                    $pagination.find('li').eq(currPage - 1).addClass('active');
-                }
-            });
-
-            $('#nextPage').on('click', function() {
-                var currPage = parseInt($pagination.find('li.active').text());
-                if (currPage < numPages) {
-                    showPage(currPage + 1);
-                    $pagination.find('li').removeClass('active');
-                    $pagination.find('li').eq(currPage + 1).addClass('active');
-                }
-            });
-
-            showPage(1); // Initialize to show first page
-            $pagination.find('li').eq(1).addClass('active');
-        }
-
-        function updateDataInfo(start, end, total) {
-            $('.data-info').text('Menampilkan ' + (start + 1) + '-' + end + ' dari ' + total + ' item.');
-        }
-
         function applyFilters() {
             var searchValue = $("#searchBox").val().toLowerCase();
             var jobNameValue = $("#jobNameFilter").val().toLowerCase();
@@ -377,7 +299,7 @@
                 $('#myTable').append(noDataRow);
             } else {
                 $('#noDataRow').remove(); // Ensure the "No data found" row is removed if there are results
-                paginate(filteredRows); // Paginate filtered rows
+                filteredRows.show(); // Show all filtered rows without pagination
             }
         }
 
@@ -398,8 +320,6 @@
             clearFilters();
         });
 
-        // Initial pagination setup
-        paginate($("#myTable tr"));
 
         // Sorting
         const table = document.getElementById('jobsTable');
@@ -409,7 +329,7 @@
         headers.forEach(header => {
             header.addEventListener('click', () => {
                 const index = Array.from(header.parentNode.children).indexOf(header);
-               const isAscending = header.classList.contains('sort-asc-1');
+                const isAscending = header.classList.contains('sort-asc-1');
 
                 header.classList.remove('sort-asc-1', 'sort-desc-1');
                 header.classList.toggle('sort-asc-1', !isAscending);

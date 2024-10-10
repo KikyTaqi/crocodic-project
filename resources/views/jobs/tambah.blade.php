@@ -207,6 +207,7 @@
                         <hr class="my-3">
                         <p class="mx-4">Setting Data Applicant</p>
                         <div class="row mx-3">
+                            <!-- Personal Details Card -->
                             <div class="col-md mb-4">
                                 <div class="card">
                                     <div style="background: transparent;" class="card-header">
@@ -215,71 +216,101 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-check form-switch" style="margin-left: 40px">
-                                            <input class="form-check-input" type="checkbox" id="selectAll">
-                                            <label class="form-check-label" for="selectAll">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="selectAllPersonal">
+                                            <label class="form-check-label" for="selectAllPersonal">Select All</label>
                                         </div>
 
                                         <div class="form-check form-switch mt-4 me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Foto Profil</p></div>
-                                                <div class="col-md"><input class="form-check-input float-end" value="1" value="1" type="checkbox" name="pp"></div>
+                                                <div class="col-md">
+                                                    <p style="font-size: 18px; font-weight: 400;">Foto Profil</p>
+                                                </div>
+                                                <div class="col-md">
+                                                    <input class="form-check-input float-end personal-details" value="1" type="checkbox" name="pp">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Status Pernikahan</p></div>
-                                                <div class="col-md"><input class="form-check-input float-end" value="1" type="checkbox" name="statusnikah"></div>
+                                                <div class="col-md">
+                                                    <p style="font-size: 18px; font-weight: 400;">Status Pernikahan</p>
+                                                </div>
+                                                <div class="col-md">
+                                                    <input class="form-check-input float-end personal-details" value="1" type="checkbox" name="statusnikah">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Agama</p></div>
-                                                <div class="col-md"><input class="form-check-input float-end" value="1" type="checkbox" name="agama"></div>
+                                                <div class="col-md">
+                                                    <p style="font-size: 18px; font-weight: 400;">Agama</p>
+                                                </div>
+                                                <div class="col-md">
+                                                    <input class="form-check-input float-end personal-details" value="1" type="checkbox" name="agama">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Tinggi Badan</p></div>
-                                                <div class="col-md"><input class="form-check-input float-end" value="1" type="checkbox" name="tinggibadan"></div>
+                                                <div class="col-md">
+                                                    <p style="font-size: 18px; font-weight: 400;">Tinggi Badan</p>
+                                                </div>
+                                                <div class="col-md">
+                                                    <input class="form-check-input float-end personal-details" value="1" type="checkbox" name="tinggibadan">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Berat Badan</p></div>
-                                                <div class="col-md"><input class="form-check-input float-end" value="1" type="checkbox" name="beratbadan"></div>
+                                                <div class="col-md">
+                                                    <p style="font-size: 18px; font-weight: 400;">Berat Badan</p>
+                                                </div>
+                                                <div class="col-md">
+                                                    <input class="form-check-input float-end personal-details" value="1" type="checkbox" name="beratbadan">
+                                                </div>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Dokumen Card -->
                             <div class="col-md">
-                            <div class="card">
+                                <div class="card">
                                     <div style="background: transparent;" class="card-header">
                                         <h4>Dokumen</h4>
                                         <p>Select what should be included or required in the application form.</p>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-check form-switch" style="margin-left: 40px">
-                                            <input class="form-check-input" type="checkbox" id="selectAll">
-                                            <label class="form-check-label" for="selectAll">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="selectAllDokumen">
+                                            <label class="form-check-label" for="selectAllDokumen">Select All</label>
                                         </div>
 
                                         <div class="form-check form-switch mt-4 me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Pendidikan</p></div>
-                                                <div class="col-md"><input class="form-check-input float-end" value="1" type="checkbox" name="pendidikan"></div>
+                                                <div class="col-md">
+                                                    <p style="font-size: 18px; font-weight: 400;">Pendidikan</p>
+                                                </div>
+                                                <div class="col-md">
+                                                    <input class="form-check-input float-end dokumen" value="1" type="checkbox" name="pendidikan">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Pengalam Kerja</p></div>
-                                                <div class="col-md"><input class="form-check-input float-end" value="1" type="checkbox" name="pengalamankerja"></div>
+                                                <div class="col-md">
+                                                    <p style="font-size: 18px; font-weight: 400;">Pengalam Kerja</p>
+                                                </div>
+                                                <div class="col-md">
+                                                    <input class="form-check-input float-end dokumen" value="1" type="checkbox" name="pengalamankerja">
+                                                </div>
                                             </div>
                                         </div>
 
@@ -287,6 +318,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <button type="button" class="btn btn-success next-btn mt-3 me-4 float-end" data-next="#div4">Lanjut</button>
                     </div>
                     <input type="hidden" name="formData" id="form-builder-data">
@@ -471,6 +503,18 @@
 
         // Optionally, initialize the input field with the default value of the select element
         updateInputValue();
+
+        // Personal Details Select All
+        document.getElementById('selectAllPersonal').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.personal-details');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
+
+        // Dokumen Select All
+        document.getElementById('selectAllDokumen').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.dokumen');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
     </script>
 </body>
 </html>

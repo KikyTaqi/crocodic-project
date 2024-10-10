@@ -1458,6 +1458,16 @@ body {
     border: 0;
     color: white;
 }
+
+.form-check-input:indeterminate {
+    background-color: #327c66 !important;
+    border-color: #327c66 !important;
+}
+
+
+.form-check-input {
+    accent-color: #327c66;
+}
 .history-container{
     padding: 0;
 }
@@ -1522,4 +1532,8 @@ body {
     height: 20px;
     width: 16px;
     margin: 5px 0 5px 0;
+}
+
+.form-control:focus{
+    border-color: #327c66;
 }

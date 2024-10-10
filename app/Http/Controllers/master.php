@@ -30,7 +30,7 @@ class master extends Controller
     }
 
     public function jobs(){
-        $jobs = job::orderby('id_job', 'DESC')->get();
+        $jobs = job::paginate(5);
 
         return view('jobs/jobs', ['jobs' => $jobs]);
     }
