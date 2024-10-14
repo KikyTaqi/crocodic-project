@@ -30,7 +30,7 @@ class master extends Controller
     }
 
     public function jobs(){
-        $jobs = job::paginate(5);
+        $jobs = job::paginate(15);
 
         return view('jobs/jobs', ['jobs' => $jobs]);
     }
