@@ -20,6 +20,7 @@ class User extends Authenticatable
         'nik_ish',
         'name',
         'email',
+        'foto_profile',
         'password',
     ];
 

@@ -414,7 +414,9 @@
         <table id="tableCandidates" data-sortable class="table table-bordered custom-table table-candidates" style="background: #fff; font-weight: 500; font-size: 14px;margin-bottom: 2px;">
             <thead class="align-middle">
                 <tr>
-                    <th class="text-center" style="width: 48px; height: 48px"><input type="checkbox" name="" id="selectAll"></th>
+                    <th class="text-center" style="width: 48px; height: 48px">
+                        <input type="checkbox" name="" id="selectAll" class="form-check-input">
+                    </th>
                     <th style="width: 170px;">Nama</th>
                     <th style="width: 120px">Process</th>
                     <th id="thFilter-1">Tags</th>
@@ -493,8 +495,8 @@
             <tbody id="screeningTD" class="align-middle" style="border-width: 0px !important;">
                 @foreach($candidates as $c)
                 <tr>
-                    <td class="text-center" style="width: 48px; height: 48px;"><input type="checkbox" class="rowCheckbox" name="" id="" data-id="{{$c->id_candidate}}"></td>
-                    <td style="font-weight: 500;" onclick="detailCandidate({{$c->id_candidate}})">
+                    <td class="text-center" style="width: 48px; height: 48px;"><input type="checkbox" class="rowCheckbox form-check-input" name="" id="" data-id="{{$c->id_candidate}}"></td>
+                    <td style="font-weight: 500;cursor: pointer;" onclick="detailCandidate({{$c->id_candidate}})">
                         {{$c->nama}}
                     </td>
                     <td class="">

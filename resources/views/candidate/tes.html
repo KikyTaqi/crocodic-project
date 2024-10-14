@@ -3,134 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate Profile</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Date Select</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
         body {
             font-family: 'Poppins', sans-serif;
-        }
-        .profile-header {
             display: flex;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #e0e0e0;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
         }
-        .profile-header img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
+
+        .date-select-container {
+            width: 300px;
         }
-        .profile-header .info {
-            margin-left: 20px;
-        }
-        .profile-header .info .name {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .profile-header .info .details {
+
+        select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
             font-size: 16px;
-            color: #666;
-        }
-        .nav-tabs {
-            margin-top: 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .nav-tabs .nav-item .nav-link {
-            font-size: 16px;
-            color: #333;
-        }
-        .nav-tabs .nav-item .nav-link.active {
-            font-weight: bold;
-            color: #007bff;
-        }
-        .tab-content {
-            padding: 20px;
-            background-color: #fff;
-        }
-        .bio-data {
-            text-align: center;
-        }
-        .bio-data img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-        }
-        .bio-data .name {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .bio-data .info {
-            font-size: 16px;
-            color: #666;
-        }
-        .experience {
-            margin-top: 20px;
-        }
-        .experience .title {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .experience .content {
-            font-size: 16px;
-            color: #333;
+            cursor: pointer;
+            box-sizing: border-box;
+            appearance: none;
+            background-color: white;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="profile-header">
-            <img src="https://via.placeholder.com/100" alt="Profile Picture">
-            <div class="info">
-                <div class="name">Budi Santoso</div>
-                <div class="details">Marketing at Lazada</div>
-                <div class="details">Jakarta Selatan</div>
-                <div class="details">budi@gmail.com | 0878 8888 8888</div>
-            </div>
-        </div>
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#resume">Resume</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#question-job">Question Job</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#process">Process</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#history-candidate">History Candidate</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#log-activity">Log Activity</a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div id="resume" class="container tab-pane active">
-                <div class="bio-data">
-                    <img src="https://via.placeholder.com/150" alt="John Smith">
-                    <div class="name">John Smith</div>
-                    <div class="info">Fresh Graduate/Sales</div>
-                    <div class="info">Jakarta, 10 Mei 2000</div>
-                    <div class="info">Laki-Laki</div>
-                    <div class="info">Belum Menikah</div>
-                    <div class="info">Islam</div>
-                    <div class="info">175cm | 70kg</div>
-                </div>
-                <div class="experience">
-                    <div class="title">Pengalaman Kerja</div>
-                    <div class="content">
-                        <p>Web Design & Development Team Leader</p>
-                        <p>Infomedia Solusi Humanika</p>
-                        <p>May – September 2023</p>
-                        <p>Bertanggung jawab untuk pengembangan perangkat lunak...</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Add content for other tabs here -->
-        </div>
+    <div class="date-select-container">
+        <select id="dateSelect"></select>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateSelect = document.getElementById('dateSelect');
+            const numberOfDays = 30; // Jumlah hari ke depan yang akan ditampilkan
+
+            function formatDate(date) {
+                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+                const formattedDate = date.toLocaleDateString('en-US', options);
+                const parts = formattedDate.split(', ');
+                return `${parts[0]}, ${parts[1]} ${parts[2]}`;
+            }
+
+            function generateDates() {
+                const today = new Date();
+                for (let i = 0; i < numberOfDays; i++) {
+                    const currentDate = new Date(today);
+                    currentDate.setDate(today.getDate() + i);
+                    const option = document.createElement('option');
+                    option.value = currentDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
+                    option.textContent = formatDate(currentDate);
+                    dateSelect.appendChild(option);
+                }
+            }
+
+            generateDates();
+        });
+    </script>
 </body>
 </html>

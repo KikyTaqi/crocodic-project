@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\candidate;
 use App\Models\job;
+use App\Models\activity;
+use App\Models\notes;
+use App\Models\User;
 
 class CandidateCont extends Controller
 {
@@ -32,6 +36,10 @@ class CandidateCont extends Controller
     }
 
     public function candidateDetailView(){
+        $user = null;
+        if(Auth()->user()){
+            $user = Auth()->user();
+        }
         $candidates = candidate::get();
         $first = candidate::orderBy('id_candidate', 'asc')->limit(1)->get();
         // if ($first) {
@@ -44,16 +52,108 @@ class CandidateCont extends Controller
         //     dd('gak iso');
         //     // echo "Tidak ada kandidat ditemukan.";
         // }
+        $job = null;
+        $notes = null;
+        $activity = null;
+        $users = User::get();
+        foreach ($first as $f) {
+            $job = job::where('id_job','=',$f->id_job)->get();
+            $activity = activity::where('id_candidate','=',$f->id_candidate)->orderBy('tgl','ASC')->get();
+            $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
+            ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
+            ->join('users', 'notes.id_user', '=', 'users.id')
+            ->where('notes.id_candidate', '=', $f->id_candidate)
+            ->orderBy('notes.time', 'DESC')
+            ->get();
+        }
         $jobs = job::get();
-        return view('candidate.detail_candidates', ['candidateDetail' => $first,'candidates' => $candidates,'jobs' => $jobs,'first' => $first]);
+        return view('candidate.detail_candidates', ['user' => $user,'activity' => $activity,'users' => $users,'notes' => $notes,'candidateDetail' => $first,'candidates' => $candidates,'jobs' => $jobs,'job' => $job,'first' => $first]);
     }
     public function candidateDetailViewId(Request $req){
+        $user = null;
+        if(Auth()->user()){
+            $user = Auth()->user();
+        }
         $candidates = candidate::get();
         $candidate = candidate::where('id_candidate','=',$req->id)->get();
         // $first = candidate::get()->first();
         // dd($first);
+        $job = null;
+        $notes = null;
+        $activity = null;
+        $users = User::get();
+        foreach ($candidate as $c) {    
+            $job = job::where('id_job','=',$c->id_job)->get();
+            $activity = activity::where('id_candidate','=',$c->id_candidate)->orderBy('tgl','ASC')->get();
+            $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
+            ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
+            ->join('users', 'notes.id_user', '=', 'users.id')
+            ->where('notes.id_candidate', '=', $c->id_candidate)
+            ->orderBy('notes.time', 'DESC')
+            ->get();
+        }
         $jobs = job::get();
         // dd($candidate);
-        return view('candidate.detail_candidates', ['candidateDetail' => $candidate,'jobs' => $jobs,'first' => '','candidates' => $candidates]);
+        return view('candidate.detail_candidates', ['activity' => $activity,'users' => $users,'notes' => $notes,'user' => $user,'candidateDetail' => $candidate,'jobs' => $jobs,'job' => $job,'first' => '','candidates' => $candidates]);
+    }
+    public function notesAdd(Request $request)
+    {
+        $validatedData = $request->validate([
+            'id_candidate' => 'required|integer',
+            'id_user' => 'required|integer',
+            'time' => 'required',
+            'note' => 'required|string',
+        ]);
+
+        $note = new Notes();
+        $note->id_candidate = $validatedData['id_candidate'];
+        $note->id_user = $validatedData['id_user'];
+        $note->time = $validatedData['time'];
+        $note->note = $validatedData['note'];
+        $note->save();
+
+        $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
+            ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
+            ->join('users', 'notes.id_user', '=', 'users.id')
+            ->where('notes.id_candidate', '=', $note->id_candidate)
+            ->orderBy('notes.time', 'DESC')
+            ->limit(1)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Note added successfully',
+            'notes' => $notes
+        ]);
+    }
+    public function notesAddResume(Request $request)
+    {
+        $validatedData = $request->validate([
+            'id_candidate' => 'required|integer',
+            'id_user' => 'required|integer',
+            'time' => 'required',
+            'note' => 'required|string',
+        ]);
+
+        $note = new Notes();
+        $note->id_candidate = $validatedData['id_candidate'];
+        $note->id_user = $validatedData['id_user'];
+        $note->time = $validatedData['time'];
+        $note->note = $validatedData['note'];
+        $note->save();
+
+        $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
+            ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
+            ->join('users', 'notes.id_user', '=', 'users.id')
+            ->where('notes.id_candidate', '=', $note->id_candidate)
+            ->orderBy('notes.time', 'DESC')
+            ->limit(1)
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Note added successfully',
+            'notes' => $notes
+        ]);
     }
 }
