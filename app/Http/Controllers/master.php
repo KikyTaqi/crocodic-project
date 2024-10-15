@@ -30,7 +30,7 @@ class master extends Controller
     }
 
     public function jobs(){
-        $jobs = job::paginate(15);
+        $jobs = job::orderBy('id_job', 'desc')->paginate(15);
 
         return view('jobs/jobs', ['jobs' => $jobs]);
     }
@@ -374,5 +374,10 @@ class master extends Controller
         job::where('id_job', $id)->update(['status' => $r->status]);
         return redirect()->back()->with('update_status_success', 'Berhasil Mengubah Status');
     }
+
+
+    // public function notif(request $r){
+    //     job::where('id_job', $r->id )
+    // }
 
 }

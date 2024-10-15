@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class ReportCont extends Controller
 {
     public function hiringIndex(){
-        return view('report_hiring.index');
+        return view('report.hiring');
+    }
+
+    public function joIndex(){
+        return view('report.jo');
     }
 }

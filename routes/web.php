@@ -48,10 +48,11 @@ Route::group([
     
     Route::get('/cancel-join', [CancelCont::class, 'cancel_join'])->name('cancel-join');
     Route::get('/cancel-join/create', [CancelCont::class, 'create'])->name('cancel-join');
+    
+    Route::get('/report-hiring', [ReportCont::class, 'hiringIndex']);
+    Route::get('/report-job-order', [ReportCont::class, 'joIndex']);
 });
 
-
-Route::get('/report-hiring', [ReportCont::class, 'hiringIndex']);
 
 
 

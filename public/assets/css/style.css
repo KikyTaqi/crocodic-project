@@ -377,6 +377,10 @@ body {
             color: #41806D !important;
         }
 
+        .text-green{
+            color: #41806D !important;
+        }
+
         .btn-white-outline{
             border: solid 1px #8d8e8f;
             color: #8d8e8f;
@@ -1584,4 +1588,8 @@ body {
 
 .gi-export-green{
     background-image: url('/assets/export-green.svg');
+}
+
+.gi-deal-white{
+    background-image: url('/assets/deal_white.svg');
 }
