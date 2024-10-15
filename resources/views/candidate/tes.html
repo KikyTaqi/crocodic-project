@@ -3,67 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Select</title>
+    <title>Star Rating</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f9f9f9;
-        }
-
-        .date-select-container {
-            width: 300px;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+        .star-container {
+            display: inline-block;
+            font-size: 30px;
+            color: lightgrey;
+            position: relative;
             cursor: pointer;
-            box-sizing: border-box;
-            appearance: none;
-            background-color: white;
+        }
+
+        .star-container .star {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="lightgrey"><path d="M12 .288l2.833 8.718h9.167l-7.416 5.388 2.833 8.718-7.417-5.387-7.417 5.387 2.834-8.718-7.416-5.388h9.166z"/></svg>') no-repeat center center;
+            background-size: contain;
+        }
+
+        .star-container .star.full,
+        .star-container .star.half::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold"><path d="M12 .288l2.833 8.718h9.167l-7.416 5.388 2.833 8.718-7.417-5.387-7.417 5.387 2.834-8.718-7.416-5.388h9.166z"/></svg>');
+        }
+
+        .star-container .star.half {
+            position: relative;
+        }
+
+        .star-container .star.half::before {
+            content: '';
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
-    <div class="date-select-container">
-        <select id="dateSelect"></select>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dateSelect = document.getElementById('dateSelect');
-            const numberOfDays = 30; // Jumlah hari ke depan yang akan ditampilkan
 
-            function formatDate(date) {
-                const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-                const formattedDate = date.toLocaleDateString('en-US', options);
-                const parts = formattedDate.split(', ');
-                return `${parts[0]}, ${parts[1]} ${parts[2]}`;
-            }
+<div id="rating">
+    <span class="star-container">
+        <span class="star" data-value="0.5"></span>
+        <span class="star" data-value="1"></span>
+    </span>
+    <span class="star-container">
+        <span class="star" data-value="1.5"></span>
+        <span class="star" data-value="2"></span>
+    </span>
+    <span class="star-container">
+        <span class="star" data-value="2.5"></span>
+        <span class="star" data-value="3"></span>
+    </span>
+    <span class="star-container">
+        <span class="star" data-value="3.5"></span>
+        <span class="star" data-value="4"></span>
+    </span>
+    <span class="star-container">
+        <span class="star" data-value="4.5"></span>
+        <span class="star" data-value="5"></span>
+    </span>
+</div>
 
-            function generateDates() {
-                const today = new Date();
-                for (let i = 0; i < numberOfDays; i++) {
-                    const currentDate = new Date(today);
-                    currentDate.setDate(today.getDate() + i);
-                    const option = document.createElement('option');
-                    option.value = currentDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
-                    option.textContent = formatDate(currentDate);
-                    dateSelect.appendChild(option);
-                }
-            }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const stars = document.querySelectorAll('.star');
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const value = parseFloat(this.getAttribute('data-value'));
+                highlightStars(value);
+                console.log('Rated:', value);
 
-            generateDates();
+                // Kirim rating ke server
+                const dataStarSend = {
+                    id_kandidat: 1, // Ganti dengan ID kandidat yang sesuai
+                    id_user: 1, // Ganti dengan ID user yang sesuai
+                    rate: value,
+                    tgl: new Date().toISOString().split('T')[0], // Format tanggal menjadi yyyy-mm-dd
+                    _token: '{{ csrf_token() }}' // Jangan lupa menambahkan CSRF token
+                };
+
+                $.ajax({
+                    url: '/candidates/detail/add_rating', // URL endpoint untuk menambahkan rating
+                    type: 'POST',
+                    data: dataStarSend,
+                    success: function(response) {
+                        console.log('Rating added successfully');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
         });
-    </script>
+
+        function highlightStars(value) {
+            stars.forEach(star => {
+                const starValue = parseFloat(star.getAttribute('data-value'));
+                if (starValue <= value) {
+                    star.classList.add('full');
+                    if (starValue === value && value % 1 !== 0) {
+                        star.classList.add('half');
+                    } else {
+                        star.classList.remove('half');
+                    }
+                } else {
+                    star.classList.remove('full');
+                    star.classList.remove('half');
+                }
+            });
+        }
+    });
+</script>
+
 </body>
 </html>

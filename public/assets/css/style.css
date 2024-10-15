@@ -1537,3 +1537,303 @@ body {
 .form-control:focus{
     border-color: #327c66;
 }
+.schedule-modal .modal-dialog{
+    min-width: 709px;
+}
+.schedule-modal .modal-dialog .modal-content{
+    border-radius: 6px;
+    min-height: 788px;
+}
+.schedule-modal .modal-dialog .modal-content .modal-header,
+.schedule-modal .modal-dialog .modal-content .modal-body{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.schedule-modal .modal-dialog .modal-content .modal-header{
+    height: 67px;
+}
+.schedule-modal .modal-title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+}
+.schedule-modal .btn-close{
+    font-size: 12px;
+    font-weight: 600;
+}
+.select-date.schedule{
+    width: 235px;
+}
+.schedule-input-top{
+    display: flex;
+}
+.schedule-input-top .left{
+    width: 255px;
+    border-right: 1px solid #E7E7ED;
+}
+.schedule-input-top .right{
+    padding-left: 20px;
+    display: flex;
+}
+.schedule-input-top .right select{
+    width: 107px;
+}
+.time-divider{
+    height: 20px;
+    width: 7px;
+    border-bottom: 1px solid #646464;
+    margin: 0 5px 0 5px;
+}
+.time-difference{
+    color: #646464;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.input-group-schedule{
+    margin: 15px 0 15px 0;
+}
+.input-group-schedule .select2-selection.select2-selection--multiple{
+    width: 645px !important;
+}
+.input-title{
+    font-size: 14px;
+    color: #ADADAD;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+.interview-type {
+    display: flex;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 262px;
+    /* height: 38px !important; */
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.interview-type label {
+    height: fit-content;
+    font-size: 12px;
+    flex: 1;
+    padding: 4px 0;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    /* border-right: 1px solid #ddd; */
+    margin: 0;
+}
+
+.interview-type label:last-child {
+    border-right: none;
+}
+
+.interview-type input[type="radio"] {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.interview-type input[type="radio"]:checked + label {
+    background-color: #C1E7CD;
+    color: #18554F;
+    padding: 4px 0px;
+    border-radius: 3px;
+}
+.custom-switch {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 28px;
+}
+
+.custom-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.custom-switch input:checked + .custom-control-label {
+    background-color: #69c1b3;
+}
+
+.custom-switch input:focus + .custom-control-label {
+    box-shadow: 0 0 1px #69c1b3;
+}
+
+.custom-control-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.custom-control-label:before {
+    position: absolute;
+    content: "";
+    height: 36px;
+    width: 36px;
+    /* left: 4px; */
+    /* top: 0px; */
+    bottom: -4px;
+    background-color: white;
+    transition: 0.1s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #B1B1B1;
+}
+
+input:checked + .custom-control-label:before {
+    transform: translateX(28px);
+}
+
+.custom-control-input:checked + .custom-control-label {
+    background-color: #81B29A;
+}
+
+.custom-control-input:checked + .custom-control-label::before {
+    background-color: white;
+    transform: translateX(28px);
+}
+.input-group-meeting{
+    position: relative;
+    width: fit-content;
+}
+.input-group-meeting .line{
+    top: 11px;
+    left: 16px;
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    border-right: 1px solid #D4D4D4;
+}
+.btn-copy{
+    right: 20px;
+    top: 6px;
+    position: absolute;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 0;
+    background-color: #C1E7CD;
+    color: #18554F;
+    font-size: 12px;
+}
+.btn-copy:hover{
+    background-color: #b5d8c0;
+}
+#textCopied{
+    font-size: 12px;
+    color: #18554F;
+}
+.btn-cancel{
+    padding: 10px 11px;
+    background-color: #E4E4E4;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #A7A7A7;
+    border: 0;
+    letter-spacing: 1px;
+}
+.btn-schedule2{
+    padding: 10px 16px;
+    background-color: #41806D;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    letter-spacing: 1px;
+    margin-left: 10px;
+}
+.sidebar-move{
+    width: 634px;
+    height: 860px;
+}
+.title-move{
+    font-size: 16px;
+    font-weight: 600;
+}
+.title-grey{
+    color: #646464;
+    font-size: 16px;
+    font-weight: 500;
+}
+.sidebar-move .offcanvas-header{
+    height: 80px;
+    padding-left: 35px;
+}
+.input-move{
+    height: 45px;
+    font-size: 14px;
+    padding-left: 20px;
+}
+.input-move:focus{
+    outline: none;
+    border: 1.5px solid #5E9982;
+}
+.row-data{
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+    -webkit-box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+    -moz-box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+}
+.row-data .data{
+    padding: 8px 10px 8px 10px;
+}
+.row-data .data:hover{
+    background-color: #DCF7E1;
+    border-radius: 5px;
+}
+.data-loc{
+    font-size: 12px;
+    color: #646464;
+    margin-bottom: 0;
+}
+.s-draft{
+    width: 80px;
+    height: 26px;
+    text-align: center;
+    background-color: #E4E4E4;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #A7A7A7;
+    padding-top: 4px;
+}
+.s-published{
+    width: 95px;
+    height: 26px;
+    text-align: center;
+    background-color: #41806D;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    padding-top: 4px;
+}
+.s-internal{
+    width: 82px;
+    height: 26px;
+    text-align: center;
+    background-color: #F2CC8F;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    padding-top: 4px;
+}
+.data-name{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+}

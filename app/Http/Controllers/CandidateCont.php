@@ -58,7 +58,7 @@ class CandidateCont extends Controller
         $users = User::get();
         foreach ($first as $f) {
             $job = job::where('id_job','=',$f->id_job)->get();
-            $activity = activity::where('id_candidate','=',$f->id_candidate)->orderBy('tgl','ASC')->get();
+            $activity = activity::where('id_candidate','=',$f->id_candidate)->orderBy('id','ASC')->get();
             $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
             ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
             ->join('users', 'notes.id_user', '=', 'users.id')
@@ -84,7 +84,7 @@ class CandidateCont extends Controller
         $users = User::get();
         foreach ($candidate as $c) {    
             $job = job::where('id_job','=',$c->id_job)->get();
-            $activity = activity::where('id_candidate','=',$c->id_candidate)->orderBy('tgl','ASC')->get();
+            $activity = activity::where('id_candidate','=',$c->id_candidate)->orderBy('id','DESC')->get();
             $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
             ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
             ->join('users', 'notes.id_user', '=', 'users.id')
@@ -154,6 +154,36 @@ class CandidateCont extends Controller
             'success' => true,
             'message' => 'Note added successfully',
             'notes' => $notes
+        ]);
+    }
+    public function addRating(Request $req){
+        $validatedData = $req->validate([
+            'id_kandidat' => 'required|integer',
+            'id_user' => 'required|integer',
+            'tgl' => 'required',
+            'rate' => 'required|integer',
+        ]);
+
+        $updateStar = candidate::where('id_candidate','=',$req->id_kandidat)->update([
+                            'rating' => $req->rate
+                        ]);
+        if($updateStar){
+            $activity = new Activity();
+            $activity->id_candidate = $validatedData['id_kandidat'];
+            $activity->id_user = $validatedData['id_user'];
+            $activity->tgl = $validatedData['tgl'];
+            $activity->deskripsi = 'Kandidat dinilai '.$validatedData['rate'].' bintang';
+            $activity->type = 'star';
+            $activity->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Rating successfully',
+            ]);
+        }
+        return response()->json([
+            'success' => false,
+            'message' => 'Rating failed',
         ]);
     }
 }
