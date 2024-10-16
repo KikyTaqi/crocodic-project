@@ -34,21 +34,6 @@
                 display: none;
             }
 
-            .gi {
-                display: inline-block; /* Agar ikon dapat ditata secara inline */
-                width: 24px; /* Sesuaikan lebar ikon */
-                height: 24px; /* Sesuaikan tinggi ikon */
-                vertical-align: middle; /* Menyelaraskan ikon dengan teks di tengah */
-                margin-right: 3px; /* Spasi antara ikon dan teks */
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-
-
-            .gi-pencil{
-                background-image: url('/assets/edit.svg');
-            }
 
             .gj-color-green{
                 background: #41806D;

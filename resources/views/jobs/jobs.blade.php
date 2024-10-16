@@ -180,7 +180,7 @@
                                         <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src="{{ asset('assets/plus.svg') }}" alt="">
                                         </a>
-                                        <ul class="dropdown-menu drp-down">
+                                        <ul class="dropdown-menu drp-down text-green">
                                             <li><a class="dropdown-item" href="/jobs/edit/{{$j->id_job}}"><i class="bi bi-pencil-fill me-2"></i> Edit</a></li>
                                             <li><a href="#" onclick="submitDuplicateForm({{ $j->id_job }}); return false;" class="dropdown-item"><i class="bi bi-copy me-2"></i> Duplicate</a></li>
                                             <li><a onclick="submitDeleteForm({{ $j->id_job }}); return false;" class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i> Delete</a></li>
@@ -190,7 +190,7 @@
                                         <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src="{{ asset('assets/approve.svg') }}" alt="">
                                         </a>
-                                        <ul class="dropdown-menu drp-down">
+                                        <ul class="dropdown-menu drp-down text-green">
                                             <li><a class="dropdown-item" href="/jobs/edit/{{$j->id_job}}"><i class="bi bi-pencil-fill me-2"></i> Edit</a></li>
                                             <li><a href="#" onclick="submitDuplicateForm({{ $j->id_job }}); return false;" class="dropdown-item"><i class="bi bi-copy me-2"></i> Duplicate</a></li>
                                             <li><a onclick="submitDeleteForm({{ $j->id_job }}); return false;" class="dropdown-item" href="#"><i class="bi bi-trash me-2"></i> Delete</a></li>

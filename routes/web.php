@@ -7,6 +7,7 @@ use App\Http\Controllers\formBuilderController;
 use App\Http\Controllers\CandidateCont;
 use App\Http\Controllers\HiringCont;
 use App\Http\Controllers\CancelCont;
+use App\Http\Controllers\ReportCont;
 
 Route::get('/', [Login::class,'login'])->name('login');
 Route::post('/login', [Login::class,'prsLogin']);
@@ -48,6 +49,9 @@ Route::group([
     
     Route::get('/cancel-join', [CancelCont::class, 'cancel_join'])->name('cancel-join');
     Route::get('/cancel-join/create', [CancelCont::class, 'create'])->name('cancel-join');
+    
+    Route::get('/report-hiring', [ReportCont::class, 'hiringIndex']);
+    Route::get('/report-job-order', [ReportCont::class, 'joIndex']);
 });
 
 

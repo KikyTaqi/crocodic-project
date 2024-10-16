@@ -49,7 +49,7 @@
             <br>
             <a class="back" href="/jobs/detail/{{$id}}"><i class="bi bi-chevron-left"></i> Jobs/Setting</a>
         </div>
-        <div class="row mt-4 mx-3">
+        <div class="row mt-4 mb-4 mx-3">
             <div class="col-md-2">
                 <p>Setting</p>
                 <ul class="nav nav-pills" id="pills-tab" role="tablist" style="font-size: 15px;">
@@ -271,29 +271,32 @@
                                 <p style="font-size: 12px; line-height: 1;">Setiap pemohon menerima pemberitahuan konfirmasi default untuk mengkonfirmasi aplikasi mereka</p>
                             </div>
                             <div class="card-body px-4">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Use custom auto response</label>
-                                </div>
+                                <form action="" method="post">
+                                    @csrf
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="toggleReadonly()">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Use custom auto response</label>
+                                    </div>
+                                    <input type="hidden" name="id_job" value="{{$id}}">
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <p>Subject</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <input name="subject" id="subject" type="text" class="form-control">
+                                        </div>
+                                    </div>
 
-                                <div class="row mt-3">
-                                    <div class="col-md-4">
-                                        <p>Subject</p>
+                                    <div class="row mt-4">
+                                        <div class="col-md-4">
+                                            <p>Body</p>
+                                        </div>
+                                        <div class="col-md">
+                                            <textarea name="body" id="body" class="form-control" style="min-height: 240px; max-height: 240px; resize: none; text-align: left;"></textarea>
+                                            <button type="button" class="btn btn-success mt-4" style="width: 96px">Save</button>
+                                        </div>
                                     </div>
-                                    <div class="col-md">
-                                        <input name="subject" type="text" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="row mt-4">
-                                    <div class="col-md-4">
-                                        <p>Body</p>
-                                    </div>
-                                    <div class="col-md">
-                                        <textarea name="body" id="" class="form-control" style="min-height: 240px; max-height: 240px"></textarea>
-                                        <button type="button" class="btn btn-success mt-4" style="width: 96px">Save</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
 
@@ -406,5 +409,32 @@
                 });
             });
         });
+
+
+function toggleReadonly() {
+    const checkbox = document.getElementById('flexSwitchCheckDefault');
+    const subjectInput = document.getElementById('subject');
+    const bodyTextarea = document.getElementById('body');
+
+    if (checkbox.checked) {
+        subjectInput.value = 'Application to ISH';
+        bodyTextarea.value = `Dear [NAMA DEPAN],
+Terima kasih atas ketertarikan Anda pada ISH.
+
+Setiap lamaran Anda diperhatikan dengan seksama. Kami akan segera menghubungi Anda jika ada kesesuaian yang cocok.
+
+Jangan khawatir, jika belum ada kesempatan yang tepat saat ini, lamaran Anda tetap kami simpan 
+untuk masa depan.
+
+Salam hangat dari kami di ISH`.trim(); // Ensures no extra spaces
+        subjectInput.readOnly = true;
+        bodyTextarea.readOnly = true;
+    } else {
+        subjectInput.readOnly = false;
+        bodyTextarea.readOnly = false;
+        subjectInput.value = '';
+        bodyTextarea.value = '';
+    }
+}
 
 </script>

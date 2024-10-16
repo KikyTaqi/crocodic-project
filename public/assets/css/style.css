@@ -372,9 +372,19 @@ body {
             background-color: #41806D;
         }
 
+        .bg-light-green{
+            background-color: #DCF7E1 !important;
+            color: #41806D !important;
+        }
+
+        .text-green{
+            color: #41806D !important;
+        }
+
         .btn-white-outline{
             border: solid 1px #8d8e8f;
             color: #8d8e8f;
+            background-color: white;
         }
 
         .percent{
@@ -1836,4 +1846,50 @@ input:checked + .custom-control-label:before {
     font-size: 14px;
     font-weight: 600;
     color: #333333;
+}
+
+
+.gi {
+    display: inline-block; /* Agar ikon dapat ditata secara inline */
+    width: 1em; /* Sesuaikan lebar ikon */
+    height: 1em; /* Sesuaikan tinggi ikon */
+    vertical-align: middle; /* Menyelaraskan ikon dengan teks di tengah */
+    margin-right: 3px; /* Spasi antara ikon dan teks */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: inherit;
+}
+
+
+.gi-pencil{
+    background-image: url('/assets/edit.svg');
+}
+
+.gi-pelamar-green {
+    background-image: url('/assets/pelamar_green.svg');
+}
+
+.gi-pelamar-white {
+    background-image: url('/assets/pelamar_white.svg');
+}
+
+.gi-job-white{
+    background-image: url('/assets/job_white.svg');
+}
+
+.gi-job-green{
+    background-image: url('/assets/job_green.svg');
+}
+
+.gi-export{
+    background-image: url('/assets/export.svg');
+}
+
+.gi-export-green{
+    background-image: url('/assets/export-green.svg');
+}
+
+.gi-deal-white{
+    background-image: url('/assets/deal_white.svg');
 }

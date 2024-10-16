@@ -39,8 +39,8 @@
                                 Report <i class="bi bi-chevron-down"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Hiring</a></li>
-                                <li><a class="dropdown-item" href="#">Job Order</a></li>
+                                <li><a class="dropdown-item" href="/report-hiring">Hiring</a></li>
+                                <li><a class="dropdown-item" href="/report-job-order">Job Order</a></li>
                             </ul>
                         </li>
                         <li class="nav-item me-3">
