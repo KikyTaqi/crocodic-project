@@ -1893,3 +1893,283 @@ input:checked + .custom-control-label:before {
 .gi-deal-white{
     background-image: url('/assets/deal_white.svg');
 }
+.profile-modal .modal-dialog{
+    min-width: 1280px;
+}
+.profile-modal .modal-dialog .modal-content{
+    border-radius: 6px;
+    min-height: 788px;
+    background-color: #F6F6F6;  
+}
+.profile-modal .modal-dialog .modal-content .modal-header{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.profile-modal .modal-dialog .modal-content .modal-body{
+    padding-top: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.profile-modal .profile-left{
+    width: 334px;
+    height: 1857px;
+    border: 0;
+    background-color: #fff;
+    border-radius: 16px;
+}
+.profile-modal .profile-right{
+    margin-left: 15px;
+    width: 882px;
+}
+.profile-modal .modal-title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+}
+.profile-modal .btn-close{
+    font-size: 12px;
+    font-weight: 600;
+}
+.gi-pencil-orange{
+    background-image: url('/assets/icon-detail-candidate/edit-orange.svg');
+}
+.profile-modal .profile-left .row.name{
+    padding: 24px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #E3E3E3;
+}
+.profile-modal .profile-foto-4{
+    border-radius: 60px;
+    padding: 4px;
+    border: 1px solid #D4D4D4;
+    width: fit-content;
+}
+.profile-modal .profile-foto-4 img{
+    width: 100px !important; /* Sesuaikan ukuran sesuai kebutuhan */
+    height: 100px; /* Pastikan height sama dengan width untuk aspek rasio 1:1 */
+    object-fit: cover; /* Menjaga proporsi gambar */
+    border-radius: 50%; /* Jika ingin gambar berbentuk lingkaran */
+    aspect-ratio: 1/1;
+}
+.profile-modal .row.name button{
+    position: absolute;
+    width: fit-content;
+    top: 20px;
+    right: 20px;
+}
+.profile-modal .row.name .name-candidate{
+    font-size: 24px;
+    color: #504F4F;
+    font-weight: 600;
+    width: fit-content;
+    margin: 20px 0 4px 0;
+}
+.profile-modal .row.name .title-candidate{
+    font-size: 16px;
+    font-weight: 400;
+    color: #797979;
+    margin: 0;
+    width: fit-content;
+}
+.profile-modal .row.biodata{
+    padding: 24px 15px;
+    border-bottom: 1px solid #E3E3E3;
+}
+.profile-modal .row.biodata:last-child{
+    border-bottom: 0px;
+}
+.profile-modal .row.biodata .wrap-title{
+    display: flex;
+    width: 100%;
+}
+.profile-modal .row.biodata .wrap-title .title{
+    color: #333333;
+    font-size: 16px;
+}
+.profile-modal .row.biodata .wrap-title button{
+    margin-left: auto;
+}
+.w-fit{
+    width: fit-content;
+}
+.h-fit{
+    height: fit-content;
+}
+.wrap-biodata{
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+    margin: 0;
+}
+.wrap-biodata *{
+    width: fit-content;
+}
+.wrap-biodata .row-biodata{
+    display: flex;
+    margin-bottom: 10px;
+}
+.wrap-biodata .row-biodata img{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.wrap-biodata .text{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #363636;
+}
+.profile-modal .profile-right .wrap-title{
+    display: flex;
+    width: 100%;
+}
+.profile-modal .profile-right .wrap-title .title{
+    color: #333333;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.profile-modal .profile-right .wrap-title button{
+    margin-left: auto;
+}
+.profile-modal .profile-right .card-body .text{
+    color: #646464;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+.profile-modal .profile-right .card{
+    border-radius: 16px;
+}
+.profile-modal .profile-right .card .card-heading,
+.profile-modal .profile-right .card .card-body{
+    padding: 20px;
+}
+.profile-job-experience {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.profile-job-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1rem;
+    position: relative;
+    margin-right: 30px;
+}
+
+.profile-letter-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FA69001A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #FA6900;
+    font-size: 28px;
+    z-index: 1;
+    position: relative;
+}
+
+.profile-job-experience:not(:last-child):before {
+    content: "";
+    position: absolute;
+    top: 70px;
+    left: 28px;
+    width: 2px;
+    border-left: 2px dashed #BFBFBF;
+    height: 80%;
+    z-index: 0;
+}
+
+.profile-job-details {
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+.profile-job-details h5{
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+}
+.profile-job-details .job-description-title{
+    color: #363636;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.profile-job-details .job-info{
+    color: #535353;
+    font-size: 16px;
+    font-weight: 400;
+}
+.profile-job-details .job-detail-info{
+    color: #363636;
+    font-size: 14px;
+    font-weight: 400;
+}
+.profile-job-details .job-list-desc{
+    color: #535353;
+    font-size: 14px;
+    font-weight: 400;
+}
+.title-group-contact{
+    display: flex;
+}
+.contact-required{
+    color: red;
+    font-weight: 600;
+    font-size: 16px;
+}
+.contact-title{
+    color: #333333;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.input-contact{
+    height: 41px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #D4D4D4;
+    outline: 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+.input-contact:focus{
+    border: 1px solid #c2c2c2;
+}
+.upload-group-contact{
+    position: relative;
+    width: fit-content;
+}
+.upload-group-contact input::-webkit-file-upload-button{
+    display: none;
+}
+.upload-group-contact input{
+    color: #646464 !important;
+    cursor: pointer;
+}
+.upload-group-contact img{
+    pointer-events: none;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    rotate: 180deg;
+}
+.p-27{
+    padding-left: 27px !important;
+    padding-right: 27px !important;
+}

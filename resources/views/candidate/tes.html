@@ -3,121 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Rating</title>
+    <title>Job Experience</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <style>
-        .star-container {
-            display: inline-block;
-            font-size: 30px;
-            color: lightgrey;
-            position: relative;
-            cursor: pointer;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
         }
 
-        .star-container .star {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="lightgrey"><path d="M12 .288l2.833 8.718h9.167l-7.416 5.388 2.833 8.718-7.417-5.387-7.417 5.387 2.834-8.718-7.416-5.388h9.166z"/></svg>') no-repeat center center;
-            background-size: contain;
-        }
-
-        .star-container .star.full,
-        .star-container .star.half::before {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold"><path d="M12 .288l2.833 8.718h9.167l-7.416 5.388 2.833 8.718-7.417-5.387-7.417 5.387 2.834-8.718-7.416-5.388h9.166z"/></svg>');
-        }
-
-        .star-container .star.half {
+        .job-experience {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
             position: relative;
         }
 
-        .star-container .star.half::before {
-            content: '';
-            display: inline-block;
-            width: 50%;
-            height: 100%;
+        .job-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 1rem;
+            position: relative;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #FA69001A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            color: #FA6900;
+            font-size: 28px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .job-experience::before {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            overflow: hidden;
+            top: 70px;
+            left: 28px;
+            width: 2px;
+            border-left: 2px dashed #BFBFBF;
+            height: 80%;
+            z-index: 0;
+        }
+
+        .job-details {
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
+    <div class="container mt-5">
+        <div class="job-experience">
+            <div class="job-icon">
+                <div class="icon"></div>
+            </div>
+            <div class="job-details">
+                <h5>Oeb Design & Development Team Leader</h5>
+                <p>Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                <p><i class="bi bi-geo-alt"></i> Depok <i class="bi bi-briefcase"></i> Digital Marketing <i class="bi bi-journal"></i> Magang <i class="bi bi-currency-dollar"></i> IDR 7.500.000</p>
+                <p>Deskripsi Pekerjaan:</p>
+                <ul>
+                    <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                    <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                    <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                    <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="job-experience">
+            <div class="job-icon">
+                <div class="icon"></div>
+            </div>
+            <div class="job-details">
+                <h5>Sroject Manager</h5>
+                <p>CyberTech Startup | Desember 2021 - May 2022 | 2 bulan pengalaman</p>
+                <p><i class="bi bi-geo-alt"></i> Jakarta <i class="bi bi-journal"></i> Magang <i class="bi bi-currency-dollar"></i> IDR 7.500.000</p>
+                <p>Deskripsi Pekerjaan:</p>
+                <ul>
+                    <li>Memimpin pengembangan produk dari konsep hingga peluncuran.</li>
+                    <li>Mengelola tim lintas fungsional, menganalisis pasar.</li>
+                    <li>Mengidentifikasi kebutuhan pengguna untuk mengarahkan pengembangan produk.</li>
+                    <li>Memastikan roadmap produk sesuai dengan visi perusahaan.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var jobExperiences = document.querySelectorAll('.job-experience');
+        jobExperiences.forEach(jobExp => {
+            var jobTitle = jobExp.querySelector('.job-details h5').innerHTML;
+            var icon = jobExp.querySelector('.job-icon .icon');
+            var firstLetter = jobTitle.charAt(0);
 
-<div id="rating">
-    <span class="star-container">
-        <span class="star" data-value="0.5"></span>
-        <span class="star" data-value="1"></span>
-    </span>
-    <span class="star-container">
-        <span class="star" data-value="1.5"></span>
-        <span class="star" data-value="2"></span>
-    </span>
-    <span class="star-container">
-        <span class="star" data-value="2.5"></span>
-        <span class="star" data-value="3"></span>
-    </span>
-    <span class="star-container">
-        <span class="star" data-value="3.5"></span>
-        <span class="star" data-value="4"></span>
-    </span>
-    <span class="star-container">
-        <span class="star" data-value="4.5"></span>
-        <span class="star" data-value="5"></span>
-    </span>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const stars = document.querySelectorAll('.star');
-        stars.forEach(star => {
-            star.addEventListener('click', function () {
-                const value = parseFloat(this.getAttribute('data-value'));
-                highlightStars(value);
-                console.log('Rated:', value);
-
-                // Kirim rating ke server
-                const dataStarSend = {
-                    id_kandidat: 1, // Ganti dengan ID kandidat yang sesuai
-                    id_user: 1, // Ganti dengan ID user yang sesuai
-                    rate: value,
-                    tgl: new Date().toISOString().split('T')[0], // Format tanggal menjadi yyyy-mm-dd
-                    _token: '{{ csrf_token() }}' // Jangan lupa menambahkan CSRF token
-                };
-
-                $.ajax({
-                    url: '/candidates/detail/add_rating', // URL endpoint untuk menambahkan rating
-                    type: 'POST',
-                    data: dataStarSend,
-                    success: function(response) {
-                        console.log('Rating added successfully');
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                    }
-                });
-            });
+            icon.innerHTML = firstLetter;
         });
-
-        function highlightStars(value) {
-            stars.forEach(star => {
-                const starValue = parseFloat(star.getAttribute('data-value'));
-                if (starValue <= value) {
-                    star.classList.add('full');
-                    if (starValue === value && value % 1 !== 0) {
-                        star.classList.add('half');
-                    } else {
-                        star.classList.remove('half');
-                    }
-                } else {
-                    star.classList.remove('full');
-                    star.classList.remove('half');
-                }
-            });
-        }
-    });
-</script>
-
+    </script>
 </body>
 </html>

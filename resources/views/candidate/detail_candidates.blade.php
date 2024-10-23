@@ -61,6 +61,9 @@
                         </div>
                     </div>
                 </div>
+
+
+                <!-- Modal Schedule -->
                 <div class="modal fade schedule-modal" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -160,6 +163,377 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                <!-- Modal Profile -->
+                <div class="modal fade profile-modal" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="profileModalLabel">View Profile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-auto profile-left">
+                                        <div class="row name">
+                                            <div class="profile-foto-4"><img src="{{asset('assets/profile_img/'.$c->foto_profile)}}" alt=""></div>
+                                            <button class="btn-none pencil-orange" style="width: fit-content;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt="" class="float-end"></button>
+                                            <h4 class="name-candidate">{{$c->nama}}</h4>
+                                            <p class="title-candidate">Developer</p>
+                                            <p class="title-candidate"><small>3 Tahun Pengalaman</small></p>
+                                        </div>
+                                        <div class="row biodata">
+                                            <div class="wrap-title">
+                                                <p class="title">Social Media</p>
+                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/instagram.svg')}}" alt="">
+                                                    <p class="text">johns</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/twitter.svg')}}" alt="">
+                                                    <p class="text">johnsmith</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/facebook.svg')}}" alt="">
+                                                    <p class="text">johnsmith</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/linkedin.svg')}}" alt="">
+                                                    <p class="text">John Smith</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata">
+                                            <div class="wrap-title">
+                                                <p class="title">Biodata</p>
+                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/date-cake.svg')}}" alt="">
+                                                    <p class="text">Jakarta, 10 Mei 2000</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/gender.svg')}}" alt="">
+                                                    <p class="text">
+                                                        @if($c->gender == 1)
+                                                        Laki-laki
+                                                        @else
+                                                        Perempuan
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/love.svg')}}" alt="">
+                                                    <p class="text">Belum menikah</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/pray.svg')}}" alt="">
+                                                    <p class="text">Islam</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/money.svg')}}" alt="">
+                                                    <p class="text">7.500.000</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/TB.svg')}}" alt="">
+                                                    <p class="text">175cm</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/BB.svg')}}" alt="">
+                                                    <p class="text">70kg</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata">
+                                            <div class="wrap-title">
+                                                <p class="title">Kontak Informasi</p>
+                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/phone.svg')}}" alt="">
+                                                    <p class="text">{{$c->no_hp}}</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/email.svg')}}" alt="">
+                                                    <p class="text">{{$c->email}}</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/province.svg')}}" alt="">
+                                                    <p class="text">Prov. DKI Jakarta</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/location.svg')}}" alt="" class="mb-auto">
+                                                    <p class="text">Jl. Raya Condet No.13B RT.4/RW.4, Batu Ampar</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/Kec.svg')}}" alt="">
+                                                    <p class="text">Kramat Jati</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/Kel.svg')}}" alt="">
+                                                    <p class="text">Jagakarsa</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/message-arrow.svg')}}" alt="">
+                                                    <p class="text">13910</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata p-27">
+                                            <div class="wrap-title p-0">
+                                                <p class="title">Kontak Informasi</p>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">KTP</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor KTP">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload KTP">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">SIM Motor</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor SIM Motor">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload SIM">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <p class="contact-title">SIM Mobil</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor SIM Mobil">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload SIM">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">NPWP</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor NPWP">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload NPWP">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">Kartu Keluarga</p>
+                                                    </div>
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload Kartu Keluarga">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">Transkrip Nilai</p>
+                                                    </div>
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload Transkrip Nilai">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">Ijazah Pedidikan Terakhir</p>
+                                                    </div>
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Ijazah">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-auto profile-right">
+                                        <div class="card border-0 h-fit">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Ringkasan</p>
+                                                    <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="text">Developer dengan pengalaman lebih dari 5 tahun bekerja di sektor publik dan swasta. Diplomatik, berkepribadian, dan mahir dalam mengelola situasi sensitif. Sangat terorganisir, memiliki motivasi diri, dan mahir menggunakan komputer. Ingin meningkatkan nilai kepuasan mahasiswa untuk Universitas Internasional. Gelar sarjana di bidang komunikasi. <br><br>
+
+                                                    Ini menggambarkan pengalaman, keterampilan, dan pencapaian kandidat yang relevan. Tujuan ringkasan karir ini adalah untuk menjelaskan kualifikasi Anda untuk pekerjaan itu dalam 3-5 kalimat dan meyakinkan manajer untuk membaca seluruh dokumen resume.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit mt-4">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Pengalaman Kerja</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>Web Design & Development Team Leader</h5>
+                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>UI/UX</h5>
+                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>Project Manager</h5>
+                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit mt-4">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Pendidikan</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>Universitas Indonesia</h5>
+                                                        <p class="job-info">Sarjana, Ilmu Komputer | Depok</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>SMA Negeri 14</h5>
+                                                        <p class="job-info">Jakarta</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md detail-top">
                     <img src="{{asset('assets/profile_img/'.$c->foto_profile)}}" alt="" class="profile-foto-2 my-auto">
                     <div class="d-flex my-auto" style="flex-flow: column !important;">
@@ -224,7 +598,7 @@
                         <button type="button" class="btn-schedule my-auto" data-bs-toggle="modal" data-bs-target="#scheduleModal"><img src="{{asset('assets/icon-detail-candidate/calendar.svg')}}" alt="">Schedule</button>
                         <button type="button" class="btn-none my-auto ms-2"  data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('assets/icon-detail-candidate/3-dots.svg')}}" alt=""></button>
                         <ul class="dropdown-menu dropdown-more">
-                            <li class="d-flex" style="margin-bottom: 5px;"> 
+                            <li class="d-flex" style="margin-bottom: 5px;" data-bs-toggle="modal" data-bs-target="#profileModal"> 
                                 <img class="me-2" src="{{asset('assets/icon-detail-candidate/edit.svg')}}" alt="">
                                 <p class="text my-auto">Edit Candidates</p>
                             </li>
@@ -1002,6 +1376,14 @@
                 }).catch(err => {
                     console.error('Failed to copy: ', err);
                 });
+            });
+            var jobExperiences = document.querySelectorAll('.profile-job-experience');
+            jobExperiences.forEach(jobExp => {
+                var jobTitle = jobExp.querySelector('.profile-job-details h5').innerHTML;
+                var icon = jobExp.querySelector('.profile-job-icon .profile-letter-icon');
+                var firstLetter = jobTitle.charAt(0);
+
+                icon.innerHTML = firstLetter;
             });
         });
         function changeForm(isEdit){
