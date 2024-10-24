@@ -2173,3 +2173,24 @@ input:checked + .custom-control-label:before {
     padding-left: 27px !important;
     padding-right: 27px !important;
 }
+.pendidikan-detail-info table td{
+    font-size: 14px;
+    font-weight: 500;
+    color: #898989;
+}
+.profile-job-experience.pendidikan {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.profile-job-experience.pendidikan:not(:last-child):before {
+    content: "";
+    position: absolute;
+    top: 70px;
+    left: 28px;
+    width: 2px;
+    border-left: 2px dashed #BFBFBF;
+    height: 61% !important;
+    z-index: 0;
+}

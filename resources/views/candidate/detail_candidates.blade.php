@@ -480,7 +480,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div class="profile-job-experience">
+                                                <div class="profile-job-experience pendidikan">
                                                     <div class="profile-job-icon">
                                                         <div class="profile-letter-icon text-center mx-auto"></div>
                                                     </div>
@@ -488,22 +488,21 @@
                                                         <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
                                                         <h5>Universitas Indonesia</h5>
                                                         <p class="job-info">Sarjana, Ilmu Komputer | Depok</p>
-                                                        <p class="job-detail-info">
-                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
-                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
-                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
-                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
-                                                        </p>
-                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
-                                                        <ul class="job-list-desc">
-                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
-                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
-                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
-                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
-                                                        </ul>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Jurusan</td>
+                                                                    <td>Sistem Informasi</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>IPK</td>
+                                                                    <td>3,61</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="profile-job-experience">
+                                                <div class="profile-job-experience pendidikan">
                                                     <div class="profile-job-icon">
                                                         <div class="profile-letter-icon text-center mx-auto"></div>
                                                     </div>
@@ -511,19 +510,40 @@
                                                         <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
                                                         <h5>SMA Negeri 14</h5>
                                                         <p class="job-info">Jakarta</p>
-                                                        <p class="job-detail-info">
-                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
-                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
-                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
-                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
-                                                        </p>
-                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
-                                                        <ul class="job-list-desc">
-                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
-                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
-                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
-                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
-                                                        </ul>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Jurusan</td>
+                                                                    <td>IPA</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>IPK</td>
+                                                                    <td>83</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience pendidikan">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>SMP Negeri 4</h5>
+                                                        <p class="job-info">Kendal</p>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Jurusan</td>
+                                                                    <td>IPA</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>IPK</td>
+                                                                    <td>83</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
