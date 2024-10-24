@@ -1547,6 +1547,306 @@ body {
 .form-control:focus{
     border-color: #327c66;
 }
+.schedule-modal .modal-dialog{
+    min-width: 709px;
+}
+.schedule-modal .modal-dialog .modal-content{
+    border-radius: 6px;
+    min-height: 788px;
+}
+.schedule-modal .modal-dialog .modal-content .modal-header,
+.schedule-modal .modal-dialog .modal-content .modal-body{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.schedule-modal .modal-dialog .modal-content .modal-header{
+    height: 67px;
+}
+.schedule-modal .modal-title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+}
+.schedule-modal .btn-close{
+    font-size: 12px;
+    font-weight: 600;
+}
+.select-date.schedule{
+    width: 235px;
+}
+.schedule-input-top{
+    display: flex;
+}
+.schedule-input-top .left{
+    width: 255px;
+    border-right: 1px solid #E7E7ED;
+}
+.schedule-input-top .right{
+    padding-left: 20px;
+    display: flex;
+}
+.schedule-input-top .right select{
+    width: 107px;
+}
+.time-divider{
+    height: 20px;
+    width: 7px;
+    border-bottom: 1px solid #646464;
+    margin: 0 5px 0 5px;
+}
+.time-difference{
+    color: #646464;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.input-group-schedule{
+    margin: 15px 0 15px 0;
+}
+.input-group-schedule .select2-selection.select2-selection--multiple{
+    width: 645px !important;
+}
+.input-title{
+    font-size: 14px;
+    color: #ADADAD;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+.interview-type {
+    display: flex;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 262px;
+    /* height: 38px !important; */
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.interview-type label {
+    height: fit-content;
+    font-size: 12px;
+    flex: 1;
+    padding: 4px 0;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    /* border-right: 1px solid #ddd; */
+    margin: 0;
+}
+
+.interview-type label:last-child {
+    border-right: none;
+}
+
+.interview-type input[type="radio"] {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.interview-type input[type="radio"]:checked + label {
+    background-color: #C1E7CD;
+    color: #18554F;
+    padding: 4px 0px;
+    border-radius: 3px;
+}
+.custom-switch {
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 28px;
+}
+
+.custom-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.custom-switch input:checked + .custom-control-label {
+    background-color: #69c1b3;
+}
+
+.custom-switch input:focus + .custom-control-label {
+    box-shadow: 0 0 1px #69c1b3;
+}
+
+.custom-control-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.custom-control-label:before {
+    position: absolute;
+    content: "";
+    height: 36px;
+    width: 36px;
+    /* left: 4px; */
+    /* top: 0px; */
+    bottom: -4px;
+    background-color: white;
+    transition: 0.1s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #B1B1B1;
+}
+
+input:checked + .custom-control-label:before {
+    transform: translateX(28px);
+}
+
+.custom-control-input:checked + .custom-control-label {
+    background-color: #81B29A;
+}
+
+.custom-control-input:checked + .custom-control-label::before {
+    background-color: white;
+    transform: translateX(28px);
+}
+.input-group-meeting{
+    position: relative;
+    width: fit-content;
+}
+.input-group-meeting .line{
+    top: 11px;
+    left: 16px;
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    border-right: 1px solid #D4D4D4;
+}
+.btn-copy{
+    right: 20px;
+    top: 6px;
+    position: absolute;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 0;
+    background-color: #C1E7CD;
+    color: #18554F;
+    font-size: 12px;
+}
+.btn-copy:hover{
+    background-color: #b5d8c0;
+}
+#textCopied{
+    font-size: 12px;
+    color: #18554F;
+}
+.btn-cancel{
+    padding: 10px 11px;
+    background-color: #E4E4E4;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #A7A7A7;
+    border: 0;
+    letter-spacing: 1px;
+}
+.btn-schedule2{
+    padding: 10px 16px;
+    background-color: #41806D;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    letter-spacing: 1px;
+    margin-left: 10px;
+}
+.sidebar-move{
+    width: 634px;
+    height: 860px;
+}
+.title-move{
+    font-size: 16px;
+    font-weight: 600;
+}
+.title-grey{
+    color: #646464;
+    font-size: 16px;
+    font-weight: 500;
+}
+.sidebar-move .offcanvas-header{
+    height: 80px;
+    padding-left: 35px;
+}
+.input-move{
+    height: 45px;
+    font-size: 14px;
+    padding-left: 20px;
+}
+.input-move:focus{
+    outline: none;
+    border: 1.5px solid #5E9982;
+}
+.row-data{
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+    -webkit-box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+    -moz-box-shadow: 1px 4px 24px 3px rgba(26, 26, 26,0.15);
+}
+.row-data .data{
+    padding: 8px 10px 8px 10px;
+}
+.row-data .data:hover{
+    background-color: #DCF7E1;
+    border-radius: 5px;
+}
+.data-loc{
+    font-size: 12px;
+    color: #646464;
+    margin-bottom: 0;
+}
+.s-draft{
+    width: 80px;
+    height: 26px;
+    text-align: center;
+    background-color: #E4E4E4;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #A7A7A7;
+    padding-top: 4px;
+}
+.s-published{
+    width: 95px;
+    height: 26px;
+    text-align: center;
+    background-color: #41806D;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    padding-top: 4px;
+}
+.s-internal{
+    width: 82px;
+    height: 26px;
+    text-align: center;
+    background-color: #F2CC8F;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    padding-top: 4px;
+}
+.data-name{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+}
 
 
 .gi {
@@ -1592,6 +1892,286 @@ body {
 
 .gi-deal-white{
     background-image: url('/assets/deal_white.svg');
+}
+.profile-modal .modal-dialog{
+    min-width: 1280px;
+}
+.profile-modal .modal-dialog .modal-content{
+    border-radius: 6px;
+    min-height: 788px;
+    background-color: #F6F6F6;  
+}
+.profile-modal .modal-dialog .modal-content .modal-header{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.profile-modal .modal-dialog .modal-content .modal-body{
+    padding-top: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.profile-modal .profile-left{
+    width: 334px;
+    height: 1857px;
+    border: 0;
+    background-color: #fff;
+    border-radius: 16px;
+}
+.profile-modal .profile-right{
+    margin-left: 15px;
+    width: 882px;
+}
+.profile-modal .modal-title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+}
+.profile-modal .btn-close{
+    font-size: 12px;
+    font-weight: 600;
+}
+.gi-pencil-orange{
+    background-image: url('/assets/icon-detail-candidate/edit-orange.svg');
+}
+.profile-modal .profile-left .row.name{
+    padding: 24px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #E3E3E3;
+}
+.profile-modal .profile-foto-4{
+    border-radius: 60px;
+    padding: 4px;
+    border: 1px solid #D4D4D4;
+    width: fit-content;
+}
+.profile-modal .profile-foto-4 img{
+    width: 100px !important; /* Sesuaikan ukuran sesuai kebutuhan */
+    height: 100px; /* Pastikan height sama dengan width untuk aspek rasio 1:1 */
+    object-fit: cover; /* Menjaga proporsi gambar */
+    border-radius: 50%; /* Jika ingin gambar berbentuk lingkaran */
+    aspect-ratio: 1/1;
+}
+.profile-modal .row.name button{
+    position: absolute;
+    width: fit-content;
+    top: 20px;
+    right: 20px;
+}
+.profile-modal .row.name .name-candidate{
+    font-size: 24px;
+    color: #504F4F;
+    font-weight: 600;
+    width: fit-content;
+    margin: 20px 0 4px 0;
+}
+.profile-modal .row.name .title-candidate{
+    font-size: 16px;
+    font-weight: 400;
+    color: #797979;
+    margin: 0;
+    width: fit-content;
+}
+.profile-modal .row.biodata{
+    padding: 24px 15px;
+    border-bottom: 1px solid #E3E3E3;
+}
+.profile-modal .row.biodata:last-child{
+    border-bottom: 0px;
+}
+.profile-modal .row.biodata .wrap-title{
+    display: flex;
+    width: 100%;
+}
+.profile-modal .row.biodata .wrap-title .title{
+    color: #333333;
+    font-size: 16px;
+}
+.profile-modal .row.biodata .wrap-title button{
+    margin-left: auto;
+}
+.w-fit{
+    width: fit-content;
+}
+.h-fit{
+    height: fit-content;
+}
+.wrap-biodata{
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+    margin: 0;
+}
+.wrap-biodata *{
+    width: fit-content;
+}
+.wrap-biodata .row-biodata{
+    display: flex;
+    margin-bottom: 10px;
+}
+.wrap-biodata .row-biodata img{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.wrap-biodata .text{
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #363636;
+}
+.profile-modal .profile-right .wrap-title{
+    display: flex;
+    width: 100%;
+}
+.profile-modal .profile-right .wrap-title .title{
+    color: #333333;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.profile-modal .profile-right .wrap-title button{
+    margin-left: auto;
+}
+.profile-modal .profile-right .card-body .text{
+    color: #646464;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+.profile-modal .profile-right .card{
+    border-radius: 16px;
+}
+.profile-modal .profile-right .card .card-heading,
+.profile-modal .profile-right .card .card-body{
+    padding: 20px;
+}
+.profile-job-experience {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.profile-job-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1rem;
+    position: relative;
+    margin-right: 30px;
+}
+
+.profile-letter-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FA69001A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #FA6900;
+    font-size: 28px;
+    z-index: 1;
+    position: relative;
+}
+
+.profile-job-experience:not(:last-child):before {
+    content: "";
+    position: absolute;
+    top: 70px;
+    left: 28px;
+    width: 2px;
+    border-left: 2px dashed #BFBFBF;
+    height: 80%;
+    z-index: 0;
+}
+
+.profile-job-details {
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+.profile-job-details h5{
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+}
+.profile-job-details .job-description-title{
+    color: #363636;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+.profile-job-details .job-info{
+    color: #535353;
+    font-size: 16px;
+    font-weight: 400;
+}
+.profile-job-details .job-detail-info{
+    color: #363636;
+    font-size: 14px;
+    font-weight: 400;
+}
+.profile-job-details .job-list-desc{
+    color: #535353;
+    font-size: 14px;
+    font-weight: 400;
+}
+.title-group-contact{
+    display: flex;
+}
+.contact-required{
+    color: red;
+    font-weight: 600;
+    font-size: 16px;
+}
+.contact-title{
+    color: #333333;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.input-contact{
+    height: 41px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #D4D4D4;
+    outline: 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+.input-contact:focus{
+    border: 1px solid #c2c2c2;
+}
+.upload-group-contact{
+    position: relative;
+    width: fit-content;
+}
+.upload-group-contact input::-webkit-file-upload-button{
+    display: none;
+}
+.upload-group-contact input{
+    color: #646464 !important;
+    cursor: pointer;
+}
+.upload-group-contact img{
+    pointer-events: none;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    rotate: 180deg;
+}
+.p-27{
+    padding-left: 27px !important;
+    padding-right: 27px !important;
 }
 
 .gi-download{

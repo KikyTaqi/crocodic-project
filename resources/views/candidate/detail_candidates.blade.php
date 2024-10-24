@@ -6,12 +6,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-
-    <!-- Load jQuery from CDN -->
-    
-    
-    <!-- Scripts -->
-    
 </head>
 <body style="::-webkit-scrollbar {display: none;}">
     @include('header')
@@ -28,17 +22,529 @@
                 @endphp
                 @endif
                 @foreach($data as $c)
+                <div class="offcanvas offcanvas-end sidebar-move" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header" style="border-bottom: 1px solid #E7E7ED;">
+                        <h5 class="title-move my-auto">Pindahkan pelamar ke pekerjaan lain</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body" style="padding: 30px;">
+                        <p class="title-grey">Pilih Job</p>
+                        <input type="text" class="form-control input-move" id="searchInput-11" onkeyup="searchFunctionJobs()" placeholder="Cari Pekerjaan">
+            
+                        <div class="row-data" id="tableJobs">
+                            @foreach($jobs as $j)
+                            <div class="data">
+                                <table class="data-table">
+                                    <tr>
+                                        <td><p class="data-name">{{$j->nama_job}}</p></td>
+                                        <td class="my-auto text-end w-100" rowspan="2">
+                                            @if($j->status == 0)
+                                                <!-- Draft -->
+                                                <div class="s-draft ms-auto">Drafted</div>
+                                            @elseif($j->status == 1)
+                                                <!-- Published -->
+                                                <div class="s-published ms-auto">Published</div>
+                                            @elseif($j->status == 2)
+                                                <!-- Internal -->
+                                                <div class="s-internal ms-auto">Internal</div>
+                                            @elseif($j->status == 3)
+                                                <!-- External -->
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="data-loc" style="width: max-content;">{{$j->lokasi}} - {{$j->nomor_job}}</p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal Schedule -->
+                <div class="modal fade schedule-modal" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="scheduleModalLabel">Interview Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="post">
+                                    <div class="schedule-input-top">
+                                        <div class="left">
+                                            <div class="group-select">
+                                                <select name="schedule_date" id="dateSelectSchedule" class="select-date schedule"></select>
+                                                <img src="{{asset('assets/icon-detail-candidate/select-arrow.svg')}}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <select name="start_time" class="select-date" id="start-time"></select>
+                                            <div class="time-divider"></div>
+                                            <select name="end_time" class="select-date" id="end-time"></select>
+                                            <span class="time-difference my-auto">(0 minutes)</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-group-schedule">
+                                        <p class="input-title">Judul</p>
+                                        <div class="group-select">
+                                            <select name="schedule_title" class="select-date" style="width: 645px;">
+                                                <option value="interview_hr">Interview HR</option>
+                                            </select>
+                                            <img src="{{asset('assets/icon-detail-candidate/select-arrow.svg')}}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="input-group-schedule">
+                                        <p class="input-title">Kandidat</p>
+                                        <select class="select-pic" id="select-kandidat" data-placeholder="Pilih Kandidat" multiple style="width: 645px;">
+                                            @foreach($candidates as $cs)
+                                            <option value="{{$cs->id_candidate}}">{{$cs->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="input-group-schedule">
+                                        <p class="input-title">Pewawancara</p>
+                                        <select class="select-pic" id="select-pewawancara" data-placeholder="Pilih Pewawancara" multiple style="width: 645px;">
+                                            @foreach($users as $us)
+                                            <option value="{{$us->id}}">{{$us->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="input-group-schedule me-4 mt-0">
+                                            <p class="input-title">Kandidat</p>
+                                            <div class="interview-type">
+                                                <input type="radio" name="interview" id="online" value="Online" checked>
+                                                <label for="online">
+                                                    Online
+                                                </label>
+                                                <input type="radio" name="interview" id="onsite" value="On site">
+                                                <label for="onsite">
+                                                    On site
+                                                </label>
+                                                <input type="radio" name="interview" id="phone" value="Phone">
+                                                <label for="phone">
+                                                    Phone
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="input-group-schedule mt-0">
+                                            <p class="input-title">Sertakan resume dalam undangan</p>
+                                            <div class="d-flex">
+                                                <div class="custom-switch my-auto me-3">
+                                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                                </div>
+                                                <input type="email" name="" id="" class="select-date" style="width: 285px;" placeholder="Email User">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group-schedule mt-0">
+                                        <p class="input-title">Link Online Meeting</p>
+                                        <div class="input-group-meeting">
+                                            <div class="line"></div>
+                                            <input type="text" name="" id="inputMeet" class="select-date" style="width: 645px;" value="https://meet.google.com/muh-apdy-jwz ">
+                                            <span id="textCopied" class="d-none">Text copied to clipboard!</span>
+                                            <button type="button" class="btn-copy" id="btnCopy">Copy</button>
+                                        </div>
+                                    </div>
+                                    <div class="input-group-schedule mt-0 mb-0">
+                                        <p class="input-title">Informasi Tambahan</p>
+                                        <textarea class="select-date" placeholder="Tambahkan catatan untuk kandidat, seperti menggunakan baju berkerah dll" style="width: 645px;height: 126px;resize: none;"></textarea>
+                                    </div>
+                                    <div class="input-group-schedule float-end">
+                                        <button type="button" class="btn-cancel my-auto">Cancel</button>
+                                        <button type="button" class="btn-schedule2 my-auto">Schedule</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Modal Profile -->
+                <div class="modal fade profile-modal" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="profileModalLabel">View Profile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-auto profile-left">
+                                        <div class="row name">
+                                            <div class="profile-foto-4"><img src="{{asset('assets/profile_img/'.$c->foto_profile)}}" alt=""></div>
+                                            <button class="btn-none pencil-orange" style="width: fit-content;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt="" class="float-end"></button>
+                                            <h4 class="name-candidate">{{$c->nama}}</h4>
+                                            <p class="title-candidate">Developer</p>
+                                            <p class="title-candidate"><small>3 Tahun Pengalaman</small></p>
+                                        </div>
+                                        <div class="row biodata">
+                                            <div class="wrap-title">
+                                                <p class="title">Social Media</p>
+                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/instagram.svg')}}" alt="">
+                                                    <p class="text">johns</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/twitter.svg')}}" alt="">
+                                                    <p class="text">johnsmith</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/facebook.svg')}}" alt="">
+                                                    <p class="text">johnsmith</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/linkedin.svg')}}" alt="">
+                                                    <p class="text">John Smith</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata">
+                                            <div class="wrap-title">
+                                                <p class="title">Biodata</p>
+                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/date-cake.svg')}}" alt="">
+                                                    <p class="text">Jakarta, 10 Mei 2000</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/gender.svg')}}" alt="">
+                                                    <p class="text">
+                                                        @if($c->gender == 1)
+                                                        Laki-laki
+                                                        @else
+                                                        Perempuan
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/love.svg')}}" alt="">
+                                                    <p class="text">Belum menikah</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/pray.svg')}}" alt="">
+                                                    <p class="text">Islam</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/money.svg')}}" alt="">
+                                                    <p class="text">7.500.000</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/TB.svg')}}" alt="">
+                                                    <p class="text">175cm</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/BB.svg')}}" alt="">
+                                                    <p class="text">70kg</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata">
+                                            <div class="wrap-title">
+                                                <p class="title">Kontak Informasi</p>
+                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/phone.svg')}}" alt="">
+                                                    <p class="text">{{$c->no_hp}}</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/email.svg')}}" alt="">
+                                                    <p class="text">{{$c->email}}</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/province.svg')}}" alt="">
+                                                    <p class="text">Prov. DKI Jakarta</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/location.svg')}}" alt="" class="mb-auto">
+                                                    <p class="text">Jl. Raya Condet No.13B RT.4/RW.4, Batu Ampar</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/Kec.svg')}}" alt="">
+                                                    <p class="text">Kramat Jati</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/Kel.svg')}}" alt="">
+                                                    <p class="text">Jagakarsa</p>
+                                                </div>
+                                                <div class="row-biodata">
+                                                    <img src="{{asset('assets/icon-biodata/message-arrow.svg')}}" alt="">
+                                                    <p class="text">13910</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata p-27">
+                                            <div class="wrap-title p-0">
+                                                <p class="title">Kontak Informasi</p>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">KTP</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor KTP">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload KTP">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">SIM Motor</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor SIM Motor">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload SIM">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <p class="contact-title">SIM Mobil</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor SIM Mobil">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload SIM">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">NPWP</p>
+                                                    </div>
+                                                    <input type="text" class="input-contact mb-1" placeholder="Nomor NPWP">
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload NPWP">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">Kartu Keluarga</p>
+                                                    </div>
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload Kartu Keluarga">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">Transkrip Nilai</p>
+                                                    </div>
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Upload Transkrip Nilai">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap-biodata mb-2">
+                                                <div class="input-group-contact">
+                                                    <div class="title-group-contact">
+                                                        <span class="contact-required">*</span>
+                                                        <p class="contact-title">Ijazah Pedidikan Terakhir</p>
+                                                    </div>
+                                                    <div class="upload-group-contact">
+                                                        <input type="file" class="input-contact" title="Ijazah">
+                                                        <img src="{{asset('assets/icon-detail-candidate/download-pic.svg')}}" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-auto profile-right">
+                                        <div class="card border-0 h-fit">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Ringkasan</p>
+                                                    <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="text">Developer dengan pengalaman lebih dari 5 tahun bekerja di sektor publik dan swasta. Diplomatik, berkepribadian, dan mahir dalam mengelola situasi sensitif. Sangat terorganisir, memiliki motivasi diri, dan mahir menggunakan komputer. Ingin meningkatkan nilai kepuasan mahasiswa untuk Universitas Internasional. Gelar sarjana di bidang komunikasi. <br><br>
+
+                                                    Ini menggambarkan pengalaman, keterampilan, dan pencapaian kandidat yang relevan. Tujuan ringkasan karir ini adalah untuk menjelaskan kualifikasi Anda untuk pekerjaan itu dalam 3-5 kalimat dan meyakinkan manajer untuk membaca seluruh dokumen resume.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit mt-4">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Pengalaman Kerja</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>Web Design & Development Team Leader</h5>
+                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>UI/UX</h5>
+                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>Project Manager</h5>
+                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit mt-4">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Pendidikan</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>Universitas Indonesia</h5>
+                                                        <p class="job-info">Sarjana, Ilmu Komputer | Depok</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>SMA Negeri 14</h5>
+                                                        <p class="job-info">Jakarta</p>
+                                                        <p class="job-detail-info">
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
+                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                        </p>
+                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
+                                                        <ul class="job-list-desc">
+                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
+                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
+                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
+                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md detail-top">
                     <img src="{{asset('assets/profile_img/'.$c->foto_profile)}}" alt="" class="profile-foto-2 my-auto">
                     <div class="d-flex my-auto" style="flex-flow: column !important;">
                         <div class="d-flex">
                             <p class="d-top name me-3">{{$c->nama}}</p>
-                            <div class="rating">
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
+                            <div class="rating" id="rating-container" user-id="{{$user->id}}" candidate-id="{{$c->id_candidate}}">
+                                <span class="star @if($c->rating >= 1) active @endif" data-value="1">&#9733;</span>
+                                <span class="star @if($c->rating >= 2) active @endif" data-value="2">&#9733;</span>
+                                <span class="star @if($c->rating >= 3) active @endif" data-value="3">&#9733;</span>
+                                <span class="star @if($c->rating >= 4) active @endif" data-value="4">&#9733;</span>
+                                <span class="star @if($c->rating >= 5) active @endif" data-value="5">&#9733;</span>
                             </div>
                         </div>
                         <div class="d-flex">
@@ -89,14 +595,14 @@
                         </div>
                     </div>
                     <div class="d-flex ms-auto">
-                        <button type="button" class="btn-schedule my-auto"><img src="{{asset('assets/icon-detail-candidate/calendar.svg')}}" alt="">Schedule</button>
+                        <button type="button" class="btn-schedule my-auto" data-bs-toggle="modal" data-bs-target="#scheduleModal"><img src="{{asset('assets/icon-detail-candidate/calendar.svg')}}" alt="">Schedule</button>
                         <button type="button" class="btn-none my-auto ms-2"  data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('assets/icon-detail-candidate/3-dots.svg')}}" alt=""></button>
                         <ul class="dropdown-menu dropdown-more">
-                            <li class="d-flex" style="margin-bottom: 5px;"> 
+                            <li class="d-flex" style="margin-bottom: 5px;" data-bs-toggle="modal" data-bs-target="#profileModal"> 
                                 <img class="me-2" src="{{asset('assets/icon-detail-candidate/edit.svg')}}" alt="">
                                 <p class="text my-auto">Edit Candidates</p>
                             </li>
-                            <li class="d-flex" style="margin-bottom: 5px;"> 
+                            <li class="d-flex" style="margin-bottom: 5px;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> 
                                 <img class="me-2" src="{{asset('assets/icon-detail-candidate/move.svg')}}" alt="">
                                 <p class="text my-auto">Move Candidates</p>
                             </li>
@@ -404,11 +910,9 @@
                                         </div>
                                     </div>
                                     @endforeach
-                                    @if(empty($notes) || $notes == null || $check == 0)
-                                    <div class="no-comment">
+                                    <div class="no-comment @if($check != 0) d-none @endif">
                                         <h3>Belum ada notes</h3>
                                     </div>
-                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -530,21 +1034,6 @@
                                     @if($tgl == null)
                                         <p class="activity-desc my-auto">Belum ada activity</p>
                                     @endif
-                                
-                                <!-- <div class="activity-row">
-                                    <img src="{{asset('assets/icon-detail-candidate/activity-duplicate.svg')}}" alt="">
-                                    <p class="activity-desc my-auto">Kandidat diduplikasi ke lowongan pekerjaan 'Sales'</p>
-                                </div>
-                                <p class="activity-date">7 Desember, 2023</p>
-                                <div class="activity-row">
-                                    <img src="{{asset('assets/icon-detail-candidate/activity-duplicate.svg')}}" alt="">
-                                    <p class="activity-desc my-auto">Kandidat diduplikasi ke lowongan pekerjaan 'Sales'</p>
-                                </div>
-                                <div class="activity-line"></div>
-                                <div class="activity-row">
-                                    <img src="{{asset('assets/icon-detail-candidate/activity-duplicate.svg')}}" alt="">
-                                    <p class="activity-desc my-auto">Kandidat diduplikasi ke lowongan pekerjaan 'Sales'</p>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -570,6 +1059,9 @@
 
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 
     <script>
@@ -624,75 +1116,34 @@
                     pdf.save("CV-" + nameCandidate + ".pdf");
                 });
             });
-
-
-            // document.getElementById('btn-download').addEventListener('click', function () {
-            //     var cvImage = document.getElementById('cvImage');
-            //     var nameCandidate = cvImage.getAttribute('nameCandidate');
-
-            //     html2canvas(cvImage).then(canvas => {
-            //         const imgData = canvas.toDataURL('image/jpeg'); // Anda bisa mengganti 'image/jpeg' dengan 'image/png' jika perlu
-            //         const pdf = new jsPDF('p', 'mm', 'a4'); // Orientasi potret, satuan mm, format A4
-            //         const imgWidth = 190; // Lebar gambar di PDF
-            //         const imgHeight = (canvas.height * imgWidth) / canvas.width; // Hitung tinggi gambar sesuai rasio
-
-            //         // Menambahkan gambar ke PDF
-            //         pdf.addImage(imgData, 'JPEG', 10, 10, imgWidth, imgHeight);
-            //         pdf.save("CV-" + nameCandidate + ".pdf");
-            //     });
-            // });
-
-            // document.getElementById('btn-download').addEventListener('click', async function () {
-            //     const cvImage = document.getElementById('cvImage').src;
-            //     const nameCandidate = document.getElementById('cvImage').getAttribute('nameCandidate');
-
-            //     // Mengambil gambar sebagai Blob
-            //     const response = await fetch(cvImage);
-            //     const blob = await response.blob();
-            //     const imgData = await blob.arrayBuffer();
-
-            //     // Membuat PDF
-            //     const pdfDoc = await PDFLib.PDFDocument.create();
-            //     const pngImage = await pdfDoc.embedPng(imgData); // Anda juga bisa menggunakan embedJpg untuk format JPG
-            //     const page = pdfDoc.addPage([pngImage.width, pngImage.height]);
-            //     page.drawImage(pngImage, {
-            //         x: 0,
-            //         y: 0,
-            //         width: pngImage.width,
-            //         height: pngImage.height,
-            //     });
-
-            //     // Mengunduh PDF
-            //     const pdfBytes = await pdfDoc.save();
-            //     const blobPdf = new Blob([pdfBytes], { type: 'application/pdf' });
-            //     const url = URL.createObjectURL(blobPdf);
-            //     const a = document.createElement('a');
-            //     a.href = url;
-            //     a.download = `CV-${nameCandidate}.pdf`;
-            //     document.body.appendChild(a);
-            //     a.click();
-            //     document.body.removeChild(a);
-            // });
-
-
-
-
-            
-            // document.getElementById('btn-download').addEventListener('click', function () {
-            //     var cvImage = document.getElementById('cvImage');
-            //     var nameCandidate = cvImage.getAttribute('nameCandidate');
-            //     html2canvas(cvImage).then(canvas => {
-            //         canvas.toBlob(function(blob) {
-            //             saveAs(blob, "CV-"+nameCandidate+".pdf");
-            //         });
-            //     });
-            // });
             $( '#choose-pic' ).select2( {
                 theme: "bootstrap-5",
                 width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
                 placeholder: $( this ).data( 'placeholder' ),
                 closeOnSelect: false,
-            } );
+            });
+            $('#scheduleModal').on('shown.bs.modal', function () {
+                $( '#select-kandidat' ).select2( {
+                    dropdownParent: $('#scheduleModal'),
+                    theme: "bootstrap-5",
+                    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                    placeholder: $( this ).data( 'placeholder' ),
+                    closeOnSelect: false,
+                });
+                $( '#select-pewawancara' ).select2( {
+                    dropdownParent: $('#scheduleModal'),
+                    theme: "bootstrap-5",
+                    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                    placeholder: $( this ).data( 'placeholder' ),
+                    closeOnSelect: false,
+                });
+                // $('#select-kandidat').select2({
+                //     dropdownParent: $('#scheduleModal')
+                // });
+                // $('#select-pewawancara').select2({
+                //     dropdownParent: $('#scheduleModal')
+                // });
+            });
             $('#btn-send-comment').on('click', function(e) {
                 e.preventDefault();
 
@@ -714,6 +1165,7 @@
                         if (response.success) {
                             commenting();
                             var note = response.notes[0];
+                            var noComment = document.getElementsByClassName('no-comment')[0];
 
                             var formattedTime = formatDateTime(note.time);
                             // Tambahkan note baru ke dalam list
@@ -736,6 +1188,9 @@
                                     </div>
                                 </div>
                             `;
+                            if(!noComment.classList.contains('d-none')){
+                                noComment.classList.add('d-none');
+                            }
                             $('.note-new').prepend(newNote);
                             $('#note-input').val('');
                         } else {
@@ -746,8 +1201,43 @@
                         console.error('Error:', error);
                     }
                 });
+                
             });
+            function generateTimeOptions() {
+                let options = '';
+                for (let i = 0; i < 24; i++) {
+                    for (let j = 0; j < 60; j += 30) {
+                        const time = moment({ hour: i, minute: j }).format('hh:mm A');
+                        options += `<option value="${time}">${time}</option>`;
+                    }
+                }
+                return options;
+            }
+
+            $('#start-time').html(generateTimeOptions());
+            $('#end-time').html(generateTimeOptions());
+
+            function calculateTimeDifference() {
+                const startTime = moment($('#start-time').val(), 'hh:mm A');
+                const endTime = moment($('#end-time').val(), 'hh:mm A');
+                const duration = moment.duration(endTime.diff(startTime));
+                const minutes = duration.asMinutes();
+
+                if (minutes < 0) {
+                    $('#end-time').val($('#start-time').val());
+                    $('.time-difference').text('(0 minutes)');
+                } else {
+                    $('.error-message').text('');
+                    $('.time-difference').text(`(${minutes} minutes)`);
+                }
+            }
+
+            $('#start-time, #end-time').on('change', calculateTimeDifference);
+
+            calculateTimeDifference();
             const stars = document.querySelectorAll('.star');
+            const userId = document.getElementById('rating-container').getAttribute('user-id');
+            const candidateId = document.getElementById('rating-container').getAttribute('candidate-id');
             
             stars.forEach((star, index) => {
                 star.addEventListener('click', () => {
@@ -756,6 +1246,30 @@
                             s.classList.add('active');
                         } else {
                             s.classList.remove('active');
+                        }
+                    });
+                    const value = parseFloat(star.getAttribute('data-value'));
+                    console.log('Rated:', value);
+                    
+                    // Kirim rating ke server
+                    const dataStarSend = {
+                        id_kandidat: candidateId, // Ganti dengan ID kandidat yang sesuai
+                        id_user: userId, // Ganti dengan ID user yang sesuai
+                        rate: value,
+                        tgl: new Date().toISOString().split('T')[0], // Format tanggal menjadi yyyy-mm-dd
+                        _token: '{{ csrf_token() }}' // Jangan lupa menambahkan CSRF token
+                    };
+                    console.log('Data:', dataStarSend);
+
+                    $.ajax({
+                        url: '/candidates/detail/rating/add', // URL endpoint untuk menambahkan rating
+                        type: 'POST',
+                        data: dataStarSend,
+                        success: function(response) {
+                            console.log('Rating added successfully');
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error:', error);
                         }
                     });
                 });
@@ -780,6 +1294,7 @@
                     });
                 });
             });
+            
 
             function formatDateToMySQL(date) {
                 return date.getFullYear() + '-' +
@@ -803,6 +1318,7 @@
             }
             
             const dateSelect = document.getElementById('dateSelect');
+            const dateSelectSchedule = document.getElementById('dateSelectSchedule');
             const numberOfDays = 30; // Jumlah hari ke depan yang akan ditampilkan
 
             function formatDate(date) {
@@ -823,8 +1339,52 @@
                     dateSelect.appendChild(option);
                 }
             }
+            function generateDatesSchedule() {
+                const today = new Date();
+                for (let i = 0; i < numberOfDays; i++) {
+                    const currentDate = new Date(today);
+                    currentDate.setDate(today.getDate() + i);
+                    const option = document.createElement('option');
+                    option.value = currentDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
+                    option.textContent = formatDate(currentDate);
+                    dateSelectSchedule.appendChild(option);
+                }
+            }
 
             generateDates();
+            generateDatesSchedule();
+            const copyButton = document.getElementById('btnCopy');
+            const inputText = document.getElementById('inputMeet');
+            const copied = document.getElementById('textCopied');
+
+            copyButton.addEventListener('click', () => {
+                inputText.select();
+                inputText.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(inputText.value).then(() => {
+                    copied.classList.remove('d-none');
+                    let timeLeft = 3;
+
+                    const countdown = setInterval(() => {
+                        timeLeft--;
+
+                        if (timeLeft <= 0) {
+                            clearInterval(countdown);
+                            copied.classList.add('d-none');
+                            // messageElement.textContent = 'Time\'s up!';
+                        }
+                    }, 1000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
+            var jobExperiences = document.querySelectorAll('.profile-job-experience');
+            jobExperiences.forEach(jobExp => {
+                var jobTitle = jobExp.querySelector('.profile-job-details h5').innerHTML;
+                var icon = jobExp.querySelector('.profile-job-icon .profile-letter-icon');
+                var firstLetter = jobTitle.charAt(0);
+
+                icon.innerHTML = firstLetter;
+            });
         });
         function changeForm(isEdit){
             var detailForm = document.getElementById('detail-form');
@@ -847,6 +1407,24 @@
             }else{
                 btnComment.classList.remove('d-none');
                 divComment.classList.add('d-none');
+            }
+        }
+        function searchFunctionJobs() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput-11");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("tableJobs");
+            tr = table.getElementsByClassName("data");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }       
             }
         }
     </script>

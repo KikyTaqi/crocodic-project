@@ -41,6 +41,7 @@ Route::group([
     Route::get('/candidates/detail/{id}', [CandidateCont::class, 'candidateDetailViewId'])->name('candidates');
     Route::post('/candidates/detail/notes', [CandidateCont::class, 'notesAdd'])->name('candidates');
     Route::post('/candidates/detail/notes/add', [CandidateCont::class, 'notesAddResume'])->name('candidates');
+    Route::post('/candidates/detail/rating/add', [CandidateCont::class, 'addRating'])->name('candidates');
     Route::delete('/candidates/delete', [CandidateCont::class, 'delete']);
     
     
