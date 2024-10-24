@@ -8,6 +8,7 @@ use App\Http\Controllers\CandidateCont;
 use App\Http\Controllers\HiringCont;
 use App\Http\Controllers\CancelCont;
 use App\Http\Controllers\ReportCont;
+use App\Http\Controllers\StopJoCont;
 
 Route::get('/', [Login::class,'login'])->name('login');
 Route::post('/login', [Login::class,'prsLogin']);
@@ -51,8 +52,10 @@ Route::group([
     
     Route::get('/report-hiring', [ReportCont::class, 'hiringIndex']);
     Route::get('/report-job-order', [ReportCont::class, 'joIndex']);
+
 });
 
+Route::get('/stop-job-order', [StopJoCont::class, 'index']);
 
 
 

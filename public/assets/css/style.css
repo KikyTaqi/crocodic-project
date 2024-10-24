@@ -1593,3 +1593,17 @@ body {
 .gi-deal-white{
     background-image: url('/assets/deal_white.svg');
 }
+
+.gi-download{
+    background-image: url('/assets/download.svg');
+    font-size: large;
+}
+
+.p-solid-green{
+    background-color: #41806D;
+    padding: .3rem .6rem .3rem .6rem;
+    border-radius: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: smaller;
+}

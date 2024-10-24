@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\task;
@@ -13,6 +14,7 @@ use App\Models\pic;
 use App\Models\job_setting;
 use App\Models\job_activity;
 use App\Models\job_config;
+use App\Models\User;
 use Carbon\Carbon;
 // use Illuminate\Support\Facades\Hash;
 
@@ -153,6 +155,11 @@ class master extends Controller
     
         $maxId = DB::table('job')->max('id_job');
         $autoId = $maxId + 1;
+
+        $user = null;
+        if(Auth()->user()){
+            $user = Auth()->user();
+        }
     
         job::insert([
             'id_job' => $autoId,
@@ -190,7 +197,7 @@ class master extends Controller
         job_activity::insert([
             'id_job' => $autoId,
             'action' => 'Membuat Job',
-            'person' => 'Admin'
+            'person' => $user->id
         ]);
 
         job_setting::insert([
@@ -199,7 +206,9 @@ class master extends Controller
     
         session()->flash('jd', ['job_name' => $r->job_name, 'ads' => $r->ads, 'lokasi' => $r->lokasi, 'foto_name' => $logoname, 'id_job' => $autoId]);
     
-        return redirect()->route('jobs.success')->with('success_tambah', 'Job added successfully.');
+        // return redirect()->route('jobs.success')->with('success_tambah', 'Job added successfully.');
+
+        return view('jobs.sukses')->with('success_tambah', 'Job added successfully.');;
     }
 
     public function addJobs(){

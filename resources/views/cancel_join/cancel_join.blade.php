@@ -310,7 +310,7 @@
                 </tr>
                 <tr>
                     <td class="align-middle">Document</td>
-                    <td><a style="font-size: .9rem;" href="" class="btn btn-secondary">Download</a></td>
+                    <td><a style="font-size: .9rem;" href="" class="btn btn-white-outline"><i class="gi gi-download"></i> Download</a></td>
                 </tr>
             </table>
         </div>

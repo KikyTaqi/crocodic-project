@@ -159,13 +159,13 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="tentangperusahaan" class="lbl">Tentang Perusahaan</label>
-                                    <textarea style="max-height: 150px; min-height: 150px" name="tentangperusahaan" placeholder="Perusahaan kami adalah..." id="tentangperusahaan" class="form-control">{{$job->tentang_perusahaan}}</textarea>
+                                    <textarea style="max-height: 150px; min-height: 150px; resize: none" name="tentangperusahaan" placeholder="Perusahaan kami adalah..." id="tentangperusahaan" class="form-control">{{$job->tentang_perusahaan}}</textarea>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-group mt-3">
                                     <label for="alamat" class="lbl">Alamat</label>
-                                    <textarea style="max-height: 90px; min-height: 90px;" name="alamat" id="alamat" class="form-control" >{{$job->alamat}}</textarea>
+                                    <textarea style="max-height: 90px; min-height: 90px; resize: none;" name="alamat" id="alamat" class="form-control" >{{$job->alamat}}</textarea>
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="logo" class="lbl">Add Logo Company</label>
@@ -213,42 +213,42 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-check form-switch" style="margin-left: 40px">
-                                            <input class="form-check-input" type="checkbox" id="selectAll">
-                                            <label class="form-check-label" for="selectAll">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="selectAllPersonal">
+                                            <label class="form-check-label" for="selectAllPersonal">Select All</label>
                                         </div>
 
                                         <div class="form-check form-switch mt-4 me-4">
                                             <div class="row">
                                                 <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Foto Profil</p></div>
-                                                <div class="col-md"><input {{$config->foto_profil == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end" type="checkbox" name="pp"></div>
+                                                <div class="col-md"><input {{$config->foto_profil == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end personal-details" type="checkbox" name="pp"></div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
                                                 <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Status Pernikahan</p></div>
-                                                <div class="col-md"><input {{$config->status_pernikahan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end" type="checkbox" name="statusnikah"></div>
+                                                <div class="col-md"><input {{$config->status_pernikahan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end personal-details" type="checkbox" name="statusnikah"></div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
                                                 <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Agama</p></div>
-                                                <div class="col-md"><input {{$config->agama == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end" type="checkbox" name="agama"></div>
+                                                <div class="col-md"><input {{$config->agama == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end personal-details" type="checkbox" name="agama"></div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
                                                 <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Tinggi Badan</p></div>
-                                                <div class="col-md"><input {{$config->tinggi_badan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end" type="checkbox" name="tinggibadan"></div>
+                                                <div class="col-md"><input {{$config->tinggi_badan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end personal-details" type="checkbox" name="tinggibadan"></div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
                                                 <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Berat Badan</p></div>
-                                                <div class="col-md"><input {{$config->berat_badan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end" type="checkbox" name="beratbadan"></div>
+                                                <div class="col-md"><input {{$config->berat_badan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end personal-details" type="checkbox" name="beratbadan"></div>
                                             </div>
                                         </div>
 
@@ -263,21 +263,21 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-check form-switch" style="margin-left: 40px">
-                                            <input class="form-check-input" type="checkbox" id="selectAll">
-                                            <label class="form-check-label" for="selectAll">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="selectAllDokumen">
+                                            <label class="form-check-label" for="selectAllDokumen">Select All</label>
                                         </div>
 
                                         <div class="form-check form-switch mt-4 me-4">
                                             <div class="row">
                                                 <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Pendidikan</p></div>
-                                                <div class="col-md"><input {{$config->pendidikan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end" type="checkbox" name="pendidikan"></div>
+                                                <div class="col-md"><input {{$config->pendidikan == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end dokumen" type="checkbox" name="pendidikan"></div>
                                             </div>
                                         </div>
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
                                                 <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Pengalam Kerja</p></div>
-                                                <div class="col-md"><input {{$config->pengalaman_kerja == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end" type="checkbox" name="pengalamankerja"></div>
+                                                <div class="col-md"><input {{$config->pengalaman_kerja == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end dokumen" type="checkbox" name="pengalamankerja"></div>
                                             </div>
                                         </div>
 
@@ -358,6 +358,21 @@
 
         // Optionally, initialize the input field with the default value of the select element
         updateInputValue();
+
+
+
+
+         // Personal Details Select All
+        document.getElementById('selectAllPersonal').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.personal-details');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
+
+        // Dokumen Select All
+        document.getElementById('selectAllDokumen').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.dokumen');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
     </script>
 </body>
 </html>

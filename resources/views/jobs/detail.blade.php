@@ -242,7 +242,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" checked name="toggle-column" type="checkbox" id="toggleTags" data-column="4">
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +254,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" checked name="toggle-column" type="checkbox" id="toggleDomisili" data-column="5">
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +266,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" checked name="toggle-column" type="checkbox" id="toggleGender" data-column="6">
                                             </div>
                                         </div>
                                     </div>
@@ -278,7 +278,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" checked name="toggle-column" type="checkbox" id="togglePendidikan" data-column="8">
                                             </div>
                                         </div>
                                     </div>
@@ -290,7 +290,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" checked name="toggle-column" type="checkbox" id="toggleLayanan" data-column="9">
                                             </div>
                                         </div>
                                     </div>
@@ -302,7 +302,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" checked name="toggle-column" type="checkbox" id="toggleJabatan" data-column="10">
                                             </div>
                                         </div>
                                     </div>
@@ -314,43 +314,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <p class="ms-3 filter-text">Apply Date</p>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <p class="ms-3 filter-text">Source</p>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <p class="ms-3 filter-text">Rating</p>
-                                        </div>
-                                        <div class="col-md">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" checked name="medical_check_up" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" checked name="toggle-column" type="checkbox" id="toggleMinat" data-column="11">
                                             </div>
                                         </div>
                                     </div>
@@ -449,7 +413,7 @@
                             <input type="submit" class="btn btn-success" value="Add Candidate">
                         </div>
                     </div>
-                    <table id="TableAdd" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px; margin-top: 50px">
+                    <table id="TableAdd" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px; margin-top: 50px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="height: 48px; padding-left: 10px">
@@ -630,7 +594,7 @@
         <li class="me-2 mb-2">
             <div class="form-group">
                 <i class="bi bi-search mt-2 icon-1 position-absolute text-secondary ms-2" style="padding-left: 3px; padding-top: 3px"></i>
-                <input type="text" id="searchBox" class="form-control" style="min-width: 330px; height: 45px; border-radius: 10px; padding-left:30px;font-size:12px" name="" placeholder="Search applicants" id="search-1" onkeyup="searchFunction('search-1')">
+                <input type="text" id="searchBox" class="form-control" style="width: 20.6rem; height: 45px; border-radius: 10px; padding-left:30px;font-size:12px" name="" placeholder="Search applicants" id="search-1" onkeyup="searchFunction('search-1')">
             </div>
         </li>
         <li class="nav-item me-2 mb-2" role="presentation">
@@ -660,7 +624,7 @@
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-screening" role="tabpanel" aria-labelledby="pills-screening-tab">
                 <div class="table-responsive">
-                    <table id="TableScreening" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                    <table id="TableScreening" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="width: 48px; height: 48px">
@@ -683,61 +647,61 @@
                                 <th></th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox1" onkeyup="scrFilter1()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox1" onkeyup="scrFilter(1, 'searchBox1')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox2" onkeyup="scrFilter2()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox2" onkeyup="scrFilter(2, 'searchBox2')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox3" onkeyup="scrFilter3()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="tagsFilter" onkeyup="tagsFilter()" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox4" onkeyup="scrFilter4()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox4" onkeyup="scrFilter(4, 'searchBox4')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox5" onkeyup="scrFilter5()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox5" onkeyup="scrFilter(5, 'searchBox5')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox6" onkeyup="scrFilter6()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox6" onkeyup="scrFilter(6, 'searchBox6')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox7" onkeyup="scrFilter7()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox7" onkeyup="scrFilter(7, 'searchBox7')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox8" onkeyup="scrFilter8()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox8" onkeyup="scrFilter(8, 'searchBox8')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox9" onkeyup="scrFilter9()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox9" onkeyup="scrFilter(9, 'searchBox9')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
                                 <th>
                                     <div class="search-box">
-                                        <input style="height: 50px;" type="text" id="searchBox10" onkeyup="scrFilter10()" class="form-control search-input input-sm" placeholder="Search..">
+                                        <input style="height: 50px;" type="text" id="searchBox10" onkeyup="scrFilter(10, 'searchBox10')" class="form-control search-input input-sm" placeholder="Search..">
                                         <i class="bi bi-search search-icon"></i>
                                     </div>
                                 </th>
@@ -819,7 +783,7 @@
             </div>
             <div class="tab-pane fade" id="pills-psikotest" role="tabpanel" aria-labelledby="pills-psikotest-tab">
                 <div class="table-responsive">
-                    <table id="TablePsikotest" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                    <table id="TablePsikotest" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="width: 48px; height: 48px">
@@ -982,7 +946,7 @@
             </div>
             <div class="tab-pane fade" id="pills-interview-hr" role="tabpanel" aria-labelledby="pills-interview-hr-tab">
                 <div class="table-responsive">
-                    <table id="TableInterHR" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                    <table id="TableInterHR" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="width: 48px; height: 48px">
@@ -1145,7 +1109,7 @@
             </div>
             <div class="tab-pane fade" id="pills-interview-user" role="tabpanel" aria-labelledby="pills-interview-user-tab">
                 <div class="table-responsive">
-                    <table id="TableInterUser" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                    <table id="TableInterUser" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="width: 48px; height: 48px">
@@ -1308,7 +1272,7 @@
             </div>
             <div class="tab-pane fade" id="pills-peralihan" role="tabpanel" aria-labelledby="pills-peralihan-tab">
                 <div class="table-responsive">
-                    <table id="TablePeralihan" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                    <table id="TablePeralihan" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="width: 48px; height: 48px">
@@ -1471,7 +1435,7 @@
             </div>
             <div class="tab-pane fade" id="pills-reject" role="tabpanel" aria-labelledby="pills-reject-tab">
                 <div class="table-responsive">
-                    <table id="TableReject" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                    <table id="TableReject" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="width: 48px; height: 48px">
@@ -1634,7 +1598,7 @@
             </div>
             <div class="tab-pane fade" id="pills-hiring" role="tabpanel" aria-labelledby="pills-hiring-tab">
                 <div class="table-responsive">
-                    <table id="TableHiring" data-sortable class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                    <table id="TableHiring" data-sortable class="table table-bordered custom-table target-table" style="background: #fff; font-weight: 500; font-size: 14px">
                         <thead class="align-middle">
                             <tr>
                                 <th class="text-center" style="width: 48px; height: 48px">
@@ -1950,86 +1914,28 @@
     // });
 
 
-    function scrFilter1() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox1");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
+    function scrFilter(columnIndex, searchBoxId) {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById(searchBoxId);
+    filter = input.value.toUpperCase();
+    table = document.getElementById("TableScreening");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[columnIndex];
+        if (td) {
+            txtValue = td.textContent || td.innerText || td.getAttribute('valueTags');
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
             } else {
                 tr[i].style.display = "none";
             }
-            }       
         }
     }
+}
 
-    function scrFilter2() {
+function tagsFilter() {
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox2");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[2];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
-
-    function scrFilter5() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox5");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[5];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
-
-    function scrFilter4() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox4");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[4];
-            if (td) {
-            console.log(td.value);
-            txtValue = td.textContent || td.innerText || td.value;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
-
-    function scrFilter3() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox3");
+        input = document.getElementById("tagsFilter");
         filter = input.value.toUpperCase();
         table = document.getElementById("TableScreening");
         tr = table.getElementsByTagName("tr");
@@ -2049,100 +1955,6 @@
         }
     }
 
-    function scrFilter6() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox6");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[6];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
-
-    function scrFilter7() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox7");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[7];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
-
-    function scrFilter8() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox8");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[8];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
-
-    function scrFilter9() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox9");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[9];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
-
-    function scrFilter10() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchBox10");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("TableScreening");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[10];
-            if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-            }       
-        }
-    }
 
 
     
@@ -2287,5 +2099,33 @@
         // Alert the copied text
         alert("Copied the text: " + copyText.value);
     }
+
+    document.querySelectorAll('input[name="toggle-column"]').forEach(function(toggle) {
+        toggle.addEventListener('change', function() {
+            var column = this.getAttribute('data-column');
+
+            // Ambil semua tabel yang ingin dipengaruhi
+            var tables = document.querySelectorAll('.target-table');
+            
+            tables.forEach(function(table) {
+                // Toggle visibility of the header in all tr of thead
+                var ths = table.querySelectorAll('thead tr th:nth-child(' + column + ')');
+                ths.forEach(function(th) {
+                    th.style.display = toggle.checked ? '' : 'none';
+                });
+
+                // Toggle visibility of each row in the table body
+                var rows = table.querySelectorAll('tbody tr');
+                rows.forEach(function(row) {
+                    var td = row.querySelector('td:nth-child(' + column + ')');
+                    if (td) {
+                        td.style.display = toggle.checked ? '' : 'none';
+                    }
+                });
+            });
+        });
+    });
+
+
 </script>
 
