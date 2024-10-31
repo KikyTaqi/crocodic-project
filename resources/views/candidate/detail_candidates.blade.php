@@ -61,6 +61,23 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal Share -->
+                <div class="modal fade" id="sharemodal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Share Candidate</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="linkJob" readonly value="http://127.0.0.1:8000/candidates/detail/{{$c->id_candidate}}">
+                                <button class="btn btn-outline-secondary"onclick="copyInput()" type="button" id="button-addon2"><i class="bi bi-clipboard"></i></button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
 
 
                 <!-- Modal Schedule -->
@@ -184,10 +201,10 @@
                                             <p class="title-candidate">Developer</p>
                                             <p class="title-candidate"><small>3 Tahun Pengalaman</small></p>
                                         </div>
-                                        <div class="row biodata">
+                                        <div class="row biodata" id="sosmedView">
                                             <div class="wrap-title">
                                                 <p class="title">Social Media</p>
-                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                <button type="button" class="btn-none float-end w-fit" onclick="changeFormBiodata(1,'sosmedView','sosmedForm')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
                                             </div>
                                             <div class="wrap-biodata">
                                                 <div class="row-biodata">
@@ -208,10 +225,37 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row biodata">
+                                        <div class="row biodata p-27 d-none" id="sosmedForm">
+                                            <div class="wrap-title p-0">
+                                                <p class="title">Social Media</p>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Instagram</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Twitter</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Facebook</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">LinkedIn</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-btn">
+                                                    <button type="button" class="biodata-submit" onclick="changeFormBiodata(2,'sosmedView','sosmedForm')">Simpan</button>
+                                                    <button type="button" class="biodata-cancel ms-2" onclick="changeFormBiodata(2,'sosmedView','sosmedForm')">Batal</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata" id="biodataView">
                                             <div class="wrap-title">
                                                 <p class="title">Biodata</p>
-                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                <button type="button" class="btn-none float-end w-fit" onclick="changeFormBiodata(1,'biodataView','biodataForm')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
                                             </div>
                                             <div class="wrap-biodata">
                                                 <div class="row-biodata">
@@ -250,10 +294,87 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row biodata">
+                                        <div class="row biodata p-27 d-none" id="biodataForm">
+                                            <div class="wrap-title p-0">
+                                                <p class="title">Biodata</p>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Tempat Tanggal Lahir</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                    <div class="select-group-date">
+                                                        <select id="day" class="biodata-input px-2 day-select">
+                                                            <option value="" disabled selected>Day</option>
+                                                        </select>
+                                                          
+                                                        <select id="month" class="biodata-input px-2">
+                                                            <option value="" disabled selected>Month</option>
+                                                            <option value="Jan">Jan</option>
+                                                            <option value="Feb">Feb</option>
+                                                            <option value="Mar">Mar</option>
+                                                            <option value="Apr">Apr</option>
+                                                            <option value="May">May</option>
+                                                            <option value="Jun">Jun</option>
+                                                            <option value="Jul">Jul</option>
+                                                            <option value="Aug">Aug</option>
+                                                            <option value="Sep">Sep</option>
+                                                            <option value="Oct">Oct</option>
+                                                            <option value="Nov">Nov</option>
+                                                            <option value="Dec">Dec</option>
+                                                        </select>
+                                                          
+                                                        <select id="year" class="biodata-input px-2 year-select">
+                                                            <option value="" disabled selected>Year</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Jenis Kelamin</p>
+                                                    <select name="" id="" class="biodata-input w-122">
+                                                        <option value="laki-laki">Laki-laki</option>
+                                                        <option value="perempuan">Perempuan</option>
+                                                    </select>
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Status</p>
+                                                    <select name="" id="" class="biodata-input w-122">
+                                                        <option value="sudah_menikah">Sudah Menikah</option>
+                                                        <option value="belum_menikah">Belum Menikah</option>
+                                                    </select>
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Agama</p>
+                                                    <select name="" id="" class="biodata-input w-122">
+                                                        <option value="islam">Islam</option>
+                                                        <option value="kristen">Kristen</option>
+                                                        <option value="katolik">Katolik</option>
+                                                        <option value="hindu">Hindu</option>
+                                                        <option value="buddha">Buddha</option>
+                                                        <option value="konghucu">Konghucu</option>
+                                                    </select>
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Gaji yang Diharapkan (IDR)</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Tinggi Badan (cm)</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Berat Badan (cm)</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-btn">
+                                                    <button type="button" class="biodata-submit" onclick="changeFormBiodata(2,'biodataView','biodataForm')">Simpan</button>
+                                                    <button type="button" class="biodata-cancel ms-2" onclick="changeFormBiodata(2,'biodataView','biodataForm')">Batal</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata" id="kontakView">
                                             <div class="wrap-title">
                                                 <p class="title">Kontak Informasi</p>
-                                                <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                <button type="button" class="btn-none float-end w-fit" onclick="changeFormBiodata(1,'kontakView','kontakForm')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
                                             </div>
                                             <div class="wrap-biodata">
                                                 <div class="row-biodata">
@@ -283,6 +404,45 @@
                                                 <div class="row-biodata">
                                                     <img src="{{asset('assets/icon-biodata/message-arrow.svg')}}" alt="">
                                                     <p class="text">13910</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row biodata p-27 d-none" id="kontakForm">
+                                            <div class="wrap-title p-0">
+                                                <p class="title">Kontak Informasi</p>
+                                            </div>
+                                            <div class="wrap-biodata">
+                                                <div class="row-biodata-input">
+                                                    <p class="text">No HP</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122" value="{{$c->no_hp}}">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Email</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122" value="{{$c->email}}">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Provinsi</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Jalan</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Kecamatan</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Kelurahan</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-input">
+                                                    <p class="text">Kode Pos</p>
+                                                    <input type="text" name="" id="" class="biodata-input w-122">
+                                                </div>
+                                                <div class="row-biodata-btn">
+                                                    <button type="button" class="biodata-submit" onclick="changeFormBiodata(2,'kontakView','kontakForm')">Simpan</button>
+                                                    <button type="button" class="biodata-cancel ms-2" onclick="changeFormBiodata(2,'kontakView','kontakForm')">Batal</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -379,18 +539,32 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-auto profile-right">
-                                        <div class="card border-0 h-fit">
+                                    <div class="col-md-auto profile-right" >
+                                        <div class="card border-0 h-fit" id="ringkasanView">
                                             <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
                                                 <div class="wrap-title">
                                                     <p class="title">Ringkasan</p>
-                                                    <button type="button" class="btn-none float-end w-fit"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                    <button type="button" class="btn-none float-end w-fit" onclick="changeFormBiodata(1,'ringkasanView','ringkasanForm')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <p class="text">Developer dengan pengalaman lebih dari 5 tahun bekerja di sektor publik dan swasta. Diplomatik, berkepribadian, dan mahir dalam mengelola situasi sensitif. Sangat terorganisir, memiliki motivasi diri, dan mahir menggunakan komputer. Ingin meningkatkan nilai kepuasan mahasiswa untuk Universitas Internasional. Gelar sarjana di bidang komunikasi. <br><br>
 
                                                     Ini menggambarkan pengalaman, keterampilan, dan pencapaian kandidat yang relevan. Tujuan ringkasan karir ini adalah untuk menjelaskan kualifikasi Anda untuk pekerjaan itu dalam 3-5 kalimat dan meyakinkan manajer untuk membaca seluruh dokumen resume.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit d-none" id="ringkasanForm">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Ringkasan</p>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <textarea name="" id="" class="ringkasan-input"></textarea>
+                                                <div class="row-biodata-btn">
+                                                    <button type="button" class="biodata-submit" onclick="changeFormBiodata(2,'ringkasanView','ringkasanForm')">Simpan</button>
+                                                    <button type="button" class="biodata-cancel ms-2" onclick="changeFormBiodata(2,'ringkasanView','ringkasanForm')">Batal</button>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="card border-0 h-fit mt-4">
@@ -422,6 +596,90 @@
                                                             <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
                                                             <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
                                                         </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience-input">
+                                                    <div class="wrap-input-exp px-4">
+                                                        <div class="wrap-input-left">
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Nama Pekerjaan</p>
+                                                                <input type="text" name="" id="" class="biodata-input">
+                                                            </div>
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Lokasi</p>
+                                                                <input type="text" name="" id="" class="biodata-input">
+                                                            </div>
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Tipe Pekerjaan</p>
+                                                                <input type="text" name="" id="" class="biodata-input">
+                                                            </div>
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Gaji</p>
+                                                                <input type="text" name="" id="" class="biodata-input">
+                                                            </div>
+                                                        </div>
+                                                        <div class="wrap-input-right">
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Nama Perusahaan</p>
+                                                                <input type="text" name="" id="" class="biodata-input">
+                                                            </div>
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Mulai Bekerja</p>
+                                                                <div class="d-flex">
+                                                                    <select id="month" class="biodata-input px-2 me-2">
+                                                                        <option value="" disabled selected>Month</option>
+                                                                        <option value="Jan">Jan</option>
+                                                                        <option value="Feb">Feb</option>
+                                                                        <option value="Mar">Mar</option>
+                                                                        <option value="Apr">Apr</option>
+                                                                        <option value="May">May</option>
+                                                                        <option value="Jun">Jun</option>
+                                                                        <option value="Jul">Jul</option>
+                                                                        <option value="Aug">Aug</option>
+                                                                        <option value="Sep">Sep</option>
+                                                                        <option value="Oct">Oct</option>
+                                                                        <option value="Nov">Nov</option>
+                                                                        <option value="Dec">Dec</option>
+                                                                    </select>
+                                                                    <select class="biodata-input px-2 year-select">
+                                                                        <option value="" disabled selected>Year</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Selesai Bekerja</p>
+                                                                <div class="d-flex">
+                                                                    <select id="month" class="biodata-input px-2 me-2">
+                                                                        <option value="" disabled selected>Month</option>
+                                                                        <option value="Jan">Jan</option>
+                                                                        <option value="Feb">Feb</option>
+                                                                        <option value="Mar">Mar</option>
+                                                                        <option value="Apr">Apr</option>
+                                                                        <option value="May">May</option>
+                                                                        <option value="Jun">Jun</option>
+                                                                        <option value="Jul">Jul</option>
+                                                                        <option value="Aug">Aug</option>
+                                                                        <option value="Sep">Sep</option>
+                                                                        <option value="Oct">Oct</option>
+                                                                        <option value="Nov">Nov</option>
+                                                                        <option value="Dec">Dec</option>
+                                                                    </select>
+                                                                    <select class="biodata-input px-2 year-select">
+                                                                        <option value="" disabled selected>Year</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row-biodata-input d-flex">
+                                                                <input type="checkbox" name="" id="" style="accent-color: #FA6900; width: 20px;margin-right: 10px;">
+                                                                <p class="text" style="font-weight: 400;">Saat ini saya bekerja di sini</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="wrap-input-desc">
+                                                        <div class="row-biodata-input">
+                                                            <p class="text">Gaji</p>
+                                                            <textarea name="" id="" class="biodata-textarea"></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="profile-job-experience">
@@ -548,6 +806,214 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="card border-0 h-fit mt-4">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Pelatihan/Sertifikasi</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-job-details position-relative">
+                                                    <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                    <h5 class="mb-3">Professional Certified - CEP CCIT Fakultas Teknik Universitas Indonesia</h5>
+                                                    <div class="row pelatihan-info">
+                                                        <div class="col-md-auto left">
+                                                            <div class="wrap-pelatihan-info mb-2">
+                                                                <img src="{{asset('assets/icon-profile/date-grey.svg')}}" alt="" class="me-2">
+                                                                <p>29 Oktober 2020</p>
+                                                            </div>
+                                                            <div class="wrap-pelatihan-info">
+                                                                <img src="{{asset('assets/icon-profile/files-grey.svg')}}" alt="" class="me-2">
+                                                                <p>IT Professional in Software Engineering</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-auto my-auto">
+                                                            <div class="wrap-pelatihan-file">
+                                                                <img src="{{asset('assets/icon-profile/file-grey.svg')}}" alt="" class="me-3">
+                                                                <div class="info">
+                                                                    <p>sertifikasi.pdf</p>
+                                                                    <p>12.5 MB</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit mt-4">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Pengalaman Organisasi</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-job-details position-relative">
+                                                    <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                    <h5 class="mb-3">BEM Fakultas Teknik - Universitas Indonesia</h5>
+                                                    <div class="row pelatihan-info">
+                                                        <div class="col-md-auto left">
+                                                            <div class="wrap-pelatihan-info mb-2">
+                                                                <img src="{{asset('assets/icon-profile/clock-grey.svg')}}" alt="" class="me-2">
+                                                                <p>2018 - 2020</p>
+                                                            </div>
+                                                            <div class="wrap-pelatihan-info">
+                                                                <img src="{{asset('assets/icon-profile/person-grey.svg')}}" alt="" class="me-2">
+                                                                <p>Sekertaris</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit mt-4">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Keterampilan</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-job-experience keterampilan">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mt-3 mb-3">Softskill</h5>
+                                                        <ul class="job-list-desc p-0">
+                                                            Kreatif, Rasa Ingin Tahu, Komunikasi, Pemecahan Masalah, Berpikir Kritis, Kemampuan Multitasking, Kerja Sama Tim dan Kolaborasi, Motivasi Diri, Analisis, Terorganisir.
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience keterampilan">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mt-3 mb-3">Hardskill</h5>
+                                                        <ul class="job-list-desc p-0">
+                                                            Python, JavaScript, Kotlin, ReactJS, Angular, Node.js
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-experience keterampilan">
+                                                    <div class="profile-job-icon">
+                                                        <div class="profile-letter-icon text-center mx-auto"></div>
+                                                    </div>
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mt-3 mb-3">Webinar</h5>
+                                                        <ul class="job-list-desc p-0">
+                                                            Kominfo - Pengenalan Keamanan Data dalam Infrastruktur IT (2022) <br>
+                                                            Gojek - Inovasi dalam Pengembangan Aplikasi Mobile (2019)
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card border-0 h-fit mt-4 card-bahasa">
+                                            <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
+                                                <div class="wrap-title">
+                                                    <p class="title">Bahasa</p>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-bahasa">
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mb-3 mt-0">Inggris</h5>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Berbicara</td>
+                                                                    <td>Baik</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Menulis</td>
+                                                                    <td>Baik</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-bahasa">
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mb-3 mt-0">Indonesia</h5>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Berbicara</td>
+                                                                    <td>Lancar</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Menulis</td>
+                                                                    <td>Lancar</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-bahasa">
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mb-3 mt-0">Jepang</h5>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Berbicara</td>
+                                                                    <td>Lumayan</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Menulis</td>
+                                                                    <td>Baik</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-bahasa">
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mb-3 mt-0">Jerman</h5>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Berbicara</td>
+                                                                    <td>Buruk</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Menulis</td>
+                                                                    <td>Buruk</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-bahasa">
+                                                    <div class="profile-job-details position-relative">
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mb-3 mt-0">Jawa</h5>
+                                                        <div class="pendidikan-detail-info">
+                                                            <table class="table-borderless">
+                                                                <tr>
+                                                                    <td width="100px">Berbicara</td>
+                                                                    <td>Lancar</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Menulis</td>
+                                                                    <td>Buruk</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -626,7 +1092,7 @@
                                 <img class="me-2" src="{{asset('assets/icon-detail-candidate/move.svg')}}" alt="">
                                 <p class="text my-auto">Move Candidates</p>
                             </li>
-                            <li class="d-flex" style="margin-bottom: 5px;"> 
+                            <li class="d-flex" style="margin-bottom: 5px;" data-bs-toggle="modal" data-bs-target="#sharemodal"> 
                                 <img class="me-2" src="{{asset('assets/icon-detail-candidate/share.svg')}}" alt="">
                                 <p class="text my-auto">Share Candidates</p>
                             </li>
@@ -1086,6 +1552,32 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
+            function generateDayOptions(selectElement) {
+                for (let i = 1; i <= 31; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                selectElement.appendChild(option);
+                }
+            }
+
+            // Function to generate year options from 1950 to current year
+            function generateYearOptions(selectElement) {
+                const currentYear = new Date().getFullYear();
+                for (let i = 1950; i <= currentYear; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                selectElement.appendChild(option);
+                }
+            }
+
+            // Apply to all elements with class "day-select"
+            document.querySelectorAll('.day-select').forEach(generateDayOptions);
+
+            // Apply to all elements with class "year-select"
+            document.querySelectorAll('.year-select').forEach(generateYearOptions);
+            
             document.getElementById('btn-print').addEventListener('click', function () {
                 var printWindow = window.open('', '_blank');
                 var cvImage = document.getElementById('cvImage').src;
@@ -1417,6 +1909,17 @@
                 detailView.classList.remove('d-none');
             }
         }
+        function changeFormBiodata(isEdit,idView,idForm){
+            var detailForm = document.getElementById(idForm);
+            var detailView = document.getElementById(idView);
+            if(isEdit == 1){
+                detailForm.classList.remove('d-none');
+                detailView.classList.add('d-none');
+            }else{
+                detailForm.classList.add('d-none');
+                detailView.classList.remove('d-none');
+            }
+        }
         function commenting(){
             var divComment = document.getElementById('row-commenting');
             var btnComment = document.getElementById('btn-detail-comment');
@@ -1446,6 +1949,20 @@
                 }
                 }       
             }
+        }
+        function copyInput() {
+            // Get the text field
+            var copyText = document.getElementById("linkJob");
+
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+            
+            // Alert the copied text
+            alert("Copied the text: " + copyText.value);
         }
     </script>
 </body>
