@@ -34,7 +34,9 @@ class master extends Controller
     public function jobs(){
         $jobs = job::orderBy('id_job', 'desc')->paginate(15);
 
-        return view('jobs/jobs', ['jobs' => $jobs]);
+        $job_list = job::all();
+
+        return view('jobs/jobs', ['jobs' => $jobs, 'job_list' => $job_list]);
     }
 
     public function detailJobs($id){
@@ -205,8 +207,6 @@ class master extends Controller
         ]);
     
         session()->flash('jd', ['job_name' => $r->job_name, 'ads' => $r->ads, 'lokasi' => $r->lokasi, 'foto_name' => $logoname, 'id_job' => $autoId]);
-    
-        // return redirect()->route('jobs.success')->with('success_tambah', 'Job added successfully.');
 
         return view('jobs.sukses')->with('success_tambah', 'Job added successfully.');;
     }

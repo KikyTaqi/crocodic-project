@@ -717,7 +717,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                 </td>
-                                <td>{{$scr->nama}}</td>
+                                <td style="cursor: pointer" onclick="detailCandidate({{$scr->id_candidate}})">{{$scr->nama}}</td>
                                 <td>
                                     @if($scr->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
@@ -876,7 +876,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                 </td>
-                                <td>{{$psi->nama}}</td>
+                                <td style="cursor: pointer" onclick="detailCandidate({{$psi->id_candidate}})">{{$psi->nama}}</td>
                                 <td>
                                     @if($psi->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
@@ -1039,7 +1039,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                 </td>
-                                <td>{{$ihr->nama}}</td>
+                                <td style="cursor: pointer" onclick="detailCandidate({{$ihr->id_candidate}})">{{$ihr->nama}}</td>
                                 <td>
                                     @if($ihr->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
@@ -1202,7 +1202,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                 </td>
-                                <td>{{$iur->nama}}</td>
+                                <td style="cursor: pointer" onclick="detailCandidate({{$iur->id_candidate}})">{{$iur->nama}}</td>
                                 <td>
                                     @if($iur->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
@@ -1365,7 +1365,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                 </td>
-                                <td>{{$phn->nama}}</td>
+                                <td style="cursor: pointer" onclick="detailCandidate({{$phn->id_candidate}})">{{$phn->nama}}</td>
                                 <td>
                                     @if($phn->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
@@ -1528,7 +1528,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                 </td>
-                                <td>{{$rjc->nama}}</td>
+                                <td style="cursor: pointer" onclick="detailCandidate({{$rjc->id_candidate}})">{{$rjc->nama}}</td>
                                 <td>
                                     @if($rjc->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
@@ -1691,7 +1691,7 @@
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                 </td>
-                                <td>{{$hrg->nama}}</td>
+                                <td style="cursor: pointer" onclick="detailCandidate({{$hrg->id_candidate}})">{{$hrg->nama}}</td>
                                 <td>
                                     @if($hrg->process == 'approval')
                                         <div  class="mx-auto text-center" style="width: 74px; height: 24px; border: 1px solid #9EB5A2; color: #41806D; font-size: 12px; line-height: 24px;">
@@ -1766,6 +1766,9 @@
 </html>
 
 <script>
+    function detailCandidate(id){
+        window.location.href = '/candidates/detail/'+id;
+    }
 
     function btnPublish(idJob) {
         // Set ID pekerjaan di formulir tersembunyi untuk duplikasi
@@ -1842,76 +1845,6 @@
         });
     });
 
-
-    
-
-
-    // $("#searchBox").keyup(function () {
-    //     var value = this.value.toLowerCase().trim();
-
-    //         $("#screeningTD tr").each(function (index) {
-    //             $(this).find("td").each(function () {
-    //                 var id = $(this).text().toLowerCase().trim();
-    //                 var not_found = (id.indexOf(value) == -1);
-    //                 $(this).closest('tr').toggle(!not_found);
-    //                 return not_found;
-    //             });
-    //         });
-            
-    //         $("#psikotestTD tr").each(function (index) {
-    //             $(this).find("td").each(function () {
-    //                 var id = $(this).text().toLowerCase().trim();
-    //                 var not_found = (id.indexOf(value) == -1);
-    //                 $(this).closest('tr').toggle(!not_found);
-    //                 return not_found;
-    //             });
-    //         });
-
-    //         $("#interhrTD tr").each(function (index) {
-    //             $(this).find("td").each(function () {
-    //                 var id = $(this).text().toLowerCase().trim();
-    //                 var not_found = (id.indexOf(value) == -1);
-    //                 $(this).closest('tr').toggle(!not_found);
-    //                 return not_found;
-    //             });
-    //         });
-
-    //         $("#interuserTD tr").each(function (index) {
-    //             $(this).find("td").each(function () {
-    //                 var id = $(this).text().toLowerCase().trim();
-    //                 var not_found = (id.indexOf(value) == -1);
-    //                 $(this).closest('tr').toggle(!not_found);
-    //                 return not_found;
-    //             });
-    //         });
-
-    //         $("#peralihanTD tr").each(function (index) {
-    //             $(this).find("td").each(function () {
-    //                 var id = $(this).text().toLowerCase().trim();
-    //                 var not_found = (id.indexOf(value) == -1);
-    //                 $(this).closest('tr').toggle(!not_found);
-    //                 return not_found;
-    //             });
-    //         });
-
-    //         $("#rejectTD tr").each(function (index) {
-    //             $(this).find("td").each(function () {
-    //                 var id = $(this).text().toLowerCase().trim();
-    //                 var not_found = (id.indexOf(value) == -1);
-    //                 $(this).closest('tr').toggle(!not_found);
-    //                 return not_found;
-    //             });
-    //         });
-
-    //         $("#hiringTD tr").each(function (index) {
-    //             $(this).find("td").each(function () {
-    //                 var id = $(this).text().toLowerCase().trim();
-    //                 var not_found = (id.indexOf(value) == -1);
-    //                 $(this).closest('tr').toggle(!not_found);
-    //                 return not_found;
-    //             });
-    //         });
-    // });
 
 
     function scrFilter(columnIndex, searchBoxId) {

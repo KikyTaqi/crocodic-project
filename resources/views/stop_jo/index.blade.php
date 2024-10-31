@@ -45,7 +45,7 @@
     </style>
 
 
-    <title>Cancel Join</title>
+    <title>Stop Job Order</title>
 </head>
 <body style="background: #f8f8f8">
     @include('header')
@@ -57,70 +57,72 @@
                 <h5>Stop Job Order</h5>
             </div>
         </div>
+        <div class="table-responsive">
 
-        <table class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
-            <thead class="align-middle">
-                <tr>
-                    <?php $no = 1; ?>
-                    <th class="text-center" style="height: 48px">#</th>
-                    <th style="min-width: 10rem;">No JO</th>
-                    <th style="min-width: 5rem;">Created By</th>
-                    <th style="width: 7rem;">Created at</th>
-                    <th>Approval I</th>
-                    <th>Approval II</th>
-                    <th class="text-center">Status</th>
-                    <th style="width: 25rem">Remarks</th>
-                    <th style="min-width: 1rem"></th>
-                </tr>
-            </thead>
-            <tbody class="align-middle">
-
-                <tr>
-                    <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
-                    <td>029788/ISH/01010107/2023</td>
-                    <td>FAUZAN RIVALDY</td>
-                    <td>20/11/2023 20:05</td>
-                    <td>PM</td>
-                    <td>Tofan Kusuma</td>
-                    <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
-                    <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
-                    <td><button data-bs-toggle="offcanvas" data-bs-target="#vdetail" aria-controls="offcanvasRight" style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
-                </tr>
-                <tr>
-                    <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
-                    <td>029788/ISH/01010107/2023</td>
-                    <td>FAUZAN RIVALDY</td>
-                    <td>20/11/2023 20:05</td>
-                    <td>PM</td>
-                    <td>Tofan Kusuma</td>
-                    <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
-                    <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
-                    <td><button style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
-                </tr>
-                <tr>
-                    <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
-                    <td>029788/ISH/01010107/2023</td>
-                    <td>FAUZAN RIVALDY</td>
-                    <td>20/11/2023 20:05</td>
-                    <td>PM</td>
-                    <td>Tofan Kusuma</td>
-                    <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
-                    <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
-                    <td><button style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
-                </tr>
-                <tr>
-                    <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
-                    <td>029788/ISH/01010107/2023</td>
-                    <td>FAUZAN RIVALDY</td>
-                    <td>20/11/2023 20:05</td>
-                    <td>PM</td>
-                    <td>Tofan Kusuma</td>
-                    <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
-                    <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
-                    <td><button style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
-                </tr>
-            </tbody>
-        </table>
+            <table class="table table-bordered custom-table" style="background: #fff; font-weight: 500; font-size: 14px">
+                <thead class="align-middle">
+                    <tr>
+                        <?php $no = 1; ?>
+                        <th class="text-center" style="height: 48px">#</th>
+                        <th style="min-width: 10rem;">No JO</th>
+                        <th style="min-width: 5rem;">Created By</th>
+                        <th style="width: 7rem;">Created at</th>
+                        <th>Approval I</th>
+                        <th>Approval II</th>
+                        <th class="text-center">Status</th>
+                        <th style="width: 25rem">Remarks</th>
+                        <th style="min-width: 1rem"></th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+    
+                    <tr>
+                        <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
+                        <td>029788/ISH/01010107/2023</td>
+                        <td>FAUZAN RIVALDY</td>
+                        <td>20/11/2023 20:05</td>
+                        <td>PM</td>
+                        <td>Tofan Kusuma</td>
+                        <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
+                        <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
+                        <td><button data-bs-toggle="offcanvas" data-bs-target="#vdetail" aria-controls="offcanvasRight" style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
+                        <td>029788/ISH/01010107/2023</td>
+                        <td>FAUZAN RIVALDY</td>
+                        <td>20/11/2023 20:05</td>
+                        <td>PM</td>
+                        <td>Tofan Kusuma</td>
+                        <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
+                        <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
+                        <td><button style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
+                        <td>029788/ISH/01010107/2023</td>
+                        <td>FAUZAN RIVALDY</td>
+                        <td>20/11/2023 20:05</td>
+                        <td>PM</td>
+                        <td>Tofan Kusuma</td>
+                        <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
+                        <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
+                        <td><button style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 48px; height: 48px" class="text-center">{{$no++}}</td>
+                        <td>029788/ISH/01010107/2023</td>
+                        <td>FAUZAN RIVALDY</td>
+                        <td>20/11/2023 20:05</td>
+                        <td>PM</td>
+                        <td>Tofan Kusuma</td>
+                        <td class="text-center"><span class="mx-3 my-1 p-solid-green">approved</span></td>
+                        <td>Dikarenakan sudah tidak ada kebutuhan lagi ditoko tersebut</td>
+                        <td><button style="padding: .2rem; height: 2.2rem; width: 2.2rem;" class="btn btn-green mx-2 my-2"><i style="font-size: 1.2rem" class="bi bi-eye-fill"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
         
     </div>

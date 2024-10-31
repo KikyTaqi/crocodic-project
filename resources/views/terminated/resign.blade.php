@@ -28,7 +28,7 @@
 
     </style>
 
-    <title>Hiring</title>
+    <title>Resign</title>
 </head>
 <body style="background: #f8f8f8">
     @include('header')
@@ -36,21 +36,25 @@
     <div class="mx-4 my-3">
 
         <div class="row mb-3 mt-4">
-            <h5>Ready to Hiring</h5>
+            <h5>Resign</h5>
         </div>
 
         <div class="row mb-2">
-            <div class="col-md mb-2">
-                <div class="search-box">
-                    <input onkeyup="scrFilter()" style="height: 50px; width: 450px;" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
-                    <i class="bi bi-search search-icon-lg"></i>
-                </div>
-            </div>
             <div class="col-md">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="/hiring/report" class="btn btn-white-outline" type="button"><i class="bi bi-bar-chart-fill"></i> Report Hiring</a>
-                    <a id="btn-cancel-join" class="btn btn-green-outline" type="button"><span class="badge bg-green me-1">0</span> Cancel Join</a>
-                    <a id="btn-request-hiring" class="btn bg-green text-light" type="button"><span class="badge bg-light text-dark me-1">0</span> Request Hiring</a>
+                    <div class="dropdown">
+                        <button class="btn bg-green text-light" style="width: 100%;" data-bs-toggle="dropdown" aria-expanded="false" type="button"><i class="gi gi-export"></i> Export</button>
+                      
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" style="font-size: .9rem; color: #41806D;" href="#"><i class="gi gi-export-green"></i> CSV</a></li>
+                          <li><a class="dropdown-item" style="font-size: .9rem; color: #41806D;" href="#"><i class="gi gi-export-green"></i> Excel 95+</a></li>
+                          <li><a class="dropdown-item" style="font-size: .9rem; color: #41806D;" href="#"><i class="gi gi-export-green"></i> Excel 2007+</a></li>
+                        </ul>
+                    </div>
+                    <a id="btn-cancel-join" class="btn btn-green-outline px-4 py-2" style="font-size: smaller; font-weight: 600;" type="button" >Create</a>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
                 </div>
             </div>
         </div>
@@ -59,71 +63,44 @@
                 <thead class="align-middle" style="height: 3rem">
                     <tr>
                         <th>
-                            <div class="form-check ms-2">
-                                <input class="form-check-input" type="checkbox" id="headerCheckbox" onchange="toggleCheckboxes(this)">
-                            </div>
+                            
                         </th>
+                        <th>Perner</th>
                         <th>Name</th>
-                        <th>Profile</th>
-                        <th>No Job</th>
-                        <th>Posisi</th>
-                        <th>Lokasi</th>
-                        <th>Layanan</th>
+                        <th>Resign</th>
+                        <th>Alasan Resign</th>
+                        <th>Tags</th>
+                        <th>Creator</th>
+                        <th>Approver</th>
+                        <th>Status</th>
+                        <th>Remark</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+
+                    <?php 
+                        $perner = 3000;
+                    ?>
+
+                    @for($i = 1; $i < 10; $i++)
+
                     <tr class="align-middle" style="height: 3rem">
-                        <td>
-                            <div class="form-check ms-2">
-                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                            </div>
+                        <td class="text-center px-2">
+                            {{$i}}
                         </td>
-                        <td>Ainul Mumbait</td>
-                        <td><span class="percent">100%</span></td>
-                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#no-jo" class="link-normal">029861/ISH/01010107/2023</a></td>
-                        <td>HUNTER NOO</td>
+                        <td>{{$perner++}}</td>
+                        <td>Agus Hermawan</td>
+                        <td>29-09-23</td>
+                        <td>Layanan Tutup/Pengurangan</td>
                         <td>BULUKUMBA</td>
-                        <td>JOYDAY HUNTER GT ISH</td>
-                    </tr>
-                    <tr class="align-middle" style="height: 3rem">
-                        <td>
-                            <div class="form-check ms-2">
-                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                            </div>
+                        <td class="text-center py-2">
+                            <div class="tag-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"></div>
                         </td>
-                        <td>ACHMAD MAULANA ONKY PRADANA</td>
-                        <td><span class="percent">100%</span></td>
-                        <td>029861/ISH/01010107/2023</td>
-                        <td>CONSUMER ACCOUNT MANAGER</td>
-                        <td>PASURUAN</td>
-                        <td>CAM TELKOMSEL A3 BALNUS</td>
                     </tr>
-                    <tr class="align-middle" style="height: 3rem">
-                        <td>
-                            <div class="form-check ms-2">
-                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                            </div>
-                        </td>
-                        <td>M Ikhwan Arif</td>
-                        <td><span class="percent">90%</span></td>
-                        <td>029168/ISH/01010107/2023</td>
-                        <td>HUNTER NOO</td>
-                        <td>PASURUAN</td>
-                        <td>JOYDAY HUNTER GT ISH</td>
-                    </tr>
-                    <tr class="align-middle" style="height: 3rem">
-                        <td>
-                            <div class="form-check ms-2">
-                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                            </div>
-                        </td>
-                        <td>Nighara Asmarantaka Sulya</td>
-                        <td><span class="percent">80%</span></td>
-                        <td>029758/ISH/01010107/2023</td>
-                        <td>CONSUMER ACCOUNT MANAGER</td>
-                        <td>SURAKARTA</td>
-                        <td>CAM TELKOMSEL A3 JATENG</td>
-                    </tr>
+
+                    @endfor
+
                 </tbody>
             </table>
         </div>

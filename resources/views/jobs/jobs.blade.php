@@ -108,7 +108,7 @@
                     <option value="">Job Creator</option>
                     <?php
                     
-                    $jobsArray = $jobs->toArray();
+                    $jobsArray = $job_list->toArray();
                     
                     $uniqueJobs = array_unique(array_column($jobsArray, 'nama_job'));
                     ?>

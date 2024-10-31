@@ -57,7 +57,7 @@
 
     </style>
 
-    <title>Hiring</title>
+    <title>Report Hiring</title>
 </head>
 <body style="background: #f8f8f8">
     @include('header')

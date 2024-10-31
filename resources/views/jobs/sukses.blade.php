@@ -144,6 +144,10 @@
         // Alert the copied text
         alert("Copied the text: " + copyText.value);
     }
+
+    setTimeout(function() {
+        window.location.href = '/jobs'; // Ganti dengan route tujuan Anda
+    }, 7000); // 7000 ms = 7 detik
 </script>
 
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\HiringCont;
 use App\Http\Controllers\CancelCont;
 use App\Http\Controllers\ReportCont;
 use App\Http\Controllers\StopJoCont;
+use App\Http\Controllers\TerminatedCont;
 
 Route::get('/', [Login::class,'login'])->name('login');
 Route::post('/login', [Login::class,'prsLogin']);
@@ -57,6 +58,10 @@ Route::group([
 });
 
 Route::get('/stop-job-order', [StopJoCont::class, 'index']);
+
+Route::get('/terminated-cj', [TerminatedCont::class, 'cancel_join']);
+Route::get('/terminated-resign', [TerminatedCont::class, 'resign']);
+
 
 
 
