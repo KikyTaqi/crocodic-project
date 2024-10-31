@@ -512,11 +512,11 @@
                     </td>
                     <td id="" class="text-center align-middle dataFilter-1" searchValue="@if($c->tags == 1) lanjut @elseif($c->tags == 2) blacklist @elseif($c->tags == 0) stop @endif">
                         @if($c->tags == 0)
-                        <div class="tag-{{$c->tags}} mx-auto"></div>
+                        <div class="tag-{{$c->tags}} mx-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Stop"></div>
                         @elseif($c->tags == 1)
-                        <div class="tag-{{$c->tags}} mx-auto"></div>
+                        <div class="tag-{{$c->tags}} mx-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lanjut"></div>
                         @elseif($c->tags == 2)
-                        <div class="tag-{{$c->tags}} mx-auto"></div>
+                        <div class="tag-{{$c->tags}} mx-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Blacklist"></div>
                         @else
                         <div class="tag-3 mx-auto" search="??"></div>
                         @endif
@@ -543,6 +543,10 @@
     </div>
 
     <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
         function detailCandidate(id){
             window.location.href = '/candidates/detail/'+id;
         }
