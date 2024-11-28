@@ -35,6 +35,9 @@ Route::group([
     Route::post('jobs/duplicate', [master::class, 'duplicateJob']);
     Route::post('/jobs/delete', [master::class, 'deleteJob']);
     Route::post('/jobs/addStatus', [master::class, 'addStatus']);
+    Route::post('/jobs/notif', [master::class, 'notif']);
+    Route::get('/jobs/cari',[master::class, 'cari']);
+    
     
     
     Route::get('/candidates', [CandidateCont::class, 'candidate'])->name('candidates');

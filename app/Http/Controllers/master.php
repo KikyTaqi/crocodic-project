@@ -31,10 +31,46 @@ class master extends Controller
         return view('dashboard', ['tasks' => $tasks]);
     }
 
+    public function cari(Request $request){
+        $job_list = job::all();
+        // Menangkap data pencarian
+        $cari = $request->input('cari');
+        $jo_creator = $request->input('jo_creator');
+        $location = $request->input('location');
+        $status = $request->input('status');
+        
+        // Memulai query untuk pekerjaan (job)
+        $jobs = job::query();
+        
+        // Menambahkan kondisi pencarian berdasarkan input yang diberikan
+        if ($cari) {
+            $jobs->where('nama_job', 'like', '%' . $cari . '%');
+        }
+        
+        if ($jo_creator) {
+            $jobs->where('nama_job', 'like', '%' . $jo_creator . '%');
+        }
+        
+        if ($location) {
+            $jobs->where('lokasi', 'like', '%' . $location . '%');
+        }
+        
+        if ($status !== null) {  // Pastikan untuk memeriksa apakah status terisi
+            $jobs->where('status', $status);
+        }
+        
+        // Melakukan paginasi untuk hasil pencarian
+        $jobs = $jobs->paginate();
+        
+        // Mengirimkan data ke view
+        return view('jobs.jobs',['jobs' => $jobs, 'job_list' => $job_list]);
+    }
+
+
     public function jobs(){
         $jobs = job::orderBy('id_job', 'desc')->paginate(15);
 
-        $job_list = job::all();
+        $job_list = job::orderBy('nama_job', 'asc')->get();
 
         return view('jobs/jobs', ['jobs' => $jobs, 'job_list' => $job_list]);
     }
@@ -389,4 +425,13 @@ class master extends Controller
     //     job::where('id_job', $r->id )
     // }
 
+    public function notif(Request $r){
+        job_setting::where('id_job', $r->id_job)->update([
+            'auto_res' => $r->auto_res,
+            'subject' => $r->subject,
+            'body' => $r->body
+        ]);
+
+        return redirect()->back();
+    }
 }

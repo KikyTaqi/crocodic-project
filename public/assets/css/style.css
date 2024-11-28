@@ -341,6 +341,26 @@ body {
             pointer-events: none;
         }
 
+        .search-submit-lg {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin-top: .7rem;
+            margin-right: .7rem;
+            height: 60%;
+            z-index: 0;
+            border: 0;
+            background-color: #5E9982;
+            color: white;
+            font-size: smaller;
+            border-radius: 3px;
+        }
+
+        .search-submit-lg:hover{
+            background-color: #41806D;
+        }
+
         .white-theme{
             border: 0;
             border-radius: 10px;

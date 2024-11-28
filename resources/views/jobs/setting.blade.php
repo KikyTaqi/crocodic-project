@@ -271,10 +271,10 @@
                                 <p style="font-size: 12px; line-height: 1;">Setiap pemohon menerima pemberitahuan konfirmasi default untuk mengkonfirmasi aplikasi mereka</p>
                             </div>
                             <div class="card-body px-4">
-                                <form action="" method="post">
+                                <form action="/jobs/notif" method="post">
                                     @csrf
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="toggleReadonly()">
+                                        <input class="form-check-input" type="checkbox" name="auto_res" {{$job_setting->auto_res == 'on' ? 'checked' : ''}} id="flexSwitchCheckDefault" onchange="toggleReadonly()">
                                         <label class="form-check-label" for="flexSwitchCheckDefault">Use custom auto response</label>
                                     </div>
                                     <input type="hidden" name="id_job" value="{{$id}}">
@@ -283,7 +283,7 @@
                                             <p>Subject</p>
                                         </div>
                                         <div class="col-md">
-                                            <input name="subject" id="subject" type="text" class="form-control">
+                                            <input name="subject" id="subject" {{$job_setting->auto_res == 'on' ? 'readonly' : ''}} value="{{$job_setting->subject}}" type="text" class="form-control">
                                         </div>
                                     </div>
 
@@ -292,8 +292,8 @@
                                             <p>Body</p>
                                         </div>
                                         <div class="col-md">
-                                            <textarea name="body" id="body" class="form-control" style="min-height: 240px; max-height: 240px; resize: none; text-align: left;"></textarea>
-                                            <button type="button" class="btn btn-success mt-4" style="width: 96px">Save</button>
+                                            <textarea name="body" id="body"  class="form-control" {{$job_setting->auto_res == 'on' ? 'readonly' : ''}} style="min-height: 240px; max-height: 240px; resize: none; text-align: left;">{{$job_setting->body}}</textarea>
+                                            <button type="submit" class="btn btn-success mt-4" style="width: 96px">Save</button>
                                         </div>
                                     </div>
                                 </form>
