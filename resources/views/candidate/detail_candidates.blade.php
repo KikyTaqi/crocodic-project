@@ -1337,11 +1337,11 @@
                                         <p class="alert">Notes</p>
                                     </div>
                                     <div class="card-body">
-                                        <form action="/notes/add" method="post">
+                                        <form action="/candidates/detail/notes/add" method="post">
                                             @csrf
                                             <input type="text" name="id_candidate" id="id-candidate" value="{{$c->id_candidate}}" hidden>
                                             <input type="text" name="id_user" id="id-user" value="{{$user->id}}" hidden>
-                                            <textarea class="resume-note" name="resume-note" id="" style="" placeholder="Add note"></textarea>
+                                            <textarea class="resume-note" name="note" id="" style="" placeholder="Add note"></textarea>
                                             <button type="submit" class="btn-add-note float-end">Add Note</button>
                                         </form>
                                     </div>

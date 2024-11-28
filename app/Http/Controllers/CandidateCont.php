@@ -61,22 +61,25 @@ class CandidateCont extends Controller
         $notes = null;
         $activity = null;
         $users = User::get();
-        foreach ($first as $f) {
-            $job = job::where('id_job','=',$f->id_job)->get();
-            $job_exp = Job_exp::where('id_candidate','=',$f->id_candidate)->orderBy('nama_pekerjaan','DESC')->get();
-            $edu_exp = Edu_exp::where('id_candidate','=',$c->id_candidate)->orderBy('institusi','DESC')->get();
-            $org_exp = Org_exp::where('id_candidate','=',$c->id_candidate)->orderBy('nama_organisasi','DESC')->get();
-            $bahasa = Bahasa::where('id_candidate','=',$c->id_candidate)->orderBy('bahasa','ASC')->get();
-            $activity = activity::where('id_candidate','=',$f->id_candidate)->orderBy('id','ASC')->get();
-            $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
-            ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
-            ->join('users', 'notes.id_user', '=', 'users.id')
-            ->where('notes.id_candidate', '=', $f->id_candidate)
-            ->orderBy('notes.time', 'DESC')
-            ->get();
-        }
         $jobs = job::get();
-        return view('candidate.detail_candidates', ['bahasa' => $bahasa,'org_exp' => $org_exp,'edu_exp' => $edu_exp,'job_exp' => $job_exp,'user' => $user,'activity' => $activity,'users' => $users,'notes' => $notes,'candidateDetail' => $first,'candidates' => $candidates,'jobs' => $jobs,'job' => $job,'first' => $first]);
+        if(count($first) > 0){
+            foreach ($first as $f) {
+                $job = job::where('id_job','=',$f->id_job)->get();
+                $job_exp = Job_exp::where('id_candidate','=',$f->id_candidate)->orderBy('nama_pekerjaan','DESC')->get();
+                $edu_exp = Edu_exp::where('id_candidate','=',$f->id_candidate)->orderBy('institusi','DESC')->get();
+                $org_exp = Org_exp::where('id_candidate','=',$f->id_candidate)->orderBy('nama_organisasi','DESC')->get();
+                $bahasa = Bahasa::where('id_candidate','=',$f->id_candidate)->orderBy('bahasa','ASC')->get();
+                $activity = activity::where('id_candidate','=',$f->id_candidate)->orderBy('id','ASC')->get();
+                $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
+                ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
+                ->join('users', 'notes.id_user', '=', 'users.id')
+                ->where('notes.id_candidate', '=', $f->id_candidate)
+                ->orderBy('notes.time', 'DESC')
+                ->get();
+                return view('candidate.detail_candidates', ['bahasa' => $bahasa,'org_exp' => $org_exp,'edu_exp' => $edu_exp,'job_exp' => $job_exp,'user' => $user,'activity' => $activity,'users' => $users,'notes' => $notes,'candidateDetail' => $first,'candidates' => $candidates,'jobs' => $jobs,'job' => $job,'first' => $first]);
+            }
+        }
+        return redirect('/candidates');
     }
     public function candidateDetailViewId(Request $req){
         $user = null;
@@ -91,23 +94,25 @@ class CandidateCont extends Controller
         $notes = null;
         $activity = null;
         $users = User::get();
-        foreach ($candidate as $c) {    
-            $job = job::where('id_job','=',$c->id_job)->get();
-            $job_exp = Job_exp::where('id_candidate','=',$c->id_candidate)->orderBy('nama_pekerjaan','DESC')->get();
-            $edu_exp = Edu_exp::where('id_candidate','=',$c->id_candidate)->orderBy('institusi','DESC')->get();
-            $org_exp = Org_exp::where('id_candidate','=',$c->id_candidate)->orderBy('nama_organisasi','DESC')->get();
-            $bahasa = Bahasa::where('id_candidate','=',$c->id_candidate)->orderBy('bahasa','ASC')->get();
-            $activity = activity::where('id_candidate','=',$c->id_candidate)->orderBy('id','DESC')->get();
-            $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
-            ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
-            ->join('users', 'notes.id_user', '=', 'users.id')
-            ->where('notes.id_candidate', '=', $c->id_candidate)
-            ->orderBy('notes.time', 'DESC')
-            ->get();
-        }
         $jobs = job::get();
-        // dd($candidate);
-        return view('candidate.detail_candidates', ['bahasa' => $bahasa,'org_exp' => $org_exp,'edu_exp' => $edu_exp,'job_exp' => $job_exp,'activity' => $activity,'users' => $users,'notes' => $notes,'user' => $user,'candidateDetail' => $candidate,'jobs' => $jobs,'job' => $job,'first' => '','candidates' => $candidates]);
+        if(count($candidate) > 0){
+            foreach ($candidate as $c) {    
+                $job = job::where('id_job','=',$c->id_job)->get();
+                $job_exp = Job_exp::where('id_candidate','=',$c->id_candidate)->orderBy('nama_pekerjaan','DESC')->get();
+                $edu_exp = Edu_exp::where('id_candidate','=',$c->id_candidate)->orderBy('institusi','DESC')->get();
+                $org_exp = Org_exp::where('id_candidate','=',$c->id_candidate)->orderBy('nama_organisasi','DESC')->get();
+                $bahasa = Bahasa::where('id_candidate','=',$c->id_candidate)->orderBy('bahasa','ASC')->get();
+                $activity = activity::where('id_candidate','=',$c->id_candidate)->orderBy('id','DESC')->get();
+                $notes = notes::select('notes.*', 'candidate.nama as candidate_name', 'users.name as user_name', 'users.foto_profile as user_profile')
+                ->join('candidate', 'notes.id_candidate', '=', 'candidate.id_candidate')
+                ->join('users', 'notes.id_user', '=', 'users.id')
+                ->where('notes.id_candidate', '=', $c->id_candidate)
+                ->orderBy('notes.time', 'DESC')
+                ->get();
+                return view('candidate.detail_candidates', ['bahasa' => $bahasa,'org_exp' => $org_exp,'edu_exp' => $edu_exp,'job_exp' => $job_exp,'activity' => $activity,'users' => $users,'notes' => $notes,'user' => $user,'candidateDetail' => $candidate,'jobs' => $jobs,'job' => $job,'first' => '','candidates' => $candidates]);
+            }
+        }
+        return redirect('/candidates');
     }
     public function notesAdd(Request $request)
     {
@@ -144,14 +149,13 @@ class CandidateCont extends Controller
         $validatedData = $request->validate([
             'id_candidate' => 'required|integer',
             'id_user' => 'required|integer',
-            'time' => 'required',
             'note' => 'required|string',
         ]);
 
         $note = new Notes();
         $note->id_candidate = $validatedData['id_candidate'];
         $note->id_user = $validatedData['id_user'];
-        $note->time = $validatedData['time'];
+        $note->time = date('Y-m-d H:i:s');
         $note->note = $validatedData['note'];
         $note->save();
 
@@ -163,11 +167,7 @@ class CandidateCont extends Controller
             ->limit(1)
             ->get();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Note added successfully',
-            'notes' => $notes
-        ]);
+        return redirect('/candidates/detail/'.$validatedData['id_candidate']);
     }
     public function addRating(Request $req){
         $validatedData = $req->validate([

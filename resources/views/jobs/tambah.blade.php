@@ -306,7 +306,7 @@
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
                                                 <div class="col-md">
-                                                    <p style="font-size: 18px; font-weight: 400;">Pengalam Kerja</p>
+                                                    <p style="font-size: 18px; font-weight: 400;">Pengalaman Kerja</p>
                                                 </div>
                                                 <div class="col-md">
                                                     <input class="form-check-input float-end dokumen" value="1" type="checkbox" name="pengalamankerja">

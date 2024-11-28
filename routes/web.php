@@ -38,8 +38,6 @@ Route::group([
     Route::post('/jobs/notif', [master::class, 'notif']);
     Route::get('/jobs/cari',[master::class, 'cari']);
     
-    
-    
     Route::get('/candidates', [CandidateCont::class, 'candidate'])->name('candidates');
     Route::get('/candidates/detail', [CandidateCont::class, 'candidateDetailView'])->name('candidates');
     Route::get('/candidates/detail/{id}', [CandidateCont::class, 'candidateDetailViewId'])->name('candidates');
@@ -56,7 +54,6 @@ Route::group([
     Route::post('/candidates/detail/languages/edit', [CandidateCont::class, 'editBhsExp'])->name('candidates');
     Route::delete('/candidates/delete', [CandidateCont::class, 'delete']);
     
-    
     Route::get('/hiring', [HiringCont::class, 'hiring'])->name('hiring');
     Route::get('/hiring/report', [HiringCont::class, 'reportHiring'])->name('hiring');
     
@@ -66,12 +63,12 @@ Route::group([
     Route::get('/report-hiring', [ReportCont::class, 'hiringIndex']);
     Route::get('/report-job-order', [ReportCont::class, 'joIndex']);
 
+    
+    Route::get('/stop-job-order', [StopJoCont::class, 'index']);
+    
+    Route::get('/terminated-cj', [TerminatedCont::class, 'cancel_join']);
+    Route::get('/terminated-resign', [TerminatedCont::class, 'resign']);
 });
-
-Route::get('/stop-job-order', [StopJoCont::class, 'index']);
-
-Route::get('/terminated-cj', [TerminatedCont::class, 'cancel_join']);
-Route::get('/terminated-resign', [TerminatedCont::class, 'resign']);
 
 
 

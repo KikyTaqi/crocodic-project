@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAllTables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -53,7 +53,7 @@ class CreateAllTables extends Migration
             $table->integer('total_butuh')->nullable();
             $table->integer('status')->default(0);
             $table->longText('form_data')->nullable()->charset('utf8mb4')->collation('utf8mb4_bin');
-            $table->timestamps(0)->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
 
         // Tabel job_activity
@@ -97,11 +97,11 @@ class CreateAllTables extends Migration
         });
 
         // Tabel migrations
-        Schema::create('migrations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('migration');
-            $table->integer('batch');
-        });
+        // Schema::create('migrations', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('migration');
+        //     $table->integer('batch');
+        // });
 
         // Tabel password_reset_tokens
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -170,6 +170,123 @@ class CreateAllTables extends Migration
             $table->string('remember_token', 100)->nullable();
             $table->timestamps();
         });
+
+        // Tabel kandidat
+        Schema::create('candidate', function (Blueprint $table) {
+            $table->id('id_candidate');
+            $table->integer('id_job')->unsigned();
+            $table->string('nama', 255);
+            $table->string('process', 50);
+            $table->integer('tags')->unsigned();
+            $table->string('domisili', 255);
+            $table->integer('gender')->unsigned();
+            $table->integer('usia')->unsigned();
+            $table->string('pendidikan', 255);
+            $table->string('layanan', 255);
+            $table->string('jabatan', 255);
+            $table->string('minat', 255);
+            $table->string('status', 50);
+            $table->string('email', 255);
+            $table->string('no_hp', 255);
+            $table->float('rating')->default(0);
+            $table->string('foto_profile', 50)->nullable();
+            $table->string('foto_cv', 255);
+            $table->timestamps();
+        });
+        Schema::create('candidate_job_exp', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_candidate');
+            $table->string('nama_pekerjaan');
+            $table->string('nama_perusahaan');
+            $table->string('lokasi');
+            $table->string('tipe_pekerjaan');
+            $table->integer('gaji');
+            $table->date('mulai_kerja');
+            $table->date('selesai_kerja');
+            $table->string('pengalaman');
+            $table->string('deskripsi');
+            $table->string('masih_bekerja');
+            $table->timestamps();
+        
+            $table->foreign('id_candidate')->references('id_candidate')->on('candidate')->onDelete('cascade');
+        });
+        Schema::create('candidate_edu_exp', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_candidate');
+            $table->string('institusi');
+            $table->string('gelar')->nullable();
+            $table->string('jurusan')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->string('ipk')->nullable();
+            $table->string('tanggal_mulai')->nullable();
+            $table->string('tanggal_selesai')->nullable();
+            $table->timestamps();
+
+            $table->foreign('id_candidate')->references('id_candidate')->on('candidate')->onDelete('cascade');
+        });
+        Schema::create('candidate_certifications', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_candidate');
+            $table->string('nama_pelatihan');
+            $table->string('tempat');
+            $table->date('tanggal')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('file_sertifikat')->nullable();
+            $table->timestamps();
+
+            $table->foreign('id_candidate')->references('id_candidate')->on('candidate')->onDelete('cascade');
+        });
+        Schema::create('candidate_organizational_exp', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_candidate');
+            $table->string('nama_organisasi');
+            $table->string('nama_tempat');
+            $table->string('jabatan');
+            $table->year('tahun_mulai');
+            $table->year('tahun_selesai')->nullable();
+            $table->timestamps();
+
+            $table->foreign('id_candidate')->references('id_candidate')->on('candidate')->onDelete('cascade');
+        });
+        Schema::create('candidate_languages', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_candidate');
+            $table->string('bahasa');
+            $table->string('berbicara');
+            $table->string('menulis');
+            $table->timestamps();
+
+            $table->foreign('id_candidate')->references('id_candidate')->on('candidate')->onDelete('cascade');
+        });
+        Schema::create('candidate_skills', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_candidate');
+            $table->string('kategori');
+            $table->string('deskripsi');
+            $table->timestamps();
+
+            $table->foreign('id_candidate')->references('id_candidate')->on('candidate')->onDelete('cascade');
+        });
+        Schema::create('notes', function (Blueprint $table) {
+            $table->id();
+            $table->string('id_candidate');
+            $table->string('id_user');
+            $table->timestamp('time');
+            $table->string('note');
+            $table->timestamps();
+        });
+        Schema::create('activity', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_candidate');
+            $table->unsignedBigInteger('id_user');
+            $table->date('tgl');
+            $table->string('deskripsi');
+            $table->string('type');
+            $table->timestamps();
+        
+            $table->foreign('id_candidate')->references('id_candidate')->on('candidate')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     public function down()
@@ -188,5 +305,14 @@ class CreateAllTables extends Migration
         Schema::dropIfExists('sessions');
         Schema::dropIfExists('task');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('candidate');
+        Schema::dropIfExists('candidate_job_exp');
+        Schema::dropIfExists('candidate_edu_exp');
+        Schema::dropIfExists('candidate_certifications');
+        Schema::dropIfExists('candidate_organizational_exp');
+        Schema::dropIfExists('candidate_languages');
+        Schema::dropIfExists('candidate_skills');
+        Schema::dropIfExists('notes');
+        Schema::dropIfExists('activity');
     }
-}
+};

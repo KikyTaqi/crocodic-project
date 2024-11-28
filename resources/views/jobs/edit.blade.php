@@ -276,7 +276,7 @@
 
                                         <div class="form-check form-switch me-4">
                                             <div class="row">
-                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Pengalam Kerja</p></div>
+                                                <div class="col-md"><p style="font-size: 18px; font-weight: 400;">Pengalaman Kerja</p></div>
                                                 <div class="col-md"><input {{$config->pengalaman_kerja == 1 ? 'checked' : ''}} value="1" class="form-check-input float-end dokumen" type="checkbox" name="pengalamankerja"></div>
                                             </div>
                                         </div>

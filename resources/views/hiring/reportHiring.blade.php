@@ -32,7 +32,7 @@
 
         <div class="row mb-3 mt-4">
             <div class="col-md d-flex">
-                <a class="me-3" href="/hiring"><i class="bi bi-chevron-left"></i></a>
+                <a class="me-3 text-dark" href="/hiring"><i class="bi bi-chevron-left"></i></a>
                 <h5>Report Hiring</h5>
             </div>
         </div>
