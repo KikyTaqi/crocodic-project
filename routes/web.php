@@ -41,6 +41,14 @@ Route::group([
     Route::post('/candidates/detail/notes', [CandidateCont::class, 'notesAdd'])->name('candidates');
     Route::post('/candidates/detail/notes/add', [CandidateCont::class, 'notesAddResume'])->name('candidates');
     Route::post('/candidates/detail/rating/add', [CandidateCont::class, 'addRating'])->name('candidates');
+    Route::post('/candidates/detail/job-experience/add', [CandidateCont::class, 'addJobExp'])->name('candidates');
+    Route::post('/candidates/detail/job-experience/edit', [CandidateCont::class, 'editJobExp'])->name('candidates');
+    Route::post('/candidates/detail/edu-experience/add', [CandidateCont::class, 'addEduExp'])->name('candidates');
+    Route::post('/candidates/detail/edu-experience/edit', [CandidateCont::class, 'editEduExp'])->name('candidates');
+    Route::post('/candidates/detail/organization-experience/add', [CandidateCont::class, 'addOrgExp'])->name('candidates');
+    Route::post('/candidates/detail/organization-experience/edit', [CandidateCont::class, 'editOrgExp'])->name('candidates');
+    Route::post('/candidates/detail/languages/add', [CandidateCont::class, 'addBhsExp'])->name('candidates');
+    Route::post('/candidates/detail/languages/edit', [CandidateCont::class, 'editBhsExp'])->name('candidates');
     Route::delete('/candidates/delete', [CandidateCont::class, 'delete']);
     
     

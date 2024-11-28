@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class activity extends Model
+class bahasa extends Model
 {
     use HasFactory;
-    protected $table = 'activity';
+    protected $table = 'candidate_languages';
     protected $fillable = [
         'id_candidate',
-        'id_user',
-        'tgl',
-        'deskripsi',
-        'type'
+        'bahasa',
+        'berbicara',
+        'menulis',
     ];
 }

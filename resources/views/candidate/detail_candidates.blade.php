@@ -571,239 +571,344 @@
                                             <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
                                                 <div class="wrap-title">
                                                     <p class="title">Pengalaman Kerja</p>
-                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                    <button type="button" id="btnExpAdd" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;" onclick="changeFormJobExp(1,'add','jobExpInputAdd')"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div class="profile-job-experience">
-                                                    <div class="profile-job-icon">
-                                                        <div class="profile-letter-icon text-center mx-auto"></div>
-                                                    </div>
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5>Web Design & Development Team Leader</h5>
-                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
-                                                        <p class="job-detail-info">
-                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
-                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
-                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
-                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
-                                                        </p>
-                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
-                                                        <ul class="job-list-desc">
-                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
-                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
-                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
-                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-job-experience-input">
-                                                    <div class="wrap-input-exp px-4">
-                                                        <div class="wrap-input-left">
-                                                            <div class="row-biodata-input">
-                                                                <p class="text">Nama Pekerjaan</p>
-                                                                <input type="text" name="" id="" class="biodata-input">
-                                                            </div>
-                                                            <div class="row-biodata-input">
-                                                                <p class="text">Lokasi</p>
-                                                                <input type="text" name="" id="" class="biodata-input">
-                                                            </div>
-                                                            <div class="row-biodata-input">
-                                                                <p class="text">Tipe Pekerjaan</p>
-                                                                <input type="text" name="" id="" class="biodata-input">
-                                                            </div>
-                                                            <div class="row-biodata-input">
-                                                                <p class="text">Gaji</p>
-                                                                <input type="text" name="" id="" class="biodata-input">
-                                                            </div>
-                                                        </div>
-                                                        <div class="wrap-input-right">
-                                                            <div class="row-biodata-input">
-                                                                <p class="text">Nama Perusahaan</p>
-                                                                <input type="text" name="" id="" class="biodata-input">
-                                                            </div>
-                                                            <div class="row-biodata-input">
-                                                                <p class="text">Mulai Bekerja</p>
-                                                                <div class="d-flex">
-                                                                    <select id="month" class="biodata-input px-2 me-2">
-                                                                        <option value="" disabled selected>Month</option>
-                                                                        <option value="Jan">Jan</option>
-                                                                        <option value="Feb">Feb</option>
-                                                                        <option value="Mar">Mar</option>
-                                                                        <option value="Apr">Apr</option>
-                                                                        <option value="May">May</option>
-                                                                        <option value="Jun">Jun</option>
-                                                                        <option value="Jul">Jul</option>
-                                                                        <option value="Aug">Aug</option>
-                                                                        <option value="Sep">Sep</option>
-                                                                        <option value="Oct">Oct</option>
-                                                                        <option value="Nov">Nov</option>
-                                                                        <option value="Dec">Dec</option>
-                                                                    </select>
-                                                                    <select class="biodata-input px-2 year-select">
-                                                                        <option value="" disabled selected>Year</option>
-                                                                    </select>
+                                                <div class="profile-job-experience-input mb-5 d-none" id="jobExpInputAdd">
+                                                    <form action="/candidates/detail/job-experience/add" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Pekerjaan</p>
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="nama_pekerjaan" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Lokasi</p>
+                                                                    <input type="text" name="lokasi" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Tipe Pekerjaan</p>
+                                                                    <input type="text" name="tipe_pekerjaan" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Gaji</p>
+                                                                    <input type="text" name="gaji" id="" class="biodata-input">
                                                                 </div>
                                                             </div>
-                                                            <div class="row-biodata-input">
-                                                                <p class="text">Selesai Bekerja</p>
-                                                                <div class="d-flex">
-                                                                    <select id="month" class="biodata-input px-2 me-2">
-                                                                        <option value="" disabled selected>Month</option>
-                                                                        <option value="Jan">Jan</option>
-                                                                        <option value="Feb">Feb</option>
-                                                                        <option value="Mar">Mar</option>
-                                                                        <option value="Apr">Apr</option>
-                                                                        <option value="May">May</option>
-                                                                        <option value="Jun">Jun</option>
-                                                                        <option value="Jul">Jul</option>
-                                                                        <option value="Aug">Aug</option>
-                                                                        <option value="Sep">Sep</option>
-                                                                        <option value="Oct">Oct</option>
-                                                                        <option value="Nov">Nov</option>
-                                                                        <option value="Dec">Dec</option>
-                                                                    </select>
-                                                                    <select class="biodata-input px-2 year-select">
-                                                                        <option value="" disabled selected>Year</option>
-                                                                    </select>
+                                                            <div class="wrap-input-right">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Perusahaan</p>
+                                                                    <input type="text" name="nama_perusahaan" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Mulai Bekerja</p>
+                                                                    <div class="d-flex">
+                                                                        <select id="month" class="biodata-input px-2 me-2" name="bulan_mulai">
+                                                                            <option value="" disabled selected>Month</option>
+                                                                            <option value="January">Jan</option>
+                                                                            <option value="February">Feb</option>
+                                                                            <option value="March">Mar</option>
+                                                                            <option value="April">Apr</option>
+                                                                            <option value="May">May</option>
+                                                                            <option value="June">Jun</option>
+                                                                            <option value="July">Jul</option>
+                                                                            <option value="August">Aug</option>
+                                                                            <option value="September">Sep</option>
+                                                                            <option value="October">Oct</option>
+                                                                            <option value="November">Nov</option>
+                                                                            <option value="December">Dec</option>
+                                                                        </select>
+                                                                        <select class="biodata-input px-2 year-select" name="tahun_mulai">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Selesai Bekerja</p>
+                                                                    <div class="d-flex">
+                                                                        <select id="month" class="biodata-input px-2 me-2" name="bulan_selesai">
+                                                                            <option value="" disabled selected>Month</option>
+                                                                            <option value="January">Jan</option>
+                                                                            <option value="February">Feb</option>
+                                                                            <option value="March">Mar</option>
+                                                                            <option value="April">Apr</option>
+                                                                            <option value="May">May</option>
+                                                                            <option value="June">Jun</option>
+                                                                            <option value="July">Jul</option>
+                                                                            <option value="August">Aug</option>
+                                                                            <option value="September">Sep</option>
+                                                                            <option value="October">Oct</option>
+                                                                            <option value="November">Nov</option>
+                                                                            <option value="December">Dec</option>
+                                                                        </select>
+                                                                        <select class="biodata-input px-2 year-select" name="tahun_selesai">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-biodata-input d-flex">
+                                                                    <input type="checkbox" name="masih_bekerja" id="" style="accent-color: #FA6900; width: 20px;margin-right: 10px;">
+                                                                    <p class="text" style="font-weight: 400;">Saat ini saya bekerja di sini</p>
                                                                 </div>
                                                             </div>
-                                                            <div class="row-biodata-input d-flex">
-                                                                <input type="checkbox" name="" id="" style="accent-color: #FA6900; width: 20px;margin-right: 10px;">
-                                                                <p class="text" style="font-weight: 400;">Saat ini saya bekerja di sini</p>
+                                                        </div>
+                                                        <div class="wrap-input-desc">
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Deskripsi Pekerjaan</p>
+                                                                <textarea name="deskripsi" id="" class="biodata-textarea"></textarea>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="wrap-input-desc">
-                                                        <div class="row-biodata-input">
-                                                            <p class="text">Gaji</p>
-                                                            <textarea name="" id="" class="biodata-textarea"></textarea>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormJobExp(2,'edit','jobExpInputAdd')">Batal</button>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
-                                                <div class="profile-job-experience">
+                                                @foreach($job_exp as $je)
+                                                <div class="profile-job-experience first-letter-icon" id="jobExpView{{$je->id}}">
                                                     <div class="profile-job-icon">
                                                         <div class="profile-letter-icon text-center mx-auto"></div>
                                                     </div>
                                                     <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5>UI/UX</h5>
-                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;" onclick="changeFormJobExp(1,'jobExpView{{$je->id}}','jobExpInput{{$je->id}}')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>{{$je->nama_pekerjaan}}</h5>
+                                                        <p class="job-info">{{$je->nama_perusahaan}} | {{$je->mulai_kerja}} - {{$je->selesai_kerja}} | {{$je->pengalaman}} pengalaman</p>
                                                         <p class="job-detail-info">
-                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
-                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
-                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
-                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
+                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">{{$je->lokasi}}</span>
+                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">{{$je->tipe_pekerjaan}}</span>
+                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR {{$je->gaji}}</span>
                                                         </p>
                                                         <p class="job-description-title">Deskripsi Pekerjaan:</p>
                                                         <ul class="job-list-desc">
-                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
-                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
-                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
-                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
+                                                            <li>{{$je->deskripsi}}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="profile-job-experience">
-                                                    <div class="profile-job-icon">
-                                                        <div class="profile-letter-icon text-center mx-auto"></div>
-                                                    </div>
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5>Project Manager</h5>
-                                                        <p class="job-info">Tech Solutions Inc | May - September 2022 | 3 tahun pengalaman</p>
-                                                        <p class="job-detail-info">
-                                                            <img src="{{asset('assets/icon-biodata/location.svg')}}" alt=""> <span class="me-4">Depok</span>
-                                                            <img src="{{asset('assets/icon-biodata/office.svg')}}" alt=""> <span class="me-4">Digital Marketing</span>
-                                                            <img src="{{asset('assets/icon-biodata/briefcase.svg')}}" alt=""> <span class="me-4">Magang</span>
-                                                            <img src="{{asset('assets/icon-biodata/money.svg')}}" alt=""> <span class="">IDR 7.500.000</span>
-                                                        </p>
-                                                        <p class="job-description-title">Deskripsi Pekerjaan:</p>
-                                                        <ul class="job-list-desc">
-                                                            <li>Bertanggung jawab untuk pengembangan perangkat lunak.</li>
-                                                            <li>Merancang dan mengimplementasikan solusi teknis.</li>
-                                                            <li>Berkolaborasi dengan tim untuk meningkatkan produk.</li>
-                                                            <li>Terlibat dalam pengembangan aplikasi web menggunakan berbagai bahasa pemrograman.</li>
-                                                        </ul>
-                                                    </div>
+                                                <div class="profile-job-experience-input mb-5 d-none" id="jobExpInput{{$je->id}}">
+                                                    <form action="/candidates/detail/job-experience/edit" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Pekerjaan</p>
+                                                                    <input type="text" name="id_job_exp" id="" class="" hidden value="{{$je->id}}">
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="nama_pekerjaan" id="" class="biodata-input" value="{{$je->nama_pekerjaan}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Lokasi</p>
+                                                                    <input type="text" name="lokasi" id="" class="biodata-input" value="{{$je->lokasi}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Tipe Pekerjaan</p>
+                                                                    <input type="text" name="tipe_pekerjaan" id="" class="biodata-input" value="{{$je->tipe_pekerjaan}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Gaji</p>
+                                                                    <input type="text" name="gaji" id="" class="biodata-input" value="{{$je->gaji}}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="wrap-input-right">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Perusahaan</p>
+                                                                    <input type="text" name="nama_perusahaan" id="" class="biodata-input" value="{{$je->nama_perusahaan}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Mulai Bekerja</p>
+                                                                    <div class="d-flex">
+                                                                        <select id="month" class="biodata-input px-2 me-2" name="bulan_mulai">
+                                                                            <option value="" disabled>Month</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'January') selected @endif value="January">Jan</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'February') selected @endif value="February">Feb</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'March') selected @endif value="March">Mar</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'April') selected @endif value="April">Apr</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'May') selected @endif value="May">May</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'June') selected @endif value="June">Jun</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'July') selected @endif value="July">Jul</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'August') selected @endif value="August">Aug</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'September') selected @endif value="September">Sep</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'October') selected @endif value="October">Oct</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'November') selected @endif value="November">Nov</option>
+                                                                            <option @if(substr($je->mulai_kerja,0, -5) == 'December') selected @endif value="December">Dec</option>
+                                                                        </select>
+                                                                        <select class="biodata-input px-2 year-select option-edit" yearVal="{{substr($je->mulai_kerja, -4)}}" name="tahun_mulai">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Selesai Bekerja</p>
+                                                                    <div class="d-flex">
+                                                                        <select id="month" class="biodata-input px-2 me-2" name="bulan_selesai">
+                                                                            <option value="" disabled>Month</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'January') selected @endif value="January">Jan</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'February') selected @endif value="February">Feb</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'March') selected @endif value="March">Mar</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'April') selected @endif value="April">Apr</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'May') selected @endif value="May">May</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'June') selected @endif value="June">Jun</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'July') selected @endif value="July">Jul</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'August') selected @endif value="August">Aug</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'September') selected @endif value="September">Sep</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'October') selected @endif value="October">Oct</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'November') selected @endif value="November">Nov</option>
+                                                                            <option @if(substr($je->selesai_kerja,0, -5) == 'December') selected @endif value="December">Dec</option>
+                                                                        </select>
+                                                                        <select class="biodata-input px-2 year-select option-edit" yearval="{{substr($je->selesai_kerja, -4)}}" name="tahun_selesai">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row-biodata-input d-flex">
+                                                                    <input type="checkbox" name="masih_bekerja" id="" style="accent-color: #FA6900; width: 20px;margin-right: 10px;" @if($je->masih_bekerja == 1) checked @endif>
+                                                                    <p class="text" style="font-weight: 400;">Saat ini saya bekerja di sini</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="wrap-input-desc">
+                                                            <div class="row-biodata-input">
+                                                                <p class="text">Deskripsi Pekerjaan</p>
+                                                                <textarea name="deskripsi" id="" class="biodata-textarea">{{$je->deskripsi}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormJobExp(2,'jobExpView{{$je->id}}','jobExpInput{{$je->id}}')">Batal</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <div class="card border-0 h-fit mt-4">
                                             <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
                                                 <div class="wrap-title">
                                                     <p class="title">Pendidikan</p>
-                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                    <button type="button" id="btnEduAdd" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;" onclick="changeFormEduExp(1,'add','eduExpInputAdd')"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div class="profile-job-experience pendidikan">
+                                                <div class="profile-edu-experience-input mb-5 d-none" id="eduExpInputAdd">
+                                                    <form action="/candidates/detail/edu-experience/add" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Institusi</p>
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="nama_institusi" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Gelar</p>
+                                                                    <input type="text" name="gelar" id="" class="biodata-input" placeholder="(Kosongkan jika tidak ada...)">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Jurusan</p>
+                                                                    <input type="text" name="jurusan" id="" class="biodata-input" placeholder="(Kosongkan jika tidak ada...)">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">IPK</p>
+                                                                    <input type="text" name="ipk" id="" class="biodata-input">
+                                                                </div>
+                                                            </div>
+                                                            <div class="wrap-input-right">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Lokasi</p>
+                                                                    <input type="text" name="lokasi" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Tanggal Mulai</p>
+                                                                    <input type="date" name="tgl_mulai" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Tanggal Selesai</p>
+                                                                    <input type="date" name="tgl_selesai" id="" class="biodata-input">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormEduExp(2,'edit','eduExpInputAdd')">Batal</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                @foreach($edu_exp as $ee)
+                                                <div class="profile-edu-experience first-letter-icon" id="eduExpView{{$ee->id}}">
                                                     <div class="profile-job-icon">
                                                         <div class="profile-letter-icon text-center mx-auto"></div>
                                                     </div>
                                                     <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5>Universitas Indonesia</h5>
-                                                        <p class="job-info">Sarjana, Ilmu Komputer | Depok</p>
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;" onclick="changeFormEduExp(1,'eduExpView{{$ee->id}}','eduExpInput{{$ee->id}}')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5>{{$ee->institusi}}</h5>
+                                                        <p class="job-info">@if($ee->gelar != null){{$ee->gelar}},@endif @if($ee->jurusan != null) {{$ee->jurusan}} @endif | {{$ee->lokasi}}</p>
                                                         <div class="pendidikan-detail-info">
                                                             <table class="table-borderless">
                                                                 <tr>
                                                                     <td width="100px">Jurusan</td>
-                                                                    <td>Sistem Informasi</td>
+                                                                    <td>{{$ee->jurusan}}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>IPK</td>
-                                                                    <td>3,61</td>
+                                                                    <td>{{$ee->ipk}}</td>
                                                                 </tr>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="profile-job-experience pendidikan">
-                                                    <div class="profile-job-icon">
-                                                        <div class="profile-letter-icon text-center mx-auto"></div>
-                                                    </div>
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5>SMA Negeri 14</h5>
-                                                        <p class="job-info">Jakarta</p>
-                                                        <div class="pendidikan-detail-info">
-                                                            <table class="table-borderless">
-                                                                <tr>
-                                                                    <td width="100px">Jurusan</td>
-                                                                    <td>IPA</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>IPK</td>
-                                                                    <td>83</td>
-                                                                </tr>
-                                                            </table>
+                                                <div class="profile-edu-experience-input mb-5 d-none" id="eduExpInput{{$ee->id}}">
+                                                    <form action="/candidates/detail/edu-experience/edit" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Institusi</p>
+                                                                    <input type="text" name="id_edu_exp" id="" class="" hidden value="{{$ee->id}}">
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="nama_institusi" id="" class="biodata-input" value="{{$ee->institusi}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Gelar</p>
+                                                                    <input type="text" name="gelar" id="" class="biodata-input" placeholder="(Kosongkan jika tidak ada...)" value="{{$ee->gelar}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Jurusan</p>
+                                                                    <input type="text" name="jurusan" id="" class="biodata-input" placeholder="(Kosongkan jika tidak ada...)" value="{{$ee->jurusan}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">IPK</p>
+                                                                    <input type="text" name="ipk" id="" class="biodata-input" value="{{$ee->ipk}}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="wrap-input-right">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Lokasi</p>
+                                                                    <input type="text" name="lokasi" id="" class="biodata-input" value="{{$ee->lokasi}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Tanggal Mulai</p>
+                                                                    <input type="date" name="tgl_mulai" id="" class="biodata-input" value="{{$ee->tanggal_mulai}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Tanggal Selesai</p>
+                                                                    <input type="date" name="tgl_selesai" id="" class="biodata-input" value="{{$ee->tanggal_selesai}}">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-job-experience pendidikan">
-                                                    <div class="profile-job-icon">
-                                                        <div class="profile-letter-icon text-center mx-auto"></div>
-                                                    </div>
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5>SMP Negeri 4</h5>
-                                                        <p class="job-info">Kendal</p>
-                                                        <div class="pendidikan-detail-info">
-                                                            <table class="table-borderless">
-                                                                <tr>
-                                                                    <td width="100px">Jurusan</td>
-                                                                    <td>IPA</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>IPK</td>
-                                                                    <td>83</td>
-                                                                </tr>
-                                                            </table>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormEduExp(2,'eduExpView{{$ee->id}}','eduExpInput{{$ee->id}}')">Batal</button>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
+                                                <!-- onclick="changeFormEduExp(1,'eduExpView{{$ee->id}}','eduExpInput{{$ee->id}}')" -->
+                                                @endforeach
                                             </div>
                                         </div>
                                         <div class="card border-0 h-fit mt-4">
@@ -845,26 +950,115 @@
                                             <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
                                                 <div class="wrap-title">
                                                     <p class="title">Pengalaman Organisasi</p>
-                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;" id="btnOrgAdd" onclick="changeFormOrgExp(1,'add','orgInputAdd')"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div class="profile-job-details position-relative">
-                                                    <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                    <h5 class="mb-3">BEM Fakultas Teknik - Universitas Indonesia</h5>
+                                                <div class="profile-job-experience-input org mb-5 d-none" id="orgInputAdd">
+                                                    <form action="/candidates/detail/organization-experience/add" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Organisasi</p>
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="nama_organisasi" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Jabatan</p>
+                                                                    <input type="text" name="jabatan" id="" class="biodata-input">
+                                                                </div>
+                                                            </div>
+                                                            <div class="wrap-input-right">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Tempat</p>
+                                                                    <input type="text" name="nama_tempat" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="d-flex">
+                                                                    <div class="row-biodata-input me-3">
+                                                                        <p class="text">Tahun Mulai</p>
+                                                                        <select class="biodata-input px-2 year-select" name="tahun_mulai">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="row-biodata-input">
+                                                                        <p class="text">Tahun Selesai</p>
+                                                                        <select class="biodata-input px-2 year-select" name="tahun_selesai">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormOrgExp(2,'edit','orgInputAdd')">Batal</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                @foreach($org_exp as $org)
+                                                <div class="profile-job-details org position-relative mb-4" id="orgView{{$org->id}}">
+                                                    <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;" onclick="changeFormOrgExp(1,'orgView{{$org->id}}','orgInput{{$org->id}}')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                    <h5 class="mb-3">{{$org->nama_organisasi}} - {{$org->nama_tempat}}</h5>
                                                     <div class="row pelatihan-info">
                                                         <div class="col-md-auto left">
                                                             <div class="wrap-pelatihan-info mb-2">
                                                                 <img src="{{asset('assets/icon-profile/clock-grey.svg')}}" alt="" class="me-2">
-                                                                <p>2018 - 2020</p>
+                                                                <p>{{$org->tahun_mulai}} - {{$org->tahun_selesai}}</p>
                                                             </div>
                                                             <div class="wrap-pelatihan-info">
                                                                 <img src="{{asset('assets/icon-profile/person-grey.svg')}}" alt="" class="me-2">
-                                                                <p>Sekertaris</p>
+                                                                <p>{{$org->jabatan}}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="profile-job-experience-input org mb-5 d-none" id="orgInput{{$org->id}}">
+                                                    <form action="/candidates/detail/organization-experience/edit" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Organisasi</p>
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="id_org" id="" class="" hidden value="{{$org->id}}">
+                                                                    <input type="text" name="nama_organisasi" id="" class="biodata-input" value="{{$org->nama_organisasi}}">
+                                                                </div>
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Jabatan</p>
+                                                                    <input type="text" name="jabatan" id="" class="biodata-input" value="{{$org->jabatan}}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="wrap-input-right">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Nama Tempat</p>
+                                                                    <input type="text" name="nama_tempat" id="" class="biodata-input" value="{{$org->nama_tempat}}">
+                                                                </div>
+                                                                <div class="d-flex">
+                                                                    <div class="row-biodata-input me-3">
+                                                                        <p class="text">Tahun Mulai</p>
+                                                                        <select class="biodata-input px-2 year-select option-edit" name="tahun_mulai" yearval="{{$org->tahun_mulai}}">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="row-biodata-input">
+                                                                        <p class="text">Tahun Selesai</p>
+                                                                        <select class="biodata-input px-2 year-select option-edit" name="tahun_selesai" yearval="{{$org->tahun_selesai}}">
+                                                                            <option value="" disabled selected>Year</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormOrgExp(2,'orgView{{$org->id}}','orgInput{{$org->id}}')">Batal</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                         <div class="card border-0 h-fit mt-4">
@@ -875,7 +1069,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div class="profile-job-experience keterampilan">
+                                                <div class="profile-skills-experience first-letter-icon">
                                                     <div class="profile-job-icon">
                                                         <div class="profile-letter-icon text-center mx-auto"></div>
                                                     </div>
@@ -887,7 +1081,7 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="profile-job-experience keterampilan">
+                                                <div class="profile-skills-experience first-letter-icon">
                                                     <div class="profile-job-icon">
                                                         <div class="profile-letter-icon text-center mx-auto"></div>
                                                     </div>
@@ -899,7 +1093,7 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="profile-job-experience keterampilan">
+                                                <div class="profile-skills-experience first-letter-icon">
                                                     <div class="profile-job-icon">
                                                         <div class="profile-letter-icon text-center mx-auto"></div>
                                                     </div>
@@ -918,100 +1112,101 @@
                                             <div class="card-heading" style="border-bottom: 1px solid #E3E3E3;">
                                                 <div class="wrap-title">
                                                     <p class="title">Bahasa</p>
-                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
+                                                    <button type="button" class="btn-none float-end w-fit" style="font-size: 14px;color: #3C3C3C;" id="btnBhsAdd" onclick="changeFormBahasa(1,'add','bhsInputAdd')"><img src="{{asset('assets/icon-biodata/plus-dark-grey.svg')}}" alt=""> Tambah</button>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div class="profile-bahasa">
+                                                <div class="profile-job-experience-input org mb-5 d-none" id="bhsInputAdd">
+                                                    <form action="/candidates/detail/languages/add" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Bahasa</p>
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="bahasa" id="" class="biodata-input">
+                                                                </div>
+                                                                <div class="d-flex">
+                                                                    <div class="row-biodata-input me-3">
+                                                                        <p class="text">Berbicara</p>
+                                                                        <select class="biodata-input px-2" name="berbicara">
+                                                                            <option value="Lancar">Lancar</option>
+                                                                            <option value="Baik">Baik</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="row-biodata-input">
+                                                                        <p class="text">Menulis</p>
+                                                                        <select class="biodata-input px-2" name="menulis">
+                                                                            <option value="Lancar">Lancar</option>
+                                                                            <option value="Baik">Baik</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormBahasa(2,'edit','bhsInputAdd')">Batal</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                @foreach($bahasa as $bhs)
+                                                <div class="profile-bahasa" id="bhsView{{$bhs->id}}">
                                                     <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5 class="mb-3 mt-0">Inggris</h5>
+                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;" onclick="changeFormBahasa(1,'bhsView{{$bhs->id}}','bhsInput{{$bhs->id}}')"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
+                                                        <h5 class="mb-3 mt-0">{{$bhs->bahasa}}</h5>
                                                         <div class="pendidikan-detail-info">
                                                             <table class="table-borderless">
                                                                 <tr>
                                                                     <td width="100px">Berbicara</td>
-                                                                    <td>Baik</td>
+                                                                    <td>{{$bhs->berbicara}}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Menulis</td>
-                                                                    <td>Baik</td>
+                                                                    <td>{{$bhs->menulis}}</td>
                                                                 </tr>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="profile-bahasa">
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5 class="mb-3 mt-0">Indonesia</h5>
-                                                        <div class="pendidikan-detail-info">
-                                                            <table class="table-borderless">
-                                                                <tr>
-                                                                    <td width="100px">Berbicara</td>
-                                                                    <td>Lancar</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Menulis</td>
-                                                                    <td>Lancar</td>
-                                                                </tr>
-                                                            </table>
+                                                <div class="profile-job-experience-input org mb-5 d-none" id="bhsInput{{$bhs->id}}">
+                                                    <form action="/candidates/detail/languages/edit" method="post">
+                                                        @csrf
+                                                        <div class="wrap-input-exp px-4">
+                                                            <div class="wrap-input-left">
+                                                                <div class="row-biodata-input">
+                                                                    <p class="text">Bahasa</p>
+                                                                    <input type="text" name="id_user" id="" class="" hidden value="{{$user->id}}">
+                                                                    <input type="text" name="id_kandidat" id="" class="" hidden value="{{$c->id_candidate}}">
+                                                                    <input type="text" name="id_bahasa" id="" class="" hidden value="{{$bhs->id}}">
+                                                                    <input type="text" name="bahasa" id="" class="biodata-input" value="{{$bhs->bahasa}}">
+                                                                </div>
+                                                                <div class="d-flex">
+                                                                    <div class="row-biodata-input me-3">
+                                                                        <p class="text">Berbicara</p>
+                                                                        <select class="biodata-input px-2" name="berbicara">
+                                                                            <option @if($bhs->berbicara == 'Lancar') selected @endif value="Lancar">Lancar</option>
+                                                                            <option @if($bhs->berbicara == 'Baik') selected @endif value="Baik">Baik</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="row-biodata-input">
+                                                                        <p class="text">Menulis</p>
+                                                                        <select class="biodata-input px-2" name="menulis">
+                                                                            <option @if($bhs->menulis == 'Lancar') selected @endif value="Lancar">Lancar</option>
+                                                                            <option @if($bhs->menulis == 'Baik') selected @endif value="Baik">Baik</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-bahasa">
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5 class="mb-3 mt-0">Jepang</h5>
-                                                        <div class="pendidikan-detail-info">
-                                                            <table class="table-borderless">
-                                                                <tr>
-                                                                    <td width="100px">Berbicara</td>
-                                                                    <td>Lumayan</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Menulis</td>
-                                                                    <td>Baik</td>
-                                                                </tr>
-                                                            </table>
+                                                        <div class="row-biodata-btn" style="padding-left: 24px;padding-right: 24px;">
+                                                            <button type="submit" class="biodata-submit">Simpan</button>
+                                                            <button type="button" class="biodata-cancel ms-2" onclick="changeFormBahasa(2,'bhsView{{$bhs->id}}','bhsInput{{$bhs->id}}')">Batal</button>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
-                                                <div class="profile-bahasa">
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5 class="mb-3 mt-0">Jerman</h5>
-                                                        <div class="pendidikan-detail-info">
-                                                            <table class="table-borderless">
-                                                                <tr>
-                                                                    <td width="100px">Berbicara</td>
-                                                                    <td>Buruk</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Menulis</td>
-                                                                    <td>Buruk</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-bahasa">
-                                                    <div class="profile-job-details position-relative">
-                                                        <button type="button" class="btn-none position-absolute w-fit" style="right: 0;top: 0;"><img src="{{asset('assets/icon-detail-candidate/edit-orange.svg')}}" alt=""></button>
-                                                        <h5 class="mb-3 mt-0">Jawa</h5>
-                                                        <div class="pendidikan-detail-info">
-                                                            <table class="table-borderless">
-                                                                <tr>
-                                                                    <td width="100px">Berbicara</td>
-                                                                    <td>Lancar</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Menulis</td>
-                                                                    <td>Buruk</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -1565,10 +1760,25 @@
             function generateYearOptions(selectElement) {
                 const currentYear = new Date().getFullYear();
                 for (let i = 1950; i <= currentYear; i++) {
-                const option = document.createElement("option");
-                option.value = i;
-                option.textContent = i;
-                selectElement.appendChild(option);
+                    const option = document.createElement("option");
+                    option.value = i;
+                    option.textContent = i;
+                    selectElement.appendChild(option);
+                }
+            }
+            function generateYearOptionsEdit(selectElement) {
+                const currentYear = new Date().getFullYear();
+                for (let i = 1950; i <= currentYear; i++) {
+                    const option = document.createElement("option");
+                    console.log(selectElement);
+                    if(selectElement.getAttribute('yearval') != null){
+                        if(selectElement.getAttribute('yearval') == i){
+                            option.selected = true;
+                        }
+                    }
+                    option.value = i;
+                    option.textContent = i;
+                    selectElement.appendChild(option);
                 }
             }
 
@@ -1577,6 +1787,7 @@
 
             // Apply to all elements with class "year-select"
             document.querySelectorAll('.year-select').forEach(generateYearOptions);
+            document.querySelectorAll('.year-select.option-edit').forEach(generateYearOptionsEdit);
             
             document.getElementById('btn-print').addEventListener('click', function () {
                 var printWindow = window.open('', '_blank');
@@ -1882,14 +2093,13 @@
                         if (timeLeft <= 0) {
                             clearInterval(countdown);
                             copied.classList.add('d-none');
-                            // messageElement.textContent = 'Time\'s up!';
                         }
                     }, 1000);
                 }).catch(err => {
                     console.error('Failed to copy: ', err);
                 });
             });
-            var jobExperiences = document.querySelectorAll('.profile-job-experience');
+            var jobExperiences = document.querySelectorAll('.first-letter-icon');
             jobExperiences.forEach(jobExp => {
                 var jobTitle = jobExp.querySelector('.profile-job-details h5').innerHTML;
                 var icon = jobExp.querySelector('.profile-job-icon .profile-letter-icon');
@@ -1918,6 +2128,170 @@
             }else{
                 detailForm.classList.add('d-none');
                 detailView.classList.remove('d-none');
+            }
+        }
+        function changeFormJobExp(isEdit,idView,idForm){
+            var divView = document.querySelectorAll('.profile-job-experience');
+            var divInput = document.querySelectorAll('.profile-job-experience-input');
+            var divInputAdd = document.querySelectorAll('.profile-job-experience-input');
+            divInput.forEach(i => {
+                if(!i.classList.contains('d-none')){
+                    i.classList.add('d-none');
+                }
+            });
+            divView.forEach(i => {
+                if(i.classList.contains('d-none')){
+                    i.classList.remove('d-none');
+                }
+            });
+            var detailForm = document.getElementById(idForm);
+            var detailView = null;
+            if(idView != 'add' && idView != 'submit' && idView != 'cancel'){
+                // console.log('woilah');
+                detailView = document.getElementById(idView);
+            }
+            
+            if(isEdit == 1){
+                detailForm.classList.remove('d-none');
+                if(detailView != null){
+                    detailView.classList.add('d-none');
+                }
+            }else{
+                detailForm.classList.add('d-none');
+                if(detailView != null){
+                    detailView.classList.remove('d-none');
+                }
+            }
+            var btnAdd = document.getElementById('btnExpAdd');
+
+            btnAdd.classList.remove('d-none');
+            if(idView == 'add'){
+                btnAdd.classList.add('d-none');
+            }else{
+                btnAdd.classList.remove('d-none');
+            }
+        }
+        function changeFormEduExp(isEdit,idView,idForm){
+            var divView = document.querySelectorAll('.profile-edu-experience');
+            var divInput = document.querySelectorAll('.profile-edu-experience-input');
+            var divInputAdd = document.querySelectorAll('.profile-edu-experience-input');
+            divInput.forEach(i => {
+                if(!i.classList.contains('d-none')){
+                    i.classList.add('d-none');
+                }
+            });
+            divView.forEach(i => {
+                if(i.classList.contains('d-none')){
+                    i.classList.remove('d-none');
+                }
+            });
+            var detailForm = document.getElementById(idForm);
+            var detailView = null;
+            if(idView != 'add' && idView != 'submit' && idView != 'cancel'){
+                // console.log('woilah');
+                detailView = document.getElementById(idView);
+            }
+            
+            if(isEdit == 1){
+                detailForm.classList.remove('d-none');
+                if(detailView != null){
+                    detailView.classList.add('d-none');
+                }
+            }else{
+                detailForm.classList.add('d-none');
+                if(detailView != null){
+                    detailView.classList.remove('d-none');
+                }
+            }
+            var btnAdd = document.getElementById('btnEduAdd');
+
+            btnAdd.classList.remove('d-none');
+            if(idView == 'add'){
+                btnAdd.classList.add('d-none');
+            }else{
+                btnAdd.classList.remove('d-none');
+            }
+        }
+        function changeFormOrgExp(isEdit,idView,idForm){
+            var divView = document.querySelectorAll('.profile-job-details.org');
+            var divInput = document.querySelectorAll('.profile-job-experience-input.org');
+            var divInputAdd = document.querySelectorAll('.profile-job-experience-input.org');
+            divInput.forEach(i => {
+                if(!i.classList.contains('d-none')){
+                    i.classList.add('d-none');
+                }
+            });
+            divView.forEach(i => {
+                if(i.classList.contains('d-none')){
+                    i.classList.remove('d-none');
+                }
+            });
+            var detailForm = document.getElementById(idForm);
+            var detailView = null;
+            if(idView != 'add' && idView != 'submit' && idView != 'cancel'){
+                // console.log('woilah');
+                detailView = document.getElementById(idView);
+            }
+            
+            if(isEdit == 1){
+                detailForm.classList.remove('d-none');
+                if(detailView != null){
+                    detailView.classList.add('d-none');
+                }
+            }else{
+                detailForm.classList.add('d-none');
+                if(detailView != null){
+                    detailView.classList.remove('d-none');
+                }
+            }
+            var btnAdd = document.getElementById('btnOrgAdd');
+
+            btnAdd.classList.remove('d-none');
+            if(idView == 'add'){
+                btnAdd.classList.add('d-none');
+            }else{
+                btnAdd.classList.remove('d-none');
+            }
+        }
+        function changeFormBahasa(isEdit,idView,idForm){
+            var divView = document.querySelectorAll('.profile-bahasa');
+            var divInput = document.querySelectorAll('.profile-job-experience-input.bahasa');
+            var divInputAdd = document.querySelectorAll('.profile-job-experience-input.bahasa');
+            divInput.forEach(i => {
+                if(!i.classList.contains('d-none')){
+                    i.classList.add('d-none');
+                }
+            });
+            divView.forEach(i => {
+                if(i.classList.contains('d-none')){
+                    i.classList.remove('d-none');
+                }
+            });
+            var detailForm = document.getElementById(idForm);
+            var detailView = null;
+            if(idView != 'add' && idView != 'submit' && idView != 'cancel'){
+                // console.log('woilah');
+                detailView = document.getElementById(idView);
+            }
+            
+            if(isEdit == 1){
+                detailForm.classList.remove('d-none');
+                if(detailView != null){
+                    detailView.classList.add('d-none');
+                }
+            }else{
+                detailForm.classList.add('d-none');
+                if(detailView != null){
+                    detailView.classList.remove('d-none');
+                }
+            }
+            var btnAdd = document.getElementById('btnBhsAdd');
+
+            btnAdd.classList.remove('d-none');
+            if(idView == 'add'){
+                btnAdd.classList.add('d-none');
+            }else{
+                btnAdd.classList.remove('d-none');
             }
         }
         function commenting(){
@@ -1951,18 +2325,36 @@
             }
         }
         function copyInput() {
-            // Get the text field
             var copyText = document.getElementById("linkJob");
 
-            // Select the text field
             copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
+            copyText.setSelectionRange(0, 99999);
 
-            // Copy the text inside the text field
             navigator.clipboard.writeText(copyText.value);
             
-            // Alert the copied text
             alert("Copied the text: " + copyText.value);
         }
+        // function addJobExp(){
+        //     const dataStarSend = {
+        //         id_kandidat: candidateId, // Ganti dengan ID kandidat yang sesuai
+        //         id_user: userId, // Ganti dengan ID user yang sesuai
+        //         rate: value,
+        //         tgl: new Date().toISOString().split('T')[0], // Format tanggal menjadi yyyy-mm-dd
+        //         _token: '{{ csrf_token() }}' // Jangan lupa menambahkan CSRF token
+        //     };
+        //     console.log('Data:', dataStarSend);
+
+        //     $.ajax({
+        //         url: '/candidates/detail/rating/add', // URL endpoint untuk menambahkan rating
+        //         type: 'POST',
+        //         data: dataStarSend,
+        //         success: function(response) {
+        //             console.log('Rating added successfully');
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error('Error:', error);
+        //         }
+        //     });
+        // }
     </script>
 </body>

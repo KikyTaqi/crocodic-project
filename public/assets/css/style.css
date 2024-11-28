@@ -2050,6 +2050,7 @@ input:checked + .custom-control-label:before {
 .profile-modal .profile-right .card .card-body{
     padding: 20px;
 }
+.profile-edu-experience-input,
 .profile-job-experience-input{
     display: block;
 }
@@ -2070,6 +2071,7 @@ input:checked + .custom-control-label:before {
 }
 
 .profile-letter-icon {
+    text-transform: uppercase;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -2084,14 +2086,14 @@ input:checked + .custom-control-label:before {
     position: relative;
 }
 
-.profile-job-experience:not(:last-child):before {
+.profile-job-experience:not(:nth-last-child(2)):before {
     content: "";
     position: absolute;
     top: 70px;
     left: 28px;
     width: 2px;
     border-left: 2px dashed #BFBFBF;
-    height: 80%;
+    height: 70%;
     z-index: 0;
 }
 
@@ -2181,13 +2183,13 @@ input:checked + .custom-control-label:before {
     font-weight: 500;
     color: #898989;
 }
-.profile-job-experience.pendidikan {
+.profile-edu-experience {
     display: flex;
     align-items: flex-start;
     margin-bottom: 2rem;
     position: relative;
 }
-.profile-job-experience.pendidikan:not(:last-child):before {
+.profile-edu-experience:not(:nth-last-child(2)):before {
     content: "";
     position: absolute;
     top: 70px;
@@ -2236,13 +2238,13 @@ input:checked + .custom-control-label:before {
     font-size: 12px;
     font-weight: 500;
 }
-.profile-job-experience.keterampilan {
+.profile-skills-experience {
     display: flex;
     align-items: flex-start;
     margin-bottom: 2rem;
     position: relative;
 }
-.profile-job-experience.keterampilan:not(:last-child):before {
+.profile-skills-experience:not(:last-child):before {
     content: "";
     position: absolute;
     top: 70px;

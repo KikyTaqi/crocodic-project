@@ -11,18 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('activity')) {
-            Schema::create('activity', function (Blueprint $table) {
+        if (!Schema::hasTable('candidate_job_exp')) {
+            Schema::create('candidate_job_exp', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedBigInteger('id_candidate');
-                $table->unsignedBigInteger('id_user');
-                $table->date('tgl');
+                $table->string('nama_pekerjaan');
+                $table->string('nama_perusahaan');
+                $table->string('lokasi');
+                $table->string('tipe_pekerjaan');
+                $table->integer('gaji');
+                $table->date('mulai_kerja');
+                $table->date('selesai_kerja');
                 $table->string('deskripsi');
-                $table->string('type');
+                $table->string('masih_bekerja');
                 $table->timestamps();
             
                 $table->foreign('id_candidate')->references('id_candidate')->on('candidates')->onDelete('cascade');
-                $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             });
         }
     }
