@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\task;
@@ -13,6 +14,7 @@ use App\Models\pic;
 use App\Models\job_setting;
 use App\Models\job_activity;
 use App\Models\job_config;
+use App\Models\User;
 use Carbon\Carbon;
 // use Illuminate\Support\Facades\Hash;
 
@@ -29,10 +31,48 @@ class master extends Controller
         return view('dashboard', ['tasks' => $tasks]);
     }
 
+    public function cari(Request $request){
+        $job_list = job::all();
+        // Menangkap data pencarian
+        $cari = $request->input('cari');
+        $jo_creator = $request->input('jo_creator');
+        $location = $request->input('location');
+        $status = $request->input('status');
+        
+        // Memulai query untuk pekerjaan (job)
+        $jobs = job::query();
+        
+        // Menambahkan kondisi pencarian berdasarkan input yang diberikan
+        if ($cari) {
+            $jobs->where('nama_job', 'like', '%' . $cari . '%');
+        }
+        
+        if ($jo_creator) {
+            $jobs->where('nama_job', 'like', '%' . $jo_creator . '%');
+        }
+        
+        if ($location) {
+            $jobs->where('lokasi', 'like', '%' . $location . '%');
+        }
+        
+        if ($status !== null) {  // Pastikan untuk memeriksa apakah status terisi
+            $jobs->where('status', $status);
+        }
+        
+        // Melakukan paginasi untuk hasil pencarian
+        $jobs = $jobs->paginate();
+        
+        // Mengirimkan data ke view
+        return view('jobs.jobs',['jobs' => $jobs, 'job_list' => $job_list]);
+    }
+
+
     public function jobs(){
         $jobs = job::orderBy('id_job', 'desc')->paginate(15);
 
-        return view('jobs/jobs', ['jobs' => $jobs]);
+        $job_list = job::orderBy('nama_job', 'asc')->get();
+
+        return view('jobs/jobs', ['jobs' => $jobs, 'job_list' => $job_list]);
     }
 
     public function detailJobs($id){
@@ -153,6 +193,11 @@ class master extends Controller
     
         $maxId = DB::table('job')->max('id_job');
         $autoId = $maxId + 1;
+
+        $user = null;
+        if(Auth()->user()){
+            $user = Auth()->user();
+        }
     
         job::insert([
             'id_job' => $autoId,
@@ -190,7 +235,7 @@ class master extends Controller
         job_activity::insert([
             'id_job' => $autoId,
             'action' => 'Membuat Job',
-            'person' => 'Admin'
+            'person' => $user->id
         ]);
 
         job_setting::insert([
@@ -198,8 +243,8 @@ class master extends Controller
         ]);
     
         session()->flash('jd', ['job_name' => $r->job_name, 'ads' => $r->ads, 'lokasi' => $r->lokasi, 'foto_name' => $logoname, 'id_job' => $autoId]);
-    
-        return redirect()->route('jobs.success')->with('success_tambah', 'Job added successfully.');
+
+        return view('jobs.sukses')->with('success_tambah', 'Job added successfully.');;
     }
 
     public function addJobs(){
@@ -380,4 +425,13 @@ class master extends Controller
     //     job::where('id_job', $r->id )
     // }
 
+    public function notif(Request $r){
+        job_setting::where('id_job', $r->id_job)->update([
+            'auto_res' => $r->auto_res,
+            'subject' => $r->subject,
+            'body' => $r->body
+        ]);
+
+        return redirect()->back();
+    }
 }

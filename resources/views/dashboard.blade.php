@@ -434,7 +434,7 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-md">
-                                    <textarea name="task"  class="form-control" id="" style="min-height: 100px;" placeholder="Deskripsi Task"></textarea>
+                                    <textarea name="task"  class="form-control" id="" style="min-height: 100px; resize: none;" placeholder="Deskripsi Task"></textarea>
                                 </div>
                             </div>
                             <button type="button" style="width: 48%; color: #A7A7A7; background: #E4E4E4;" class="btn me-1" data-bs-dismiss="modal">Cancel</button>

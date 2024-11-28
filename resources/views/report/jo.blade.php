@@ -45,7 +45,7 @@
 
     </style>
 
-    <title>Hiring</title>
+    <title>Job Order Report</title>
 </head>
 <body style="background: #f8f8f8">
     @include('header')
@@ -53,7 +53,7 @@
     <div class="mx-4 my-3">
 
         <div class="row mb-3 mt-4">
-            <h5>Hiring Report</h5>
+            <h5>Job Order Report</h5>
         </div>
 
         <div class="row mt-2">
@@ -263,7 +263,7 @@
                       <li><a class="dropdown-item" style="font-size: .9rem; color: #41806D;" href="#"><i class="gi gi-export-green"></i> Excel 95+</a></li>
                       <li><a class="dropdown-item" style="font-size: .9rem; color: #41806D;" href="#"><i class="gi gi-export-green"></i> Excel 2007+</a></li>
                     </ul>
-                  </div>
+                </div>
             </div>
         </div>
 

@@ -161,13 +161,13 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="tentangperusahaan" class="lbl">Tentang Perusahaan</label>
-                                    <textarea style="max-height: 150px; min-height: 150px" name="tentangperusahaan" placeholder="Perusahaan kami adalah..." id="tentangperusahaan" class="form-control"></textarea>
+                                    <textarea style="max-height: 150px; min-height: 150px; resize: none" name="tentangperusahaan" placeholder="Perusahaan kami adalah..." id="tentangperusahaan" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-group mt-3">
                                     <label for="alamat" class="lbl">Alamat</label>
-                                    <textarea style="max-height: 90px; min-height: 90px;" name="alamat" id="alamat" class="form-control" ></textarea>
+                                    <textarea style="max-height: 90px; min-height: 90px; resize: none" name="alamat" id="alamat" class="form-control" ></textarea>
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="logo" class="lbl">Add Logo Company</label>

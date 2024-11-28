@@ -67,8 +67,6 @@
                             <h4 style="color: green;">Lowongan Pekerjaan Berhasil Dibuat!</h4>
                         @elseif(session('success_edit'))
                             <h4 style="color: green;">Lowongan Pekerjaan Berhasil Diubah!</h4>
-                        @else
-                            <script>window.location='/jobs';</script>
                         @endif
                         <br>
                         @if (session('jd'))
@@ -146,6 +144,10 @@
         // Alert the copied text
         alert("Copied the text: " + copyText.value);
     }
+
+    setTimeout(function() {
+        window.location.href = '/jobs'; // Ganti dengan route tujuan Anda
+    }, 7000); // 7000 ms = 7 detik
 </script>
 
 

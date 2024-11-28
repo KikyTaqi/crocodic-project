@@ -341,6 +341,26 @@ body {
             pointer-events: none;
         }
 
+        .search-submit-lg {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin-top: .7rem;
+            margin-right: .7rem;
+            height: 60%;
+            z-index: 0;
+            border: 0;
+            background-color: #5E9982;
+            color: white;
+            font-size: smaller;
+            border-radius: 3px;
+        }
+
+        .search-submit-lg:hover{
+            background-color: #41806D;
+        }
+
         .white-theme{
             border: 0;
             border-radius: 10px;
@@ -2396,4 +2416,18 @@ input:checked + .custom-control-label:before {
         width: 100%;
         max-width: 340px;
     }
+}
+
+.gi-download{
+    background-image: url('/assets/download.svg');
+    font-size: large;
+}
+
+.p-solid-green{
+    background-color: #41806D;
+    padding: .3rem .6rem .3rem .6rem;
+    border-radius: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: smaller;
 }

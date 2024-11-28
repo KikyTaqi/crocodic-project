@@ -8,6 +8,8 @@ use App\Http\Controllers\CandidateCont;
 use App\Http\Controllers\HiringCont;
 use App\Http\Controllers\CancelCont;
 use App\Http\Controllers\ReportCont;
+use App\Http\Controllers\StopJoCont;
+use App\Http\Controllers\TerminatedCont;
 
 Route::get('/', [Login::class,'login'])->name('login');
 Route::post('/login', [Login::class,'prsLogin']);
@@ -33,6 +35,9 @@ Route::group([
     Route::post('jobs/duplicate', [master::class, 'duplicateJob']);
     Route::post('/jobs/delete', [master::class, 'deleteJob']);
     Route::post('/jobs/addStatus', [master::class, 'addStatus']);
+    Route::post('/jobs/notif', [master::class, 'notif']);
+    Route::get('/jobs/cari',[master::class, 'cari']);
+    
     
     
     Route::get('/candidates', [CandidateCont::class, 'candidate'])->name('candidates');
@@ -60,7 +65,13 @@ Route::group([
     
     Route::get('/report-hiring', [ReportCont::class, 'hiringIndex']);
     Route::get('/report-job-order', [ReportCont::class, 'joIndex']);
+
 });
+
+Route::get('/stop-job-order', [StopJoCont::class, 'index']);
+
+Route::get('/terminated-cj', [TerminatedCont::class, 'cancel_join']);
+Route::get('/terminated-resign', [TerminatedCont::class, 'resign']);
 
 
 

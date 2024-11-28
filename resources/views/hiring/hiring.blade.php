@@ -39,7 +39,7 @@
             <h5>Ready to Hiring</h5>
         </div>
 
-        <div class="row">
+        <div class="row mb-2">
             <div class="col-md mb-2">
                 <div class="search-box">
                     <input onkeyup="scrFilter()" style="height: 50px; width: 450px;" type="text" id="searchBox" class="form-control white-theme search-input" placeholder="Search..">
@@ -54,77 +54,79 @@
                 </div>
             </div>
         </div>
-        <table id="tblHiring" class="table bg-white table-bordered border" style="font-size: 14px;">
-            <thead class="align-middle" style="height: 3rem">
-                <tr>
-                    <th>
-                        <div class="form-check ms-2">
-                            <input class="form-check-input" type="checkbox" id="headerCheckbox" onchange="toggleCheckboxes(this)">
-                        </div>
-                    </th>
-                    <th>Name</th>
-                    <th>Profile</th>
-                    <th>No Job</th>
-                    <th>Posisi</th>
-                    <th>Lokasi</th>
-                    <th>Layanan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="align-middle" style="height: 3rem">
-                    <td>
-                        <div class="form-check ms-2">
-                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                        </div>
-                    </td>
-                    <td>Ainul Mumbait</td>
-                    <td><span class="percent">100%</span></td>
-                    <td><a href="#" data-bs-toggle="modal" data-bs-target="#no-jo" class="link-normal">029861/ISH/01010107/2023</a></td>
-                    <td>HUNTER NOO</td>
-                    <td>BULUKUMBA</td>
-                    <td>JOYDAY HUNTER GT ISH</td>
-                </tr>
-                <tr class="align-middle" style="height: 3rem">
-                    <td>
-                        <div class="form-check ms-2">
-                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                        </div>
-                    </td>
-                    <td>ACHMAD MAULANA ONKY PRADANA</td>
-                    <td><span class="percent">100%</span></td>
-                    <td>029861/ISH/01010107/2023</td>
-                    <td>CONSUMER ACCOUNT MANAGER</td>
-                    <td>PASURUAN</td>
-                    <td>CAM TELKOMSEL A3 BALNUS</td>
-                </tr>
-                <tr class="align-middle" style="height: 3rem">
-                    <td>
-                        <div class="form-check ms-2">
-                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                        </div>
-                    </td>
-                    <td>M Ikhwan Arif</td>
-                    <td><span class="percent">90%</span></td>
-                    <td>029168/ISH/01010107/2023</td>
-                    <td>HUNTER NOO</td>
-                    <td>PASURUAN</td>
-                    <td>JOYDAY HUNTER GT ISH</td>
-                </tr>
-                <tr class="align-middle" style="height: 3rem">
-                    <td>
-                        <div class="form-check ms-2">
-                            <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
-                        </div>
-                    </td>
-                    <td>Nighara Asmarantaka Sulya</td>
-                    <td><span class="percent">80%</span></td>
-                    <td>029758/ISH/01010107/2023</td>
-                    <td>CONSUMER ACCOUNT MANAGER</td>
-                    <td>SURAKARTA</td>
-                    <td>CAM TELKOMSEL A3 JATENG</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table id="tblHiring" class="table bg-white table-bordered border" style="font-size: 14px;">
+                <thead class="align-middle" style="height: 3rem">
+                    <tr>
+                        <th>
+                            <div class="form-check ms-2">
+                                <input class="form-check-input" type="checkbox" id="headerCheckbox" onchange="toggleCheckboxes(this)">
+                            </div>
+                        </th>
+                        <th>Name</th>
+                        <th>Profile</th>
+                        <th>No Job</th>
+                        <th>Posisi</th>
+                        <th>Lokasi</th>
+                        <th>Layanan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="align-middle" style="height: 3rem">
+                        <td>
+                            <div class="form-check ms-2">
+                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
+                            </div>
+                        </td>
+                        <td>Ainul Mumbait</td>
+                        <td><span class="percent">100%</span></td>
+                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#no-jo" class="link-normal">029861/ISH/01010107/2023</a></td>
+                        <td>HUNTER NOO</td>
+                        <td>BULUKUMBA</td>
+                        <td>JOYDAY HUNTER GT ISH</td>
+                    </tr>
+                    <tr class="align-middle" style="height: 3rem">
+                        <td>
+                            <div class="form-check ms-2">
+                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
+                            </div>
+                        </td>
+                        <td>ACHMAD MAULANA ONKY PRADANA</td>
+                        <td><span class="percent">100%</span></td>
+                        <td>029861/ISH/01010107/2023</td>
+                        <td>CONSUMER ACCOUNT MANAGER</td>
+                        <td>PASURUAN</td>
+                        <td>CAM TELKOMSEL A3 BALNUS</td>
+                    </tr>
+                    <tr class="align-middle" style="height: 3rem">
+                        <td>
+                            <div class="form-check ms-2">
+                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
+                            </div>
+                        </td>
+                        <td>M Ikhwan Arif</td>
+                        <td><span class="percent">90%</span></td>
+                        <td>029168/ISH/01010107/2023</td>
+                        <td>HUNTER NOO</td>
+                        <td>PASURUAN</td>
+                        <td>JOYDAY HUNTER GT ISH</td>
+                    </tr>
+                    <tr class="align-middle" style="height: 3rem">
+                        <td>
+                            <div class="form-check ms-2">
+                                <input class="form-check-input rowCheckbox" type="checkbox" onchange="updateHeaderCheckbox()">
+                            </div>
+                        </td>
+                        <td>Nighara Asmarantaka Sulya</td>
+                        <td><span class="percent">80%</span></td>
+                        <td>029758/ISH/01010107/2023</td>
+                        <td>CONSUMER ACCOUNT MANAGER</td>
+                        <td>SURAKARTA</td>
+                        <td>CAM TELKOMSEL A3 JATENG</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         
         <div class="modal fade" id="no-jo" tabindex="-1" aria-labelledby="no-jo" aria-hidden="true">
