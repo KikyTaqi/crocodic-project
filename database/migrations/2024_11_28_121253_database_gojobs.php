@@ -201,8 +201,8 @@ return new class extends Migration
             $table->string('lokasi');
             $table->string('tipe_pekerjaan');
             $table->integer('gaji');
-            $table->date('mulai_kerja');
-            $table->date('selesai_kerja');
+            $table->string('mulai_kerja');
+            $table->string('selesai_kerja');
             $table->string('pengalaman');
             $table->string('deskripsi');
             $table->string('masih_bekerja');
