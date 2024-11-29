@@ -16,7 +16,7 @@ class CandidatesTableSeeder extends Seeder
     {
         DB::table('candidate')->insert([
             [
-                'id_job' => rand(1, 25),
+                'id_job' => 1,
                 'nama' => 'John Doe',
                 'process' => 'interview_hr',
                 'tags' => rand(0, 2),
@@ -37,7 +37,7 @@ class CandidatesTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'id_job' => rand(1, 25),
+                'id_job' => 2,
                 'nama' => 'Jane Smith',
                 'process' => 'screening',
                 'tags' => rand(0, 2),
@@ -58,7 +58,7 @@ class CandidatesTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'id_job' => rand(1, 25),
+                'id_job' => 3,
                 'nama' => 'Michael Johnson',
                 'process' => 'psikotest',
                 'tags' => rand(0, 2),

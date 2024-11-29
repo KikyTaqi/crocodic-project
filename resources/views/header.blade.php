@@ -55,7 +55,7 @@
                             <img draggable="false" src="{{ asset('assets/pemisah.svg') }}" alt="" class="d-none d-lg-block mx-2">
                             <li class="nav-item dropdown">
                                 <a class="nav-link navigation-link text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-fill"></i> nisa@ish.com  <i class="bi bi-chevron-down"></i>
+                                <i class="bi bi-person-fill"></i> {{auth()->user()->email}}  <i class="bi bi-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="#">Action</a></li>

@@ -258,7 +258,7 @@
         <div class="col-md-1" style="width: 918px;">
             <div class="notification-card mb-2">
                 <div class="pattern">
-                    <p class="greeting">Hello Nisa!</p>
+                    <p class="greeting">Hello {{auth()->user()->name}}!</p>
                     <p class="message">Anda memiliki 2 pelamar baru hari ini<br>Yuk review sekarang!</p>
                     <img draggable="false" style="position: absolute; top: 0; right: 0; border-top-right-radius: 9px; z-index: 0;" src="{{asset('assets/pattern.svg')}}" alt="">
                 </div>

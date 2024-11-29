@@ -1720,6 +1720,11 @@
                     </div>
                   </div>
                   @endforeach
+                  @if(count($job) < 1)
+                  <div class="alert alert-danger">
+                    <h6 class="text-center">id_job dari kandidat ini tidak ditemukan</h6>
+                  </div>
+                  @endif
             </div>
         </div>
     </div>

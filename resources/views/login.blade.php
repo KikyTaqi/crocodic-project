@@ -18,8 +18,16 @@
         <h5>gojobs HR Recruiter Log In</h5>
         <div class="white-accent"></div>
         <p class="">Manage all applicant candidates</p>
-        {{bcrypt('nisacookie')}}
+        <!-- {{bcrypt('nisacookie')}} -->
     </div>
+
+
+    <!-- 
+    NIK ISH: 00786733565
+    Password: nisacookie 
+    -->
+    
+    
     <div class="card float-end bg-light card-login pt-5">
         <h5 class="txt-green mt-5">Hi Recruiter</h5>
         <p class="txt-small">Silahkan masukkan NIK ISH dan kata sandi</p>
